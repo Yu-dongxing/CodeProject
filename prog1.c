@@ -22,7 +22,7 @@ int addtwonum()
 int main()
 {
     int result;
-    //调用函数 addtwonum
+    //调用函数 addtwonum,wewrwr
     result = addtwonum();
 
     printf("result 为: %d",result);

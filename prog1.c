@@ -10,10 +10,7 @@ int addtwonum()
     //给外部变量（全局变量）x，y赋值
     //**想给x,y一个输入环境，可以单独输入x，y的内容
     /*printf
-    x=printf
-                                           
-                              
-                                             */
+    x=printf   ， yuxs*/
     x = 1;
     y = 2;
     return x+y;

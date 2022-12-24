@@ -7,6 +7,10 @@ int main()
     int jg = ever + mount;
     printf("%d",jg);
 
-    /* 使用sum函数 */
+    /* 使用sum函数 
+    
+    
+    
+                 sum = wer qw */
     return 0;
 }

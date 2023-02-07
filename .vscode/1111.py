@@ -1,6 +1,6 @@
 import math, requests,time                                                                    # 导入网络请求模块
 from datetime import datetime                                                              
-   # 导入时间解析模块
+                                                                                            # 导入时间解析模块
 
 def getTime(time):                                                                            # 将时间戳解析成人们看得懂的时间
     return datetime.fromtimestamp(time).strftime("%Y-%m-%d %H:%M:%S")
@@ -12,7 +12,7 @@ def getallvideos():                                                             
         mid='661047235'
     url = 'https://api.bilibili.com/x/space/wbi/arc/search?mid=' + mid                        # 拼接请求地址
     response = requests.get(url=url, headers=headers)                                         # 发起网络请求
-    try:                                        # 如果用户输入up的mid不正确，这里就无法获取数据，
+    try:                                        # 如果输入up的mid不正确，这里就无法获取数据，
         list = response.json()['data']          # 获取数据
         count = list['page']['count']           # 获取up的视频总数
         page = math.ceil(count / 30)            # 分页数
@@ -41,7 +41,7 @@ def getallvideos():                                                             
                 i = i + 1                               # 计数 +1
         time.sleep(0.3)                                 # 由于爬虫的速度太快了，这里等待一下下，防止被服务器抓到
     except Exception as error:                          # 程序出错了
-        print(f"程序出错了:{error}，请检查up的mid是否输入正确，或者是我们的爬虫遭到了拦截。")
+        print(f"程序出错了:{error}，请检查up的mid是否输入正确，或者是爬虫遭到了拦截。")
 
 if __name__ == '__main__':      # 主函数
     headers = {

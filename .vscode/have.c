@@ -1,14 +1,7 @@
 #include <stdio.h>
  int main()
  {
-    /*变量定义*/
-    /*<类型名称》《变量名称》
-      int price 
-      int amount
-       int price ,amount 
-             c的保留字
-                auto,break,case,cher,const,continue,default */
-    int price = 0;/*定义一个变量，名字是price ，类型是int，初始值是0*/
+    int price = 0;
  
     printf("请输入商品金额（元）");
 

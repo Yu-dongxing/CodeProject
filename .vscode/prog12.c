@@ -1,5 +1,5 @@
-#include<cstdio>
-#include<algorithm>
+#include<stdio.h>
+#include<algorithm.h>
 using namespace std ;
 struct Node{
     int a,b,lx,ly;

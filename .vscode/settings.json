@@ -1,5 +1,8 @@
 {
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.codeAnalysis.clangTidy.enabled": false,
-    "http-server.devlog": true
+    "http-server.devlog": true,
+    "files.associations": {
+        "stdio.h": "c"
+    }
 }

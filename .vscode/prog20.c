@@ -14,7 +14,7 @@ struct Student students[MAX_STUDENTS];
 int num_students = 0;
 
 while (1) {
-    printf("Enter command (add, list, quit): ");
+    printf("请输入英文 (添加[add], 列出[list], 取消[quit]): ");
     char command[10];
     scanf("%s", command);
 
@@ -25,17 +25,17 @@ while (1) {
         }
 
         struct Student new_student;
-        printf("Enter name: ");
+        printf("输入学生姓名: ");
         scanf("%s", new_student.name);
-        printf("Enter ID: ");
+        printf("输入学生号: ");
         scanf("%d", &new_student.id);
-        printf("Enter GPA: ");
+        printf("输入学生绩点: ");
         scanf("%f", &new_student.gpa);
 
         students[num_students] = new_student;
         num_students++;
 
-        printf("Added student %s with ID %d and GPA %.2f\n", new_student.name, new_student.id, new_student.gpa);
+        printf("学生姓名:%s\n学生号:%d\n学生绩点%.2f\n", new_student.name, new_student.id, new_student.gpa);
     } else if (strcmp(command, "list") == 0) {
         printf("Name\tID\tGPA\n");
         for (int i = 0; i < num_students; i++) {

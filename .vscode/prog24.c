@@ -182,7 +182,7 @@ int main(){
                     printf("%.2lf",3.7*x);
     return 0;
 }*/
-
+/*
 #include<stdio.h>
 #include<stdlib.h>
 const int n =4,m = 20;
@@ -216,5 +216,19 @@ for (i = 0;i<n;++i){
 }
 for (i = 0;i<n;++i)
     printf("%s %d %.2f %.2f %.2f\n",s[i].name,s[i].id,s[i].chinese,s[i].english,s[i].math);
+}*/
 
+#include<stdio.h>
+int main(){
+    int a[10]={0,2,4,6,8,10,12,14,16,18};
+    int sum = 0;
+    int *b = a;
+    for (int i=0;i<10;i++)
+    {
+        sum=sum+*b;/* sum+=*b */
+        *b++;
+    }
+    printf("sum is %d\n",sum);
+    return 0;
 }
+

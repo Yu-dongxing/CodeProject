@@ -3,6 +3,7 @@
     "C_Cpp.codeAnalysis.clangTidy.enabled": false,
     "http-server.devlog": true,
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "string.h": "c"
     }
 }

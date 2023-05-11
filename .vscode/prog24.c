@@ -80,6 +80,8 @@ int main(){
     system("pause");
     return 0;
 }*/
+
+
 /*
 #include<stdio.h>
 #include<stdlib.h>
@@ -105,6 +107,8 @@ int main(){
     else printf("%d是素数\n",n);
     return 0;
 }*/
+
+
 /*#include<stdio.h>
 #include<math.h>
 int main(){
@@ -114,6 +118,8 @@ int main(){
     printf("%d,%d",a[2],a[3]);
     return 0;
 }*/
+
+
 
 /*#include<stdio.h>
 #include<stdlib.h>
@@ -132,6 +138,9 @@ int main(){
         return 0;
         
 }*/
+
+
+
 /*#include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -154,6 +163,10 @@ int main(){
     }
     return 0;
 }*/
+
+
+
+
 /*a=5,b=3,c=1//100==100abc/*/
 /*#include<stdio.h>
 #include<stdlib.h>
@@ -170,6 +183,9 @@ int main(){
     }
     return 0;
 }*/
+
+
+
 /*#include<stdio.h>
 int main(){
     double x;
@@ -182,6 +198,9 @@ int main(){
                     printf("%.2lf",3.7*x);
     return 0;
 }*/
+
+
+
 /*
 #include<stdio.h>
 #include<stdlib.h>
@@ -218,6 +237,28 @@ for (i = 0;i<n;++i)
     printf("%s %d %.2f %.2f %.2f\n",s[i].name,s[i].id,s[i].chinese,s[i].english,s[i].math);
 }*/
 
+
+
+/*
+#include <stdio.h>
+#include <math.h>
+/*爱心代码
+int main()
+{
+    int x, y;
+    double d;
+    for (y = 30; y >= -30; y--)
+    {
+        for (x = -30; x <= 30; x++)
+        {
+            d = pow(pow(x * 0.04, 2) + pow(y * 0.1, 2) - 1, 3) - pow(x * 0.04, 2) * pow(y * 0.1, 3);
+            putchar(d <= 0.0 ? '*' : ' ');
+        }
+        putchar('\n');
+    }
+    return 0;
+}*/
+/*
 #include<stdio.h>
 int main(){
     int a[10]={0,2,4,6,8,10,12,14,16,18};
@@ -225,10 +266,16 @@ int main(){
     int *b = a;
     for (int i=0;i<10;i++)
     {
-        sum=sum+*b;/* sum+=*b */
+        sum=sum+*b;/* sum+=*b */ /*
         *b++;
     }
     printf("sum is %d\n",sum);
     return 0;
+}*/
+#include<stdio.h>
+int main(){
+    char a;
+    scanf("%c",&a);
+    printf("%c",a);
+    return 0;
 }
-

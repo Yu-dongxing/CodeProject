@@ -13,18 +13,40 @@ struct book
 */
 #include<stdio.h>
 #include<string.h>
-struct books {
+typedef struct book{
 	char name[50];
 	float price;
 	int classf;
-}book;
+};
 int main(){
-	int i,n,j;
+	int n,i,j;
 	scanf("%d",&n);
+	struct book ls[100];
+	for (i=0;i<n;i++){
+		scanf("%s %f %d",ls[i].name,&ls[i].price,&ls[i].classf);
+	}
 	for(i=0;i<n;i++){
-
+		for(j=i+1;j<n;j++){
+			if(ls[i].price>ls[j].price){
+				struct book temp=ls[i];
+				ls[i]=ls[j];
+				ls[j]=temp;
+			}
+		}
+	}
+	for(i=0;i<n;i++){
+		for(j=i+1;j<n;j++){
+			if(ls[i].price==ls[j].price&&strcmp(ls[i].name,ls[j].name)>0){
+				struct book temp=ls[i];
+				ls[i]=ls[j];
+				ls[j]=temp;
+			}
+		}
+	}
+	for(i=0;i<n;i++){
+		printf("%s,%.2f,%d\n",ls[i].name,ls[i].price,ls[i].classf);
 
 	}
 	return 0;
-	
+
 }

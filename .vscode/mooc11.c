@@ -5,17 +5,18 @@
 #include<stdio.h>
 #include<string.h>
 #include<math.h>
+#define N 302
 int main(){
     int i,b,c,*d,e,f;
-    char a[10];
+    char a[N];
+    *d=a[N];
     printf("输入：");
-    scanf("%s",&a);
-    for(i=0;i< '\0';i++){
-            if(a[i]==a[i-1]){
+    scanf("%s",&*d);
+    for(i=0;a[i]!='\0';i++){
+            if(d==d-1){
             continue;
-            } 
-            puts(a);
+            }
+        printf("%c",a[i]);
     }
-    
     return 0;
 }

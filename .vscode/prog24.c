@@ -272,10 +272,161 @@ int main(){
     printf("sum is %d\n",sum);
     return 0;
 }*/
+/**
 #include<stdio.h>
 int main(){
-    char a;
-    scanf("%c",&a);
-    printf("%c",a);
+char a[]="rtretee";
+char *p=a,**c;
+
+printf("%s",c);
+return 0;
+}**/
+/**
+#include<stdlib.h>
+#include<stdio.h>
+int main(){
+    int *p=NULL,n,i;
+    double aver,sum;
+    printf("输入：");
+    scanf("%d",&n);
+    p = (int *) malloc(n*sizeof(int));
+    if(p==NULL){
+        printf("error\n");
+        exit(1);
+
+    }
+    printf("输入s；");
+    for(i=0;i<n;++i){
+        scanf("%d",&p[i]);
+        sum+=p[i];
+
+    }
+    aver=sum/n;
+    printf("aver=%.1f\n",aver);
+    free(p);
+
+}
+**/
+
+/**
+#include<stdio.h>
+void s1(int a,int b);
+int main(){
+    int a=3,b=4;
+    printf("a=%d,b=%d\n",a,b);
+    s1(a,b);
     return 0;
+
+}
+void s1(int a,int b){
+    int c;
+    c=a;
+    a=b;
+    b=c;
+    printf("a=%d,b=%d\n",a,b);
+
+}
+**/
+/**
+#include<stdio.h>
+void s1( char a1[],char a2[]){
+    int i,j;
+    for(i=0;a1[i]!='\0';i++);
+        for(j=0;a2[j]!='\0';j++)
+        a1[i+j]=a2[j];
+    a1[i+j]='\0';
+}
+int main(){
+    char a1[100],a2[100];
+    printf("输入a1：");
+    gets(a1);
+    printf("输入a2:");
+    gets(a2);
+    s1(a1,a2);
+    printf("%s\n",a1);
+    return 0;
+
+}
+**/
+
+/**
+#include<stdio.h>
+int csjg=100;
+void sp1();
+void sp2();
+void sp3();
+void xg();
+int main(){
+    printf("原价格：%d\n",csjg);
+    sp1();
+    sp2();
+    sp3();
+    xg();
+    printf("修改的价格是：%d\n",csjg);
+    sp1();
+    sp2();
+    sp3();
+    return 0;
+}
+void sp1(){
+    printf("一号价格为；%d\n",csjg);
+
+}
+void sp2(){
+    printf("2号价格为：%d\n",csjg);
+
+}
+void sp3(){
+    printf("3号价格为：%d\n",csjg);
+
+}
+void xg(){
+    printf("请修改价格：");
+    scanf("%d",&csjg);
+
+}
+**/
+/**
+#include<stdio.h>
+#include<stdlib.h>
+int s1();
+int a;
+int s1(){
+    scanf("%d",&a);
+}
+int main(){
+    s1();
+    printf("%d\n",a);
+}
+**/
+/**
+#include<stdio.h>
+void s1(int a,int b,int c){
+    float a1=0,b1=0,c1=0;
+    a1=(float)180*a/(a+b+c);
+    b1=(float)180*b/(a+b+c);
+    c1=(float)180*c/(a+b+c);
+    printf("度数为：%.1f,%.1f,%.1f",a1,b1,c1);
+
+}
+int main(){
+    s1(2,3,3);
+    return 0;
+}
+
+**/
+#include<stdio.h>
+#include<stdlib.h>
+#define N 10
+int main(){
+    int *p,*q,i=0;
+    q=p=(int *)malloc(N*sizeof(int));
+    if(p){
+        for(i=0;i<N;++i,++p){
+            *p=i+1;
+            printf("%d",*p);
+        }
+        free(q);
+        return 0;
+    }
 }

@@ -2,7 +2,7 @@
 比较字符串是否相等。 要求不使用strcmp函数。*/
 #include<stdio.h>
 #include<string.h>
-#define N 200
+#define N 256
 int main(){
     int i,j,a,b,c;
     char d1[N],d2[N];
@@ -14,7 +14,7 @@ int main(){
             if(d1[i]==d2[i]) a=0;
             else if(d1[i]!=d2[i]) a=1;
     }
-    if(a==0)printf("true\n");
-    else if(a==1)printf("error\n");
+    if(a==0)printf("equal\n");
+    else if(a==1)printf("unequal\n");
     return 0;
 }

@@ -6,6 +6,7 @@
 #include<stdlib.h>
 #include<math.h>
 int LCM(int x,int y){
+    
     int a,b,i;
     
     

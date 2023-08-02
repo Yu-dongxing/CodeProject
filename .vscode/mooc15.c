@@ -6,8 +6,20 @@
 #include<stdlib.h>
 #include<math.h>
 int LCM(int x,int y){
-    
-    int a,b,i;
-    
-    
+    int z;
+    z=x*y/fabs(x-y);
+    return z;
+}
+int main(){
+    int a[5],i,j,k,lcm;
+    printf("请输入5个正整数：");
+    for(i=0;i<5;i++){
+        scanf("%d",&a[i]);
+    }
+    lcm=a[0];
+    for(i=1;i<5;i++){
+        lcm=LCM(lcm,a[i]);
+    }
+    printf("最小公倍数为：%d",lcm);
+    return 0;
 }

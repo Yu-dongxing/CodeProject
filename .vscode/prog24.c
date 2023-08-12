@@ -415,7 +415,7 @@ int main(){
 }
 
 **/
-#include<stdio.h>
+/**#include<stdio.h>
 #include<stdlib.h>
 #define N 10
 int main(){
@@ -428,5 +428,49 @@ int main(){
         }
         free(q);
         return 0;
+    }
+}**/
+/*字符串的拷贝（40分）
+编程实现函数：void my_strcpy(char * destination,char * source);
+函数功能：将source指向的字符串拷贝到destination指向的位置。
+注意：使用空格字符来表示字符串的结束。
+例如source指向的空间，依次保存了字符'a'，字符'b'，字符空格' '，字符'c'，
+则source指向的字符串为"ab c"。destionation原来存储的字符串是"xyz tdk"，
+则拷贝后，source字符串的内容不变，destionation存储的字符串修改为“ab  tdk”。
+遇到异常情况，输出"error"；否则不要随意输出，会视为错误.
+您的main函数需要读入2个长度不超过80字节的字符串(按行依次读入source和destionation字符串），
+然后调用my_strcpy函数，最后用puts函数输出destionation里面存储的字符串。
+例如：
+输入1：xyz abc a kp
+输出1:xyz
+输入2：xyz abc a kppp
+输出2：xyz pp
+提示：注意这里传入的字符串保证是有空格的，所以是以空格作为字符串结束，而不是实际是字符串结束符。
+*/
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define N 80
+void my_strcpy(char * destination,char * source);
+int main(){
+    char source[N],destination[N];
+    gets(source);
+    gets(destination);
+    my_strcpy(destination,source);
+    puts(destination);
+    return 0;
+}
+void my_strcpy(char * destination,char * source){
+    int i=0;
+    while(source[i]!=' '&&source[i]!='\0'){
+        destination[i]=source[i];
+        i++;
+    }
+    destination[i]='\0';
+    if(source[i]=='\0'){
+        return;
+    }
+    else{
+        my_strcpy(destination+i+1,source+i+1);
     }
 }

@@ -1,5 +1,6 @@
+//百鸡百钱问题
 #include<stdio.h> 
-int main()
+void code1()
 {
 	int a,b;//a、b分别为公鸡、母鸡的数量 
 	int n;//方案次序，为后面输出服务 
@@ -15,4 +16,23 @@ int main()
 			}
 		}
 	}
+}
+//示例代码
+void code2(){
+	int x,y,z;
+	for(x=0;x<=20;x++){
+		//枚举公鸡的数量
+		for(y=0;y<33;y++){
+			z=100-x-y;
+			if((z%3==0)&&(5*x+3*y+z/3==100)){
+				printf("公鸡%d只，母鸡%d只，小鸡%d只。\n",x,y,z);
+			}
+		}
+
+	}
+}
+int main(){
+	//code1();//自己编写的代码
+	code2();//正确代码
+	return 0;
 }

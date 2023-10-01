@@ -6,6 +6,7 @@ int main(){
         int num;
         float score[4];
     }student[3];
+    
     int i,j;
     float t;
     printf("请输入3个学生的信息(学号，姓名，4个成绩):\n");

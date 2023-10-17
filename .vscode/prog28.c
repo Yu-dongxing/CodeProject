@@ -29,7 +29,6 @@ int main(){
         printf("%d\t",a[i]);                        /*用制表位分隔数据*/
         if(i==4)                                    /*如果是第五个元素*/
             printf("\n");                              /*输出换行*/
-
     }
     printf("\n");
     return 0;                                       /*结束*/

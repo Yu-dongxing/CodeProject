@@ -24,7 +24,6 @@ int n=0;
 while(*p!='\0'){
     if(*p>='a'&&*p<='z'&&(*(p+1)==' '||*(p+1)=='\0'))n++;
     p++;
-
 }
 printf("单词个数是%d\n",n);
 }
@@ -42,9 +41,15 @@ void code3(){
 
 
 //
-int main(){
-    //code1();
-    //code2();
-    code3();
+int main(){ 
+    int a;
+    printf("请输入代码序号：");
+    scanf("%d",&a);
+    switch(a){
+        case 1:code1();break;
+        case 2:code2();break;
+        case 3:code3();break;
+        default:printf("输入错误！");   
+    }
     return 0;
 }

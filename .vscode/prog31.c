@@ -76,7 +76,13 @@ void code2(){
 }
 //主要代码
 int  main(){
-    //code1();
-    code2();
+    printf("请输入代码序号：");
+    int n;
+    scanf("%d",&n);
+    switch(n){
+        case 1:code1();break;
+        case 2:code2();break;
+        default:printf("输入错误！");
+    }
     return 0;
 }

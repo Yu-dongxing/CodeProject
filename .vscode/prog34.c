@@ -7,7 +7,6 @@
 因此称之为“马拦过河卒”。
 思路
 这是一道NOI普及组的原题，我用的是递推来做。
-
 把马能到达的点设为已访问
 先把第一行初始化，
     每个点的方案数=左边的方案数(并且不是马的控制点)
@@ -17,20 +16,16 @@
 按照公式求出到每个点有多少种走法(f(i,j)=f(i-1,j)+f(i,j-1))
 输出走到右下角的点的个数
 */
+/*	代码出现问题*/
 #include <iostream>
 using namespace std;
 typedef unsigned long long ull;
 const int N=30;
-
 int dx[8]={-2,-1,1,2,2,1,-1,-2};
 int dy[8]={1,2,2,1,-1,-2,-2,-1};
-
 int n,m,x,y;
-
 bool st[N][N];
-
 ull f[N][N];
-
 int main()
 {
 	cin>>n>>m>>x>>y;

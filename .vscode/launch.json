@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "prog2",
+            "request": "launch",
+            "mainClass": "prog2",
+            "projectName": "c++ding ming_cbc6898d"
+        },
+        {
+            "type": "java",
             "name": "prog1",
             "request": "launch",
             "mainClass": "prog1",

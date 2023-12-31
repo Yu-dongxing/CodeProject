@@ -45,7 +45,6 @@ int main(){
 	}
 	for(i=0;i<n;i++){
 		printf("%s,%.2f,%d\n",ls[i].name,ls[i].price,ls[i].classf);
-
 	}
 	return 0;
 

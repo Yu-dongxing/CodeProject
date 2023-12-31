@@ -8,7 +8,7 @@ int main(){
             m=x+y-50*z;
         }
         else{
-            m=x
+            m=x;
         }
         printf("%d",m);
     }else{

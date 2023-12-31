@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewprt" content="width=device-width,initial-scale=1.0">
+<title>Vue实例</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ msg }}</p>
+        <p>{{ name }}</p>
+        <p>{{ name.toUpperCase() }}</p>
+        <p>{{ name + '你好' }}</p>
+        <p>{{ age>=18?'成立':'未成年' }}</p>
+
+    </div>
+    <script src="D:\桌面\vue.js"></script>
+    <script>
+        //
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:'Hellow hj',
+                name:'tony',
+                age:15,
+                file:{
+                    name:'yuxs',
+                }
+            }
+        })
+    </script>
+</body>
+</html>

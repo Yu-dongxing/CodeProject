@@ -77,3 +77,13 @@
     color: #fff;
     cursor: pointer;
 }
+.search-helper{
+    display: none;
+    width: 488px;
+    /* height: 200px; */
+    background-color: skyblue;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 1px 2px 1px rgb(0 0 0 /  20%);
+}

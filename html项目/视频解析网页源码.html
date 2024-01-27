@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>视频解析系统源码</title>
+<style>
+/*frameborder="0"*/
+body {
+    margin: 0px;
+}
+:root {
+/*	var(--heigth);	*/
+	--heigth: auto;
+/*	var(--width);	.nitise iframe  .input_jxjk, .input_bfurl #bf*/
+	--width:90%;
+}
+.main {
+/*        text-align: center;*/
+}
+.header {
+    width: 100%;
+    height: 45px;
+    background-color: rgba(25,134,213,1.00);
+}
+.header h1 {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    padding: 0px;
+/*
+    width: 170px;
+	text-align: center;
+*/
+    width: auto;
+}
+.nitise {
+    width:var(--width);
+    background-color: rgba(0,255,5,1.00);
+    margin-left: 5%;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: auto;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,255,5,1.00);
+    box-shadow: 0px 0px 10px 0px rgba(0,255,5,1.00);
+    color: rgba(75,75,75,1.00);
+}
+.nitise .bu {
+    float: right;
+    border-width: 0px;
+    background-color: rgba(255,255,255,0.00);
+    color: rgba(0,0,0,1.00);
+}
+.nitise .bu:hover {
+    cursor: pointer;
+    /*pointer：超链接的指针；*/
+    color: rgba(255,0,4,1.00);
+}
+.nit {
+    font-weight: 700;
+    color: rgba(58,76,220,1.00);
+}
+.nitise p {
+    height: auto;
+    width: auto;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.player {
+    text-align: center;
+    margin-top: 10px;
+}
+iframe {
+    background-color: rgba(0,255,255,1.00);
+    border: 0px;
+    border-radius: 14px;
+    width:var(--width);
+    min-width: 0px;
+    min-height: 0px;
+    max-width: 1600px;
+    max-height: 800px;
+    height: 75vh;
+    transition: all 500ms 10ms;
+}
+iframe:hover {
+    -webkit-box-shadow: 0px 0px 10px rgba(0,255,255,1.00);
+    box-shadow: 0px 0px 10px rgba(0,255,255,1.00);
+}
+.input {
+    margin-top: 15px;
+    text-align: center;
+}
+.input_jxjk, .input_bfurl {
+    display: table;
+    width:var(--width);
+    border-bottom-left-radius: 0px;
+    margin-left: 5%;
+}
+.input_jxjk span, .input_bfurl span {
+    width: 80px;
+    display: table-cell;
+    line-height: 1px;
+    background-color: rgba(200,200,200,1.00);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    text-align: center;
+    color: rgba(255,255,255,1.00);
+    padding-top: 10px;
+    padding-right: 16px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+#jk, #url {
+    display: table-cell;
+    line-height: 1px;
+    width: 100%;
+    border: 1px solid rgba(179,179,179,1.00);
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: rgba(91,91,91,1.00);
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    height: 46px;
+}
+.input_bfurl {
+    margin-bottom: 10px;
+}
+.input_jxjk {
+    margin-bottom: 10px;
+}
+#bf {
+    width: var(--width);
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1;
+    border-radius: 6px;
+    color: #fff;
+    background-color: rgba(92,184,92,1.00);
+    border-color: #4cae4c;
+    font-weight: 400;
+    border: 1px solid transparent;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all 500ms 10ms;/*
+    -webkit-box-shadow: 0px 0px 10px rgba(92,184,92,1.00);
+    box-shadow: 0px 0px 10px rgba(92,184,92,1.00);
+*/
+}
+#bf:hover {
+    cursor: pointer;
+    /*pointer：超链接的指针；*/
+    background-color: rgba(59,137,59,1.00);
+    color: #000000;
+    -webkit-box-shadow: 0px 0px 15px rgba(59,137,59,1.00);
+    box-shadow: 0px 0px 15px rgba(59,137,59,1.00);
+}
+.main hr {
+    margin-bottom: 50px;
+    border-radius: 10px;
+    border: 0;
+    border-top: 1px solid #CFCFCF;
+}
+.footer {
+    width: 100%;
+    height: auto;
+    display: table;
+}
+.foot {
+    width: 100%;
+    /* [disabled]border: 1px solid rgba(0,0,0,1.00);
+*/
+    height: auto;
+}
+.foot p {
+    text-indent: 30px;
+    color: rgba(255,99,99,1.00);
+}
+.footer .fot1 {
+    /*    width: 25%;*/
+    height: var(--heigth);
+    /*    background-color: rgba(255,0,4,1.00);*/
+    display: table-cell;
+}
+.footer .fot2 {
+    width: 100%;
+    height: var(--heigth);
+    /*    background-color: rgba(0,5,255,1.00);*/
+    display: table-cell;
+}
+.fot2 p {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+.footer .fot3 {
+    /*    width: 25%;*/
+    height: var(--heigth);
+    /*    background-color: rgba(177,255,0,1.00);*/
+    display: table-cell;
+}
+.text {
+    text-align: center;
+}
+.dis {
+}
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+.xx {
+    background-color: rgba(216,255,0,0.86);
+    width: 10%;
+    height: auto;
+    position: fixed;
+    float: right;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    border-radius: 10px;
+    right: 0px;
+}
+.xx p {
+    text-indent: 15px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+.main #xx #countdown {
+    color: rgba(134,134,134,1.00);
+    text-align: center;
+}
+.Copy {
+    color: rgba(255,38,41,1.00);
+    font-weight: bolder;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>小🐟解析</h1>
+</div>
+<div class="main">
+  <div class="nitise" id="Nitise">
+    <button class="bu" onClick="deletell('Nitise');"><span>x</span></button>
+    <p><strong>将视频网站链接（例如：爱奇艺、腾讯视频、芒果tv、优酷等，支持解析M3U8链接）粘贴到视频地址输入框之后点击播放按钮即可。</strong></p>
+  </div>
+  <div class="xx" id="xx"  title="更新信息">
+    <p>底层代码已重构完成！</p>
+    <div id="countdown">5</div>
+  </div>
+  <div class="player">
+    <div id="kj">
+      <iframe src="" id="player" allowfullscreen='true' allow="autoplay" scrolling="no" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+      <!--sandbox:解决内嵌网页强制跳转问题--> 
+    </div>
+  </div>
+  <div class="input">
+    <form>
+      <div class="input_jxjk"><span>选择解析</span>
+        <select id="jk">
+          <option rel="nofollow" value="https://jx.777jiexi.com/player/?url=">77解析</option>
+          <option rel="nofollow" value="https://yparse.ik9.cc/index.php?url=">解析30云网解析</option>
+        </select>
+      </div>
+      <div class="input_bfurl"><span>播放地址</span>
+        <input type="search" placeholder="输入播放地址" id="url"/>
+      </div>
+      <div>
+        <button id="bf" type="button" onclick="Startplaying()">开始播放</button>
+      </div>
+    </form>
+  </div>
+  <hr>
+  <div class="footer"> 
+    <!--		<div class="fot1 text"><p></p></div>-->
+    <div class="fot2 text">
+      <p class="Copy">Copyright &copy;2024 YUXS All Rights Reserved. Apache License</p>
+      <p>Powered By:	&nbsp;YUXS 开发日志 &nbsp;Github </p>
+      <p>E-Mail:yuxs2022@163.com</p>
+    </div>
+    <!--		<div class="fot3 text"><p></p></div>--> 
+  </div>
+  <div class="foot">
+    <p>☠️声明：本站为非盈利性站点，只提供在线WEB服务，仅供学习交流，拒绝任何商业行为，否则后果自负！所涉及资源均来源于互联网，本站不提供任何视频资源存储，也不参与录制和上传。若无意侵犯了您的版权，请及时联系管理员，管理员会核实、回复和处理，谢谢！详情请查看网站服务协议</p>
+  </div>
+</div>
+<script>
+	//Main Code
+//	//信息通知函数
+	var countdown = 5;  
+	var countdownTimer = setInterval(function() {  
+    countdown--;  
+    document.getElementById("countdown").innerHTML = countdown;  
+    if (countdown <= 0) {  
+        clearInterval(countdownTimer);  
+    }}, 1000); 
+    var element = document.getElementById("xx");  
+        setTimeout(function() {  
+            element.parentNode.removeChild(element);  
+        }, 5000); 
+	
+	function Startplaying(){
+		var playurl = document.getElementById("url").value;
+		//从页面中获取ID为"url"的元素的值，并将其存储在变量playurl中
+		var jkurl = document.getElementById("jk");
+		//从页面中获取ID为"jk"的元素，并将其存储在变量jkurl中
+		var jkindex = document.getElementById("jk").selectedIndex;
+		//获取ID为"jk"的下拉选择框当前选中的选项的索引，并将其存储在变量jkindex中
+		var jkindexurl = jkurl.options[jkindex].value;
+		//获取ID为"jk"的下拉选择框中索引为jk的选项的值，并将其存储在变量jkindexurl中
+		var PlayUrl = document.getElementById("player");
+		//从页面中获取ID为"player"的元素，并将其存储在变量playurl中
+		PlayUrl.src = jkindexurl + playurl
+		//将cljurl的src属性设置为jkindexurl和playurl两个变量的值的组合
+	}
+	function deletell(id) {
+		// 获取id为Nitise的元素  
+		var element = document.getElementById(id);
+		// 如果元素存在  
+		if (element) {
+		// 添加点击事件监听器  
+			element.addEventListener('click', function() {
+		// 删除该元素  
+				this.parentNode.removeChild(this);
+			});
+		} else {
+			console.log('没有找到id为'+id+'的元素');
+		}
+	}
+</script>
+</body>
+</html>

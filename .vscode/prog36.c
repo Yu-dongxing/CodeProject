@@ -443,46 +443,7 @@ void code25(){
 }
 //
 void code26(){
-	printf("*********************欢迎进入学生管理系统**********************\n");
-	struct studey
-	{
-		char name[10];
-		int sex;
-		int six;
-		int xh;
-	}STU[3];
-	int i,j, s, a=1;
-	for (i = 0; i < 3; i++) {
-		printf("输入第%d个姓名：", i + 1);
-		scanf("%s", &STU[i].name);
-	}
-	for (i = 0; i < 3; i++) {
-		printf("输入%s对应的学号：", STU[i].name);
-		scanf("%d", &STU[i].xh);
-	}
-	for (i = 0; i < 3; i++) {
-		printf("输入第%d个姓名对应的年龄：", i + 1);
-		scanf("%d", &STU[i].six);
-	}
-	for (i = 0; i < 3; i++) {
-		printf("输入第%d个姓名对应的性别(输入0(男生)，1(女生))：", i + 1);
-		scanf("%d", &STU[i].sex);
-	}
-	printf("\n 序号 \t姓名 \t性别 \t年龄 \t学号 \n");
-char x ='男';
-char y ='女';
-char z ;
-
-	for (i = 0; i < 3; i++) {
-		if (STU[i].sex == 0) {
-			z = x;
-		}
-		else if (STU[i].sex == 1) {
-			z = y;
-		}
-		printf("%d \t%s \t%c \t%d \t%d \n", a, STU[i].name, z, STU[i].six, STU[i].xh);
-		a++;
-	}
+	
 }
 int main(){
     code26();

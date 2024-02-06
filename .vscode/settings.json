@@ -4,6 +4,8 @@
     "http-server.devlog": true,
     "files.associations": {
         "stdio.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "sqlite3.h": "c",
+        "stdarg.h": "c"
     }
 }

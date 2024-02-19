@@ -1,6 +1,5 @@
 //实现模糊查询
 var keyword = document.querySelector('.keyword'); //获取输入框
-
 var searchhelper = document.querySelector('.search-helper');
 
 //定义数组，搜索内容
@@ -15,7 +14,6 @@ keyword.oninput = function() {
    for (let i = 0; i < searchArr.length; i++) {
 
        if (searchArr[i].indexOf(keyword.value) != -1) {
-
            searchhelper.innerHTML += '<p>' + searchArr[i] + '</p>';
            searchhelper.style.display = 'block';
        }

@@ -30,8 +30,7 @@ def title_show(logo):
         print("\n" + "-"*120)
     else:
         print("\n")
-    print("欢迎使用Samueli924/chaoxing\n对代码有任何疑问或建议，请前往https://github.com/Samueli924/chaoxing进行反馈")
-    print("如果喜欢这个项目，请给我的repo一个小小的Star，谢谢\n")
+    print("该项目由yuxs二改\n")
 
 
 def check_path(path: str, file: bool = True):

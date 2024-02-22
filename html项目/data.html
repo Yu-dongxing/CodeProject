@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://spjx.yuxs.top/htgl/api/jquery.min.js"></script>
+    <style>
+.nitise ,.plvi{
+      --heigth: auto;
+      --width: 90%;
+      --play--width: 90%;
+      --margin--left: 5%;
+      --ni-color: rgba(0,255,5,1.00);
+    width: var(--width);
+    background-color: var(--ni-color);
+    margin-left: var(--margin--left);
+    border-radius: 10px;
+    margin-top: 20px;
+    /* height: auto; */
+    -webkit-box-shadow: 0 0 10px 0 var(--ni-color);
+    box-shadow: 0 0 10px 0 var(--ni-color);
+    color: rgba(75,75,75,1.00);
+}
+.plvi{
+  overflow: auto;
+  height: 100px;
+  display:flex;
+ /* width:100%; */
+}
+.plvi_plv1,.plvi_plv2,.plvi_plv3{
+  display: table-cell;
+  overflow: scroll;
+  height: 100px;
+  width: 100%;
+  /* background-color: aqua;  */
+}
+
+/* .plvi_plv1::-webkit-scrollbar,.plvi_plv2::-webkit-scrollbar,.plvi_plv3::-webkit-scrollbar {
+  width: 5px;
+  height: 0;
+} */
+/* 滚动条上的滚动滑块 */
+/* .plvi_plv1::-webkit-scrollbar-thumb ,.plvi_plv2::-webkit-scrollbar-thumb,.plvi_plv3::-webkit-scrollbar-thumb{
+  background-color: #49b1f5;
+  border-radius: 32px;
+} */
+::-webkit-scrollbar{
+  width: 5px;
+  height: 0;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #49b1f5;
+  border-radius: 32px;
+}
+    </style>
+</head>
+<body>
+  <div class="plvi" title="影视库" id="link">
+    <!--    <p id="link"></p>-->
+        <div class="plvi_plv1" id="title1">122</div>
+        <div class="plvi_plv2" id="title2">456</div>
+        <div class="plvi_plv3" id="title3">456</div>
+  </div>
+  <div class="input_bfurl"><span>播放地址</span>
+    <input type="search" placeholder="输入播放地址" id="url"/>
+  </div>
+    <!-- <p id="title"><span id="up"></span><span id="url" ></span></p> -->
+    <!-- <a href="" target="_blank"></a> -->
+</body>
+<script>
+// const url = 'https://mesh.if.iqiyi.com/portal/videolib/pcw/data?scale=150&channel_id=2&ret_num=100&page_id=1'; // 替换为爱奇艺视频网络库的API URL
+
+// function fetchData(url) {
+//   const xhr = new XMLHttpRequest();
+//   xhr.open('GET', url, true);
+
+//   xhr.onload = () => {
+//     if (xhr.status === 200) {
+//       const data = JSON.parse(xhr.responseText);
+//       console.log(`Display name: ${data.display_name}, Update status: ${data.update_status}, Page URL: ${data.page_url}`);
+//     } else {
+//       console.error(`Error: ${xhr.status} ${xhr.responseText}`);
+//     }
+//   };
+
+//   xhr.onerror = () => {
+//     console.error('Request failed');
+//   };
+
+//   xhr.send();
+// }
+
+// fetchData(url);
+
+
+// const Bing = {
+//   "url": 'https://mesh.if.iqiyi.com/portal/videolib/pcw/data?scale=150&channel_id=2&ret_num=100&page_id=1',
+//   "method": 'GET',
+//   "dataType": 'json', 
+// };
+// $.ajax(Bing).done(function (data) {
+//   var html='';
+//     $.each(data.data, function(index, item) {
+//       if(index>0){
+//         var title = item.display_name;
+//         var up=item.update_status;
+//         var url="https://yparse.ik9.cc/index.php?url="+item.page_url;
+//         // html+=title+url;<a href=""></a>
+//         html+="<a href="+"'"+url+"'"+" target='_blank'>"+title+"</a><br>";
+//       }
+//       // console.log(title+url);
+//       // console.log(`Display name: ${data.display_name}, Update status: ${data.update_status}, Page URL: ${data.page_url}`);
+//     });
+//     document.getElementById('title').innerHTML=html;
+// });
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://mesh.if.iqiyi.com/portal/videolib/pcw/data?scale=150&channel_id=2&ret_num=100&page_id=1', true);
+xhr.responseType = 'json';
+xhr.onload = function() {
+  if (xhr.status === 200) {
+    var data = xhr.response;
+    var html = '';
+    var id = 1;
+    data.data.forEach(function(item, index) {
+      if (index > 0) {
+        var title = item.display_name;
+        var url = item.page_url;
+        html += `<p id=${id} value=${url} onclick="gee(${id})">${title}</p>`;
+        id++;
+      }
+    });
+    // document.getElementById('title').innerHTML = html;
+    document.getElementById('title1').innerHTML = html;
+    document.getElementById('title2').innerHTML = html;
+    document.getElementById('title3').innerHTML = html;
+  } else {
+    console.error(`Request failed with status: ${xhr.status}`);
+  }
+};
+xhr.send();
+// fetch('https://mesh.if.iqiyi.com/portal/videolib/pcw/data?scale=150&channel_id=2&ret_num=100&page_id=1')
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.json();
+//   })
+//   .then(data => {
+//     const html = data.data
+//       .slice(1)
+//       .map(item => {
+//         const title = item.display_name;
+//         const url = `https://yparse.ik9.cc/index.php?url=${encodeURIComponent(item.page_url)}`;
+//         return `<p id="${id}" value="${url}" target="_blank">${title}</p>`;
+//       })
+//       .join('<br>');
+//     document.getElementById('title').innerHTML = html;
+//   })
+//   .catch(error => {
+//     console.error('Fetch error:', error);
+//   });
+function gee(id){
+  var guid = document.getElementById(id);
+  var input = document.getElementById('url');
+  var lue = guid.getAttribute('value');
+  if(input){
+    input.value = lue;
+  }else{
+    console.error("error");
+  }
+  console.log(lue);
+}
+
+// if (input) {
+//     var data = 'https://example.com'; // 替换为您要输入的数据
+    
+// } else {
+//     
+// }
+</script>
+</html>

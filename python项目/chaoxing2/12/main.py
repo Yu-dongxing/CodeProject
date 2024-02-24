@@ -140,9 +140,9 @@ if __name__ == '__main__':
             logger.debug("已启用debug输出")
         if not show:
             logger.debug("已关闭控制台日志")
-        ft.title_show(logo)     # 显示头
-        if not logo:
-            logger.debug("已关闭启动LOGO")
+        # ft.title_show(logo)     # 显示头
+        # if not logo:
+        #     logger.debug("已关闭启动LOGO")
 #         if use_default:
 #             logger.debug("已选择默认速率")
 #         if disable_adopt:

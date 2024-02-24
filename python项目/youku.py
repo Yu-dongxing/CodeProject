@@ -126,7 +126,7 @@ class YouKu:
             video_lists.sort(key=self.takeOne)
             for video_list in video_lists:
                 print(f">>>  {title} 分辨率:{video_list[1]}x{video_list[2]} 视频大小:{video_list[0]}M \tm3u8播放地址:{video_list[4]}")
-            # self.play(video_lists[-1][4])    # 选择播放列表最后一个视频（经过sort排序后，最后一个即为清晰度最高的一个）
+                #self.play(video_lists[-1][4])    # 选择播放列表最后一个视频（经过sort排序后，最后一个即为清晰度最高的一个）
         elif ret == ["FAIL_SYS_ILLEGAL_ACCESS::非法请求"]:
             print("请求参数错误")
         elif ret == ["FAIL_SYS_TOKEN_EXOIRED::令牌过期"]:

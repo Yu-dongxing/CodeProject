@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "C:\Sqlite\sqlite3.h"
 #include "C:\Sqlite\sqlite3.lib"
-
 int main(int argc, char* argv[])
 {
    sqlite3 *db;
@@ -19,4 +18,3 @@ int main(int argc, char* argv[])
    }
    sqlite3_close(db);
 }
-

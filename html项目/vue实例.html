@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE-edge">
 <meta name="viewprt" content="width=device-width,initial-scale=1.0">
-<title>Vue实例</title>
+<title id="title">{{ title }}</title>
 </head>
 <body>
     <div id="app">
@@ -13,9 +13,14 @@
         <p>{{ name.toUpperCase() }}</p>
         <p>{{ name + '你好' }}</p>
         <p>{{ age>=18?'成立':'未成年' }}</p>
-
     </div>
-    <script src="D:\桌面\vue.js"></script>
+    <div class="qq">
+        <p>{{ msg }}</p>
+    </div>
+    <div id="httml">
+        <p v-html="msg"></p>
+    </div>
+    <script src="D:\桌面\项目开发文档及源码\前端开发项目文档\Vue\vue.js"></script>
     <script>
         //
         const app = new Vue({
@@ -27,6 +32,24 @@
                 file:{
                     name:'yuxs',
                 }
+            }
+        })
+        const qqq=new Vue({
+            el:'.qq',
+            data:{
+                msg:'1212145456'
+            }
+        })
+        const title=new Vue({
+            el:'#title',
+            data:{
+                title:'vue Demo'
+            }
+        })
+        const httmml=new Vue({
+            el:'#httml',
+            data:{
+                msg:'<hr>vue Demo'
             }
         })
     </script>

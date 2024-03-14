@@ -1,0 +1,274 @@
+/* 页面默认样式 */
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: #ffffff;
+    font: 12px / 1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    color: #666;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.display_block{
+    display: block;
+}
+.display_none{
+    display: none;
+}
+/* 京东字体文件 */
+@font-face {
+font-family: iconfont;
+src: url(../TTF/jd-zt.ttf);
+}
+.iconfont {
+    font-family: iconfont,sans-serif;
+    font-style: normal;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale
+}
+/* 头块属性 */
+.header{
+    /* #fff; */
+    /* background: rgb(255, 2, 2); */
+    border-bottom: 1px solid #ddd;
+}
+:root{
+
+}
+/* 头顶部 */
+.header_h{
+    --header-h-height:30px;
+    width: 100%;
+    height: var(--header-h-height);
+    background-color: #e3e4e5;
+}
+/* 头顶部内容区域 */
+.header_h_txt{
+    width: 80%;
+    height: var(--header-h-height);
+    margin-left: 10%;
+    background-color: #e3e4e5;
+    line-height: 30px;
+    color: #999;
+    /* display: table; */
+    float: left;
+}
+/* ul_li取消默认点属性 */
+ul,li{
+    list-style: none;
+}
+/* 头顶部定位模块区域 */
+.header_h_txt .dw{
+    list-style: none;
+    /* display: table-cell; */
+    width: 50px;
+    float: left;
+    margin-right: 10px;
+}
+.header_h_txt .dw .dw_icon{
+    color: #e1251b;
+}
+.header_h_txt .dw .city{
+    float: right;
+    margin-right: 10px;
+}
+/* 头顶部切换企业区域 */
+.header_h_txt .qhqy{
+    width: 60px;
+    float: left;
+}
+/* 头顶部右边主菜单 */
+.header_h_txt .rmain{
+    float: right;
+    position: relative;
+}
+.header_h_txt .rmain span{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.header_h_txt .rmain span:hover{
+    color: rgb(255, 0, 0);
+}
+.header_h_txt .rmain .iconfont{
+    position: absolute;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    top: 10px;
+    line-height: 12px;
+}
+.header_h_txt .rmain .login,
+.header_h_txt .rmain .My_Dd,
+.header_h_txt .rmain .My_Main{
+    float: left;
+    position: relative;
+}
+/* 头顶部右主菜单间隔样式 */
+.aa::after {
+    content: " | ";
+    display: inline-block;
+    white-space: pre;
+}
+.My_JD{
+    display: none;
+    width: 280px;
+    position: absolute;
+    height: 100px;
+    background-color: #c10a00;
+    border: 1px solid #ccc;
+    z-index: 100;
+    top: 30px;
+    left: 0;
+}
+
+/* header主要内容区域  */
+.header_s{
+    position: relative;
+    z-index: 10;
+    height: 140px;
+    width: 80%;
+    /* background-color: aqua; */
+    margin-left: 10%;
+}
+.logo{
+    width: 190px;
+    height: 120px;
+    background-color: #666;
+    position: relative;
+    top: 10px;
+    z-index: 1;
+}
+/* .logo_i{
+    
+} */
+.search{
+    position: absolute;
+    width: 480px;
+    height: 32px;
+    /* background-color: black; */
+    left: 200px;
+    top: 20px;
+    border: 2px solid red;
+}
+.search_from{
+    position: relative;
+    width: 480px;
+    height: 32px;
+}
+.search_from input{
+    padding: 2px 44px 2px 17px;
+    /* line-height: 8px; */
+    width: 361px;
+    position: relative;
+    height: 28px;
+    /* outline: none; */
+    border: 0;
+}
+/* 取消input默认点击样式 */
+input:focus{
+    outline: none;
+}
+/* 搜索框搜索按钮 */
+.search_from .button{
+    position: absolute;
+    width: 58px;
+    height: 32px;
+    top: 0px;
+    right: 0;
+    background-color: #e1251b;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+/* 搜索框搜索按钮点击样式 */
+.search_from .button:hover{
+    background-color:  #c10a00;
+}
+/* 购物车显示 */
+.shop_car{
+    background-color: azure;
+    width: 130px;
+    height: 34px;
+    position:absolute;
+    top: 0px;
+    left: 500px;
+    border: 1px solid #e3e4e5;
+    
+}
+/* 购物车图标显示 */
+.shop_car .shop_icon{
+    width: 130px;
+    height: 34px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 34px;
+    border-color: #eee;
+    color: #e1251b;
+}
+.shop_icon a{
+    color: #e1251b;
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+
+.header_s .navitems{
+    position: absolute;
+    /* background-color: rgb(0, 255, 68); */
+    left: 203px;
+    bottom: 0;
+    width: auto;
+    height: 40px;
+}
+.header_s .navitems ul,.header_s .navitems li{
+    float: left;
+}
+.header_s .navitems .navitems_group1 li a{
+    position: relative;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    color: #333;
+    margin: 0 11px;
+    -webkit-transition: color .2s ease;
+    transition: color .2s ease;
+}
+.header_s .navitems .navitems_group1 li a:hover{
+    color: rgb(255, 0, 0);
+}
+.header_main{
+    position: relative;
+    z-index: 100;
+    width: 90%;
+    background-color: #c10a00;
+    margin: 0 auto;
+    height: 480px;
+    top: 10px;
+}
+
+.header_main .header_main_a,.header_main .header_main_b{
+    margin-right: 10px;
+}
+.header_main .header_main_a {
+    position: relative;
+    width: 100px;
+    height: 480px;
+    background-color: #666;
+    float: left;
+}
+.header_main .header_main_b {
+    float: left;
+    width: 120px;
+    height: 480px;
+    background-color: #06c100;
+}
+.header_main .header_main_c {
+    float: right;
+    width: 120px;
+    height: 480px;
+    background-color: #06c100;
+}

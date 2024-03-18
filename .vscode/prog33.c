@@ -13,7 +13,6 @@ void code1(){
     b=~a;
 
     printf("%o,%o",a,b);//%o 以8进制形式输出无符号整数（不输出前导符0）
-
 }
 
 void code2(){

@@ -8,10 +8,11 @@ num_folders = 5
 base_path = 'D:\桌面\新建文件夹'  # 将此处替换为你想要创建文件夹的目录路径
 
 # 初始日期
-start_date = datetime.strptime('3-15', '%m-%d')
+start_date = datetime.strptime('3-18', '%m-%d')
 
 # 遍历指定数量的文件夹并创建
 for i in range(1, num_folders + 1):
+    
     # 计算日期
     folder_date = start_date + timedelta(days=i-1)
     folder_name = f'计算机235查寝情况_{folder_date.strftime("%m-%d")}'  # 生成文件夹名称

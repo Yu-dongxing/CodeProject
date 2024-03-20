@@ -5,10 +5,10 @@ from datetime import datetime, timedelta
 num_folders = 5
 
 # 指定要创建文件夹的目录路径
-base_path = 'D:\桌面\新建文件夹'  # 将此处替换为你想要创建文件夹的目录路径
+base_path = 'D:\桌面\计算机235查寝\计算机235查寝情况-3.25~3.29'  # 将此处替换为你想要创建文件夹的目录路径
 
 # 初始日期
-start_date = datetime.strptime('3-18', '%m-%d')
+start_date = datetime.strptime('3-25', '%m-%d')
 
 # 遍历指定数量的文件夹并创建
 for i in range(1, num_folders + 1):

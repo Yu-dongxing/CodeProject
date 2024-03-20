@@ -3,14 +3,28 @@ from openpyxl import load_workbook
 import glob
 import random
 file_url=""
-while(1):
+#while(1):
 
 
-    file_url=input(f"请输入excel文件列表地址(例如：D:/桌面/学校文件/计算机235查寝情况)：")
+file_urls = [
+    "D:\桌面\计算机235查寝\计算机235查寝情况-3.25~3.29\计算机235查寝情况_03-25",
+    "D:\桌面\计算机235查寝\计算机235查寝情况-3.25~3.29\计算机235查寝情况_03-26",
+    "D:\桌面\计算机235查寝\计算机235查寝情况-3.25~3.29\计算机235查寝情况_03-27",
+    "D:\桌面\计算机235查寝\计算机235查寝情况-3.25~3.29\计算机235查寝情况_03-28",
+    "D:\桌面\计算机235查寝\计算机235查寝情况-3.25~3.29\计算机235查寝情况_03-29"
+]
+ns_ss=[
+    "6514", 
+    "6525", 
+    "6526", 
+    "6527"
+]
+    #file_url=input(f"请输入excel文件列表地址(例如：D:/桌面/学校文件/计算机235查寝情况)：")
 
     # 获取所有Excel文件的文件名
+    #excel_files = glob.glob(file_url+"\*.xlsx")
+for file_url in file_urls:
     excel_files = glob.glob(file_url+"\*.xlsx")
-
     # 循环读取每个Excel文件的表格内容
     for file in excel_files:
         #随机数生成
@@ -30,7 +44,7 @@ while(1):
         wb = load_workbook(file)
         sheet = wb.active
 
-        if any(num in file for num in ["6514", "6525", "6526", "6527"]):
+        if any(num in file for num in ns_ss):
             re_er = all_re
         else:
             re_er = re

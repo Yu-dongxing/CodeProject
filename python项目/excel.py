@@ -17,11 +17,11 @@ while(1):
         max_numbers = [random.randint(10, 10) for _ in range(4)]
         max01_numbers = [random.randint(5, 8) for _ in range(1)]
         max02_numbers = [random.randint(10, 10) for _ in range(2)]
-        re=random_numbers+max_numbers+max01_numbers+max02_numbers
+        re=random_numbers + max_numbers + max01_numbers + max02_numbers
         #以上为男生寝室代码
 
         max010_numbers = [random.randint(10, 10) for _ in range(1)]
-        all_re=random_numbers+max_numbers+max010_numbers+max02_numbers
+        all_re=random_numbers + max_numbers + max010_numbers + max02_numbers
         #以上为女生寝室代码
 
         print(f"文件名称为: {file}")
@@ -44,8 +44,8 @@ while(1):
         #         continue
         #     sheet.cell(row=i, column=5, value=user_input)  # 将转换后的值赋给指定的单元格
         #re_iter = iter(re)  # 创建 re 的迭代器
+
         for i in range(3, 16):  # 遍历行索引从3到15（不包括15）
-            
             try:
                 user_input =next(re_iter)  # 从迭代器中取出下一个元素
                 user_input = int(user_input)  # 将用户输入的内容转换为浮点数
@@ -55,6 +55,6 @@ while(1):
                 user_input = next(re_iter)
                 continue
             sheet.cell(row=i, column=5, value=user_input)  # 将转换后的值赋给指定的单元格
-
+            
         wb.save(file)
         print(f"处理后的数据已保存至 {file}")

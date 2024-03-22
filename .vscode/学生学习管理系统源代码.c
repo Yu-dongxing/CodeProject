@@ -1,5 +1,5 @@
 ////////////////////////////////////////////
-#pragma once
+//#pragma once
 #define _CRT_SECURE_NO_WARNINGS		//解决scanf报错问题
 #define M 2							//学生个数
 #define NAME 10						//姓名字段数

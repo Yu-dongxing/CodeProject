@@ -439,9 +439,16 @@ void code25(){
 }
 //
 void code26(){
-	
+	int a=12;
+	a=a<<3;//<< = ' a<<n = a*2(n) ' >>=' a>>n = a/ 2(n) '
+	printf("%d",a);
+}
+void code27(){
+	int a=10;
+	double b=10.0;
+	printf("%d--%lf",a/2, b % 3);
 }
 int main(){
-    code26();
+    code27();
     return 0;
 }

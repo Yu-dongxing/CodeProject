@@ -241,6 +241,7 @@ a {
     color: rgb(255, 0, 0);
 }
 .header_main{
+    --header-main-height:480px;
     position: relative;
     z-index: 100;
     width: 90%;

@@ -419,10 +419,16 @@ a {
 }
 .header_main_c .c_a{
 
-    background-color: aqua;
-    height: 96px;
-    margin-bottom: 10px;
+    /* background-color: aqua;
+    height: 96px; */
+    /* margin-bottom: 10px; */
     /* margin-top: 5px;*/
+    margin-top: 10px;
+    height: 96px;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 .header_main_c .c_b{
 
@@ -444,6 +450,9 @@ a {
     background-color: aqua;
     height: 124px;
     margin-bottom: 10px;
+}
+.c_a{
+
 }
 .c_a .c_a_login{
     width: 126px;

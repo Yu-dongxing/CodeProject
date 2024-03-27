@@ -270,7 +270,7 @@ a {
     float: left;
     width: 590px;
     height: 480px;
-    background-color: #06c100;
+    /* background-color: #06c100; */
 }
 .header_main 
 .header_main_c {
@@ -281,7 +281,7 @@ a {
     float: left;
     width: 390px;
     height: 480px;
-    background-color: #06c100;
+    /* background-color: #06c100; */
 }
 .header_main_a_left{
     position: relative;
@@ -407,6 +407,8 @@ a {
 }
 .header_main_b_m .b_float .b_float_c .c_img{}
 
+/* ************************************* */
+
 .header_main_c .c_a,
 .header_main_c .c_b,
 .header_main_c .c_c
@@ -415,6 +417,7 @@ a {
     background-color: aqua;
     height: 96px;
     margin-bottom: 10px;
+    
     /* margin-top: 5px;*/
 }
 .header_main_c .c_a{
@@ -557,3 +560,65 @@ a {
     margin-left: 2px;
     font-style: normal;
 }
+.c_a_vip .qy_vip .title{
+    margin-top: 10px;
+    margin-left: 8px;
+    color: #054180;
+    font-weight: 600;
+    font-size: 13px;
+}
+.c_a_vip .qy_vip .plus_txt{
+    color: #3369a5;
+    width: 100px;
+    margin-left: 8px;
+    margin-top: 2px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.c_a_vip .qy_vip .user_array{
+    margin-left: 8px;
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #054180;
+}
+.c_a_vip .qy_vip .user_array i{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: url(https://img13.360buyimg.com/imagetools/jfs/t1/88841/16/21411/380/65d32b19Ff7526b51/da740dd9f0d61b32.png);
+    background-size: 100% 100%;
+    margin-left: 2px;
+}
+
+.c_b .c_b_a .seckill{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.c_b .c_b_a .seckill .lift{
+    width: 97px;
+    height: 100%;
+}
+.c_b .c_b_a .seckill .lift .lift_cound{
+    position: relative;
+    margin: 8px 6px 8px 8px;
+    float: left;
+    width: 83px;
+    height: 94px;
+    background: url(https://img13.360buyimg.com/imagetools/jfs/t1/179159/2/43444/4097/65d55ce7F9c9cb193/631adf4e860c1010.png);
+    background-size: cover;
+}
+.c_b .c_b_a .seckill .right{}
+.c_b .c_b_a .seckill .right .right_list{}
+.c_b .c_b_a .seckill .right .right_list .title{}
+.c_b .c_b_a .seckill .right .right_list .icon{}
+.c_b .c_b_a .seckill .right .right_list .time{}
+.c_b .c_b_a .seckill .right .right_list .time strong{}

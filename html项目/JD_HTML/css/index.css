@@ -661,7 +661,7 @@ a {
     color: #333;
     font-weight: 700;
 }
-.desc_time_houer{
+.time_m{
     position: relative;
     float: left;
     width: 16px;
@@ -674,4 +674,35 @@ a {
     line-height: 14px;
     border-radius: 2px;
     font-family: JDZHENGHEI;
+}
+.time_m::after{
+    content: ":";
+    display: block;
+    position: absolute;
+    right: -8px;
+    font-weight: 400;
+    font-size: 12px;
+    width: 4px;
+    height: 100%;
+    top: -2px;
+    color: #191919;
+}
+.desc_time_houer{
+}
+.desc_time_miunte{}
+.desc_time_second{
+    margin-right: 0;
+}
+
+.c_b .c_b_a .seckill .right{
+    width: 293px;
+    height: 110px;
+    background-color: aliceblue;
+}
+.c_b .c_b_a .seckill .right .silder{
+    width: 255px;
+    height: 110px;
+    background-color: #191919;
+    /* margin: 0 auto; */
+    margin-left: 23px;
 }

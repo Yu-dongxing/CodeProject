@@ -414,7 +414,7 @@ a {
 .header_main_c .c_c
 {
     width: 390px;
-    background-color: aqua;
+    /* background-color: aqua; */
     height: 96px;
     margin-bottom: 10px;
     
@@ -435,7 +435,7 @@ a {
 }
 .header_main_c .c_b{
 
-    background-color: aqua;
+    /* background-color: aqua; */
     height: 230px;
     margin-bottom: 10px;
 }
@@ -697,12 +697,52 @@ a {
 .c_b .c_b_a .seckill .right{
     width: 293px;
     height: 110px;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 }
 .c_b .c_b_a .seckill .right .silder{
     width: 255px;
     height: 110px;
-    background-color: #191919;
+    /* background-color: #191919; */
     /* margin: 0 auto; */
     margin-left: 23px;
+}
+.silder .silder_item{
+    float: left;
+    width: 85px;
+    height: 94px;
+    position: relative;
+    margin: 4px auto;
+    min-height: 1px;
+    /* background-color: #3369a5; */
+}
+.silder .silder_item .img{
+    margin-top: 8px;
+    width: 77px;
+    height: 77px;
+    background-color: #FAFAFA;
+    transition: background .2s linear,opacity .2s linear!important;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+.silder .silder_item .img img{
+    width: 100%;
+    height: 100%;
+}
+.silder .silder_item .price i{
+    font-size: 7px;
+    margin-right: 1px;
+}
+i{
+    font-style: normal;
+}
+.silder .silder_item .price{
+    margin-top: 4px;
+    width: 77px;
+    text-align: center;
+    height: 14px;
+    line-height: 14px;
+    font-size: 13px;
+    color: #fa193f;
+    font-weight: 700;
 }

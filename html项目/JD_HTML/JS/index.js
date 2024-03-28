@@ -1,6 +1,7 @@
 
 
 moves();
+setInterval(time_h_s_m,1);
 
 
 function SetClass(){
@@ -18,3 +19,14 @@ function moves(){
       });
     }
   }
+
+  function time_h_s_m(){
+    var myDate = new Date();
+    //获取当前小时数(0-23)
+    //获取当前分钟数(0-59)
+    //获取当前秒数(0-59)
+    document.getElementById("houer").innerText=myDate.getHours().toString().padStart(2, '0');
+    document.getElementById("minute").innerText=myDate.getMinutes().toString().padStart(2, '0');
+    document.getElementById("second").innerText=myDate.getSeconds().toString().padStart(2, '0');
+  }
+

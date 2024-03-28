@@ -678,7 +678,7 @@ a {
     border-radius: 2px;
     font-family: JDZHENGHEI;
 }
-.time_m::after{
+.time_m_s::after{
     content: ":";
     display: block;
     position: absolute;

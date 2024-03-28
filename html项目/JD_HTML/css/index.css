@@ -1,9 +1,10 @@
 /* 页面默认样式 */
 body {
     -webkit-font-smoothing: antialiased;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     font: 12px / 1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
     color: #666;
+    background-color: #f4f4f4;
 }
 *{
     margin: 0;
@@ -29,7 +30,7 @@ src: url(../TTF/jd-zt.ttf);
 /* 头块属性 */
 .header{
     /* #fff; */
-    /* background: rgb(255, 2, 2); */
+    background: rgb(255, 255, 255);
     border-bottom: 1px solid #ddd;
 }
 :root{
@@ -244,7 +245,7 @@ a {
     --header-main-height:480px;
     position: relative;
     z-index: 100;
-    width: 90%;
+    width: 1190px;
     /* background-color: #c10a00; */
     margin: 0 auto;
     height: 480px;
@@ -791,4 +792,108 @@ i{
     font-size: 13px;
     color: #fa193f;
     font-weight: 700;
+}
+.c_c{
+    overflow: hidden;
+    position: relative;
+    height: 124px;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    margin-top: 10px;
+}
+.c_c .entry{
+    overflow: hidden;
+    background: #fff;
+}
+.c_c .entry .table_list{
+    padding-top: 12px;
+    height: 112px;
+}
+.c_c .entry .table_list .item {
+    position: relative;
+    float: left;
+    width: 78px;
+    height: 55px;
+    background: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+.c_c .entry .table_list .item .item_lk .lk_ico{
+    position: relative;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+    display: block;
+}
+.c_c .entry .table_list .item .item_lk .lk_ico 
+.service_ico_img{
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+.c_c .entry .table_list .item .item_lk .service_txt{
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    border-bottom: 2px solid #fff;
+    color: #333;
+    -webkit-transition: color .15s ease;
+    transition: color .15s ease;
+}
+/* 以下为商品页面 */
+.app{
+    margin-top: 30px;
+    position: relative;
+    z-index: 10;
+}
+.app .head{
+    height: 65px;
+}
+.app .head .head_inner{
+    margin: 0 auto;
+    width: 1190px;
+}
+.app .head .head_inner .head_tit{
+    position: relative;
+    width: 150px;
+    height: 45px;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 45px;
+    padding: 0 30px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    color: #333;
+}
+.app .head .head_inner .head_tit::before{
+    background-image: url(//storage.360buyimg.com/channel2022/jd_home/0.0.54/assets/sprite/floor_hd/sprite-retina2x.png);
+    width: 25px;
+    height: 20px;
+    background-size: 50px 20px;
+    background-position: 0 0;
+    left: 0;
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+}
+.app .head .head_inner .head_tit::after{
+    background-position: -25px 0;
+    right: 0;
+    background-image: url(//storage.360buyimg.com/channel2022/jd_home/0.0.54/assets/sprite/floor_hd/sprite-retina2x.png);
+    background-size: 50px 20px;
+    width: 25px;
+    height: 20px;
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+}
+/*  */
+.app .head_tab{
+    background: #fff;
+    margin-bottom: 10px;
+    margin: 0 auto;
+    width: 1190px;
 }

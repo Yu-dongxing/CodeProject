@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ZH-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水果购物车案例</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0
+    }
+    .table{
+        width: 800px;
+        height: auto;
+        /* background-color: antiquewhite; */
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 10px;
+    }
+    table{
+        width: 100%;
+        border: 0px;
+        border-radius: 10px;
+    }
+    thead,tbody,tfoot{
+        height: 35px;
+        border: 0px;
+        border-radius: 10px;
+    }
+    thead{
+        background-color: rgb(179, 255, 0);
+    }
+    tbody{
+        background-color: aqua;
+    }
+    tfoot{
+        background-color: bisque;
+    }
+    tr{}
+    td{
+        border-radius: 10px;
+    }
+    .add_dn{
+        width: 115px;
+        margin: 0 auto;
+        display: table;
+    }
+    .add_dn span{
+        border-radius: 10px;
+    }
+    .add_bu{
+        width: 20px;
+        height: 25px;
+        display: table-cell;
+        line-height: 25px;
+        border: 0;
+    }
+    .dn_bu{
+        width: 20px;
+        height: 25px;
+        display: table-cell;
+        line-height: 25px;
+        border: 0;
+    }
+    .add_bu:hover,.dn_bu:hover{
+        background-color: rgb(94, 255, 0);
+    }
+    .number{
+        width: 40px;
+        display: table-cell;
+        border: 0px;
+        height: 20px;
+        line-height: 20px;
+        background-color: aliceblue;
+        color: rgb(255, 183, 0);
+        font-size: 10px;
+    }
+    .del_bu{
+        margin: 5px;
+    }
+    .del_bu button{
+        background-color: red;
+        border: 0px;
+        padding: 5px;
+        border-radius: 10px;
+        color: aliceblue;
+    }
+    .del_bu button:hover{
+        background-color: rgb(195, 0, 0);
+    }
+    .del_bu_hover{
+        /* background-color: rgba(255, 255, 255, 0); */
+    }
+    button{
+        border-radius: 5px;
+        border: 0px;
+    }
+    .active{
+        background-color: rgba(0, 200, 255, 0.921);
+        transition: background-color .2s ease;
+    }
+</style>
+<body>
+    <div id="app">
+        <h2>水果购物车</h2>
+        <div class="table" v-if="list.length>0">
+            <table>
+                <thead>
+                    <tr>
+                        <td>选中</td>
+                        <td>图片</td>
+                        <td>单价</td>
+                        <td>个数</td>
+                        <td>小计</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item ,index) in list" :key="item.id" :class="{active:item.isChecked}">
+                        <td>
+                            <form action="">
+                                <input type="checkbox" v-model="item.isChecked">
+                            </form>
+                        </td>
+                        <td>
+                            <div>
+                                <img :src="item.icon" alt="apple" width="15px" height="15px">
+                            </div>
+                        </td>
+                        <td>{{ item.price }}</td>
+                        <td>
+                            <div class="add_dn">
+                                <button class="add_bu" @click="add(item.id)">+</button>
+                                <!-- <input type="number" >  -->
+                                <span class="number">{{ item.num }}</span>
+                                <button :disabled="item.num<=1" class="dn_bu" :class="{del_bu_hover:item.num<=1}" @click="sub(item.id)">-</button>
+                            </div>
+                        </td>
+                        <td>{{ item.price * item.num }}</td>
+                        <td>
+                            <div class="del_bu">
+                                <button @click="del(item.id)">删除</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="6">
+
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td  colspan="3">
+                            <form action="">
+                                <input type="checkbox" v-model="isAll">
+                                <span>全选</span>
+                            </form>
+                        </td>
+                        <td  colspan="3">
+                            <div class="all">
+                                <span>
+                                    总价：
+                                    <span>
+                                        {{ priceconut }}
+                                    </span>
+                                </span>
+                                <button>
+                                    结账<span>({{ count }})</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="no_ahop" v-else>
+            <h1>空空如也</h1>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    const defaultArr=[
+    {
+                    id:1,
+                    icon:"https://tse2-mm.cn.bing.net/th/id/OIP-C.ZGoSBlBQp1LjScOEznPxcwHaFU?rs=1&pid=ImgDetMain",
+                    isChecked:true,
+                    num:2,
+                    price:6,
+                },
+                {
+                    id:2,
+                    icon:"https://tse2-mm.cn.bing.net/th/id/OIP-C.ZGoSBlBQp1LjScOEznPxcwHaFU?rs=1&pid=ImgDetMain",
+                    isChecked:true,
+                    num:7,
+                    price:20,
+                },
+                {
+                    id:3,
+                    icon:"https://tse2-mm.cn.bing.net/th/id/OIP-C.ZGoSBlBQp1LjScOEznPxcwHaFU?rs=1&pid=ImgDetMain",
+                    isChecked:true,
+                    num:3,
+                    price:9,
+                },
+                {
+                    id:4,
+                    icon:"https://tse2-mm.cn.bing.net/th/id/OIP-C.ZGoSBlBQp1LjScOEznPxcwHaFU?rs=1&pid=ImgDetMain",
+                    isChecked:false,
+                    num:2,
+                    price:4,
+                },
+                {
+                    id:5,
+                    icon:"https://tse2-mm.cn.bing.net/th/id/OIP-C.ZGoSBlBQp1LjScOEznPxcwHaFU?rs=1&pid=ImgDetMain",
+                    isChecked:true,
+                    num:5,
+                    price:3,
+                }
+    ]
+    const app =new Vue({
+        el:'#app',
+        data:{
+            list:JSON.parse(localStorage.getItem("list"))|| defaultArr,
+        },
+        computed:{
+            // isAll(){
+            //     //
+            //     //return true;
+            //     return this.list.every(item => item.isChecked);
+            // }
+            //完整写法，=get+set
+            isAll:{
+                get(){
+                    return this.list.every(item => item.isChecked);
+                },
+                set(value){
+                    // console.log(value);
+                    this.list.forEach(item => item.isChecked = value);
+                }
+            },
+            //统计选中的个数 reducr=e
+            count(){
+                return this.list.reduce((sum,item)=>{
+                    if(item.isChecked){
+                        //选中
+                        return sum+item.num;
+                    }else {
+                        //没选中
+                        return sum;
+                    }
+                },0);
+            },
+            priceconut(){
+                return this.list.reduce((sum , item)=>{
+                    if(item.isChecked){
+                        return sum+item.num*item.price;
+                    }else {
+                        return sum;
+                    }
+                },0)
+            }
+        },
+        methods:{
+            del(id){
+                // console.log(id);
+                this.list=this.list.filter(item=>item.id!==id);
+            },
+            add(id){
+                // console.log(id);
+                const fruit =this.list.find(item=>item.id===id)
+                // console.log(fruit);
+                fruit.num++;
+            },
+            sub(id){
+                // console.log(id);
+                // console.log(id);
+                const fruit =this.list.find(item=>item.id===id)
+                // console.log(fruit);
+                // if(fruit.num>1){
+                //     fruit.num--;
+                // }else {
+                //     fruit.num=1;
+                // }
+                fruit.num--;
+            }
+        },
+        watch:{
+            list:{
+                deep:true,
+                handler(newValue){
+                    // console.log(newValue);
+                    //需要将newvalue保存本地（转换json）
+                    localStorage.setItem('list',JSON.stringify(newValue));
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

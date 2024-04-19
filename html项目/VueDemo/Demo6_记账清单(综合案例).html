@@ -85,22 +85,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>帽子</td>
-                <td>99.00</td>
-                <td><a href="javascript:;">删除</a></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>大衣</td>
-                <td class="red">199.00</td>
+              <tr v-for="(item,index) in list " :key="item.id">
+                <td>{{ index+1 }}</td>
+                <td>{{ item.name }}</td>
+                <td :class="{red: item.price>500}">{{ item.price.toFixed(2) }}</td>
                 <td><a href="javascript:;">删除</a></td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
-                <td colspan="4">消费总计： 298.00</td>
+                <td colspan="4">消费总计： {{ pricetoto }}</td>
               </tr>
             </tfoot>
           </table>
@@ -120,6 +114,10 @@
        * 
        * 功能需求：
        * 1. 基本渲染
+       * 进入页面立刻发送请求 created ，
+       * 获取数据，保存data响应式数据中
+       * 结合数据，进行渲染v-for
+       * 添加，计算属性
        * 2. 添加功能
        * 3. 删除功能
        * 4. 饼图渲染
@@ -127,7 +125,25 @@
       const app = new Vue({
         el: '#app',
         data: {
+          list:[
+
+          ]
           
+        },
+        computed:{
+          pricetoto(){
+            return this.list.reduce((sum,item) => sum+item.price ,0);
+            
+          }
+        },
+        async created(){
+          const res = await axios.get('https://applet-base-api-t.itheima.net/bill',{
+            params:{
+              creator:'yuxs'
+            }
+          })
+          // console.log(res);
+          this.list = res.data.data;
         },
       })
     </script>

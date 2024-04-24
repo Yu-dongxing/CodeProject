@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="App">
+    <!-- hesder 组件 -->
+    <BaseA></BaseA>
+    <BaseB></BaseB>
+    <YuxsHeader></YuxsHeader>
+    <YuxsMain></YuxsMain>
+    <YuxsFooter></YuxsFooter>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+// import YuxsFooter from './components/YuxsFooter.vue'
+// import YuxsHeader from './components/YuxsHeader.vue'
+// import YuxsMain from './components/YuxsMain.vue'
+// import BaseA from './components/BaseA.vue'
+import BaseB from './components/BaseB.vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    components:{
+      //YuxsHeader : YuxsHeader, 可以省略 -> YuxsHeader,
+        // YuxsHeader,
+        // YuxsFooter,
+        // YuxsMain,
+        // BaseA,
+        BaseB
+    }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.App{
+    width: 600px;
+    height:700px;
+    background-color: aqua;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius:10px ;
 }
 </style>

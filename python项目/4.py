@@ -13,12 +13,10 @@ response = requests.get(classurl)
 #     # 尝试获取data数组  
 #     if 'data' in data_json:  
 #         data_list = data_json['data']  
-          
 #         # 遍历data数组中的display_name字段  
 #         for item in data_list:  
 #             # if 'display_name' in item:  
 #             print(item['display_name'], item['dq_updatestatus'],item['page_url'])
-
 #     else:  
 #         print("JSON数据中没有找到'data'字段")  
 # else:  

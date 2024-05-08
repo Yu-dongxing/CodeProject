@@ -7,6 +7,9 @@
 /*frameborder="0"*/
 body {
     margin: 0px;
+    /* background: linear-gradient(90deg, rgba(119, 255, 210, 1) 0%, rgba(98, 151, 219, 1) 48%, rgba(30, 236, 255, 1) 100%); */
+    /* filter: blur(10px); */
+    background-color: rgba(255,255,255,0.50);
 }
 :root {
 /*	var(--heigth);	*/
@@ -14,9 +17,14 @@ body {
 /*	var(--width);	.nitise iframe  .input_jxjk, .input_bfurl #bf*/
 	--width:90%;
 }
-.main {
-/*        text-align: center;*/
+/* 取消input默认点击样式 */
+input:focus,select:focus{
+  outline-color: #fff200af;
+  /* outline-style: solid; */
 }
+/* .main {
+       text-align: center;
+} */
 .header {
     width: 100%;
     height: 45px;

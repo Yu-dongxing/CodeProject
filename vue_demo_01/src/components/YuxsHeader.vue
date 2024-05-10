@@ -1,6 +1,6 @@
 <template>
   <div class="yu-header">
-    welcome
+    welcome-header
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
     color: #fff;
     line-height: 100px;
     font-size: 30px;
-    text-align: centeer;
+    text-align: center;
 
 }
 </style>

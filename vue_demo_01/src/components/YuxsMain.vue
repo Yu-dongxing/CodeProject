@@ -1,6 +1,6 @@
 <template>
     <div class="yu-main">
-      welcome
+      welcome-main
     </div>
   </template>
   
@@ -17,7 +17,7 @@
       color: #fff;
       line-height: 400px;
       font-size: 30px;
-      text-align: centeer;
+      text-align: center;
       margin: 20px 0 ;
   
   }

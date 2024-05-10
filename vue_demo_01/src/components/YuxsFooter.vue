@@ -1,6 +1,6 @@
 <template>
     <div class="yu-footer">
-      welcome
+      welcome-footer
     </div>
   </template>
   
@@ -15,9 +15,9 @@
       height: 100px;
       background-color: rgb(17, 19, 13);
       color: #fff;
-      line-height: 400px;
+      line-height: 100px;
       font-size: 30px;
-      text-align: centeer;
+      text-align: center;
       margin: 20px 0 ;
   
   }

@@ -1,16 +1,19 @@
-# video_parse
-
-## Project setup
+# video_parse-视频解析前端项目
+ 
+## 项目说明
+    1.添加视频列表（目前仅支持 爱奇艺）<br>
+    2.
+## 项目安装
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 项目运行
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 项目构建
 ```
 npm run build
 ```
@@ -19,6 +22,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

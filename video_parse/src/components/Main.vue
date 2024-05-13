@@ -18,9 +18,9 @@
             <div class="main_list backgroud_img">
                 <div class="bj blur_color"></div>
                 <div class="BOOX radius over_over_0x_h">
-                    <div class="header bx" style="z-index: 10;" @click="$router.back()">
+                    <div class="header bx" style="z-index: 10;" >
                         <div class="h_l">
-                            <div class="ttxt bj blur_color transition_color_bkcolor" >
+                            <div class="ttxt bj blur_color transition_color_bkcolor" @click="$router.back()">
                                 <span>返回</span>
                             </div>
                         </div>

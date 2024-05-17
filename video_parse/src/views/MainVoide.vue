@@ -22,11 +22,21 @@ export default {
     data(){
         return {
             video:[],
-            video_id:1
+            video_id:1,
+            loaaing:true
         }
     },
+    beforeCreate(){
+        console.log("1yuxs");
+    },
+    created(){
+        console.log("yuxs");
+    },
     methods:{
-        async  fetchData(id) {  
+        async  fetchData(id) { 
+            if(!id){
+                id=1;
+            } 
             try {  
                 const response = await axios.get(  
                     'https://mesh.if.iqiyi.com/portal/videolib/pcw/data',  
@@ -37,11 +47,7 @@ export default {
                             ret_num: 60,  
                             page_id: 1,  
                             market_release_date_level: 2024,  
-                        },  
-                        // 添加 headers  
-                        //  headers: {  
-                        //     'authority':'mesh.if.iqiyi.com',
-                        //  },  
+                        },
                     }  
                 ); 
                 if (Array.isArray(response.data.data)) {    
@@ -50,7 +56,7 @@ export default {
                             this.video.push(
                                 { 
                                     id: item.id  , 
-                                    title: item.title ,
+                                    title: item.display_name ,
                                     img:item.album_image_url_hover,
                                     desc:item.desc,
                                     url:item.page_url,

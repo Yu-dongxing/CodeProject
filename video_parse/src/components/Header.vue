@@ -3,6 +3,7 @@
     <div class="h_l">
       <div class="ttxt bj blur_color transition_color_bkcolor">
         <span>视频解析系统</span>
+        <!-- <span></span> -->
       </div>
     </div>
     <div class="h_l">

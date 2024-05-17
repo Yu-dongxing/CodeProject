@@ -35,7 +35,7 @@ export default {
     }
     a{
     text-decoration-line: none;
-}
+    }
     :root{
         --header--margin:60px;
         --box-1-heigth:96px;
@@ -78,7 +78,7 @@ export default {
             height: 100%;
             border-radius: var(--boder-redis);
             position: relative;
-        }
+    }
     .header{
         width: 100%;
         height: 50px;
@@ -88,4 +88,11 @@ export default {
         border-radius: 0px 0px 30px 30px;
         position: sticky;
     }
+.text-ellipsis-2 {
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
 </style>

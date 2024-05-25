@@ -1,4 +1,5 @@
 <template>
+    <!-- 主人口模块 -->
   <div class="main">
     <Header></Header>
     <Main></Main>
@@ -33,9 +34,11 @@ export default {
         background: var(--body--background);
         /* backdrop-filter:blur(20px); */
     }
+    /* a链接无下划线 */
     a{
     text-decoration-line: none;
     }
+    /* 设定颜色 */
     :root{
         --header--margin:60px;
         --box-1-heigth:96px;
@@ -50,22 +53,32 @@ export default {
         --blur--color:rgba(255, 255, 255, 0.20);
         --font--color:rgba(255, 255, 255, 0.50);
         --font--hover--color:rgba(255, 255, 255, 0.70);
+        --backgroundcolor:rgb(255 174 174 / 62%);
         --backgroundcolor--hover:rgba(255,255,255,0.50) ;
+        --line--height:20px;
     }
+    /* 高斯模糊样式 */
     .blur_color{
         background-color: var(--blur--color);
         /* backdrop-filter:blur(var(--blur)); */
     }
+    /* 圆角样式 */
     .radius{
         border-radius: var(--boder-redis);
     }
+    /*  */
     .over_over_0x_h{
             overflow: overlay;
             overflow-x: hidden;
     }   
     .transition_color_bkcolor{
-        transition: background-color .2s ease;
-        transition: color .2s ease;
+        /* transition: background-color .2s ease;
+        transition: color .2s ease; */
+        transition: background-color 0.2s ease, color 0.2s ease,box-shadow 0.2s ease; 
+    }
+    .er::-webkit-scrollbar{
+        width: 0;
+        height: 0;
     }
     .backgroud_img{
         background:url("https://github.githubassets.com/assets/bg-a352b7ab2e3b.png");
@@ -88,11 +101,17 @@ export default {
         border-radius: 0px 0px 30px 30px;
         position: sticky;
     }
+/*字数超出 */
 .text-ellipsis-2 {
   overflow: hidden;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+}
+iframe{
+  height: 90%;
+  width: 90%;
+  margin-left:5% ;
 }
 </style>

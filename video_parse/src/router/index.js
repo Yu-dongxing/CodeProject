@@ -1,11 +1,51 @@
 import { createRouter, createWebHistory } from 'vue-router'  
-import Video from '@/views/MainVoide.vue'
-import MainComp from '@/views/MainComp.vue'
+import MainVoide from '@/views/MainVoide.vue'
+import VoidePlay from '@/views/VoidePlay.vue'
+import MainAbout from '@/views/about/MainAbout.vue'
+import MainVlog from '@/views/vlog/MainVlog'
+import MainPhone from '@/views/Phone/MainPhone'
 const routes = [  
-    { path: '/', component: Video },  
-    // {name: 'Voide',path:'/voide',component: Video},
-    {path:'/:page_id',component: Video},
-    {name:'MainComp',path: '/:page_id/MainComp' ,component: MainComp}
+    //默认路由
+    {
+        path:'/',
+        // component:'/voide_id_1/'
+        redirect:'/voide_id_1/',
+    },
+    //一级首页路由
+    {
+        path: '/voide_id_:page_id/',
+        component:MainVoide,
+        //首页二级路由
+        children:[
+            //视频播放路由
+            // {
+            //     name:'VoidePlay',
+            //     path: '/voide_id_:page_id/VoidePlay' ,
+            //     component:VoidePlay
+            // },
+        ]
+    }, 
+    //视频播放路由
+    {
+        name:'VoidePlay',
+        path: '/voide_id_:page_id/VoidePlay' ,
+        component:VoidePlay
+    },
+    //一级关于路由
+    {
+        path:'/MainAbout',
+        component:MainAbout
+    },
+    //一级日志路由
+    {
+        path:'/MainVlog',
+        component:MainVlog
+    },
+    //一级联系路由
+    {
+        path:'/MainPhone',
+        component:MainPhone
+    },
     
 ]  
 

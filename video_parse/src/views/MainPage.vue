@@ -1,5 +1,5 @@
 <template>
-  <div class="M_P">
+  <div class="M_P radius">
     <div class="P_a">
       <div class="A_a"></div>
     </div>
@@ -15,11 +15,9 @@ export default {
 
 <style>
 .M_P{
-    width: 1400px;
-    height: 500px;
-    /* background-color: aqua; */
-    margin: 0 auto;
+    background-color: aqua;
+    /* margin: 0 auto; */
     margin-top: 10px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 </style>

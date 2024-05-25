@@ -12,7 +12,7 @@ def fetch_data_from_iqiyi():
         response = requests.get(url, headers=headers)  
         response.raise_for_status()  # 如果请求失败，这里会抛出异常  
         data = response.json()  # 将响应内容解析为 JSON 格式  
-        return data
+        return data['data']
     except requests.RequestException as e:  
         print(f"请求失败: {e}")  
         return None  

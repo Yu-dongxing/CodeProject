@@ -1,0 +1,207 @@
+main.vue/mainbody
+<div class="lift_list backgroud_img">
+                <div class="bj blur_color">
+                </div>
+                <div class="ll">
+                    <div  v-for="(item, index) in video_lx"  :key="index++">
+                        <router-link class="ah11" :to="{path:'/'+item.id}">
+                            <div class="h11" >
+                                <img class="Logo" :src=" `/VoideIDsvg/${item.iconName}` " :alt=item.id>
+                                <!-- <img class="Logo" :src="getImageUrl(item.icon)" :alt=item.id> -->
+                                <span>{{ item.title }}</span>
+                            </div>
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+            <div class="main_list backgroud_img">
+                <div class="bj blur_color"></div>
+                <div class="BOOX radius over_over_0x_h">
+                    <div class="header bx" style="z-index: 10;" >
+                        <div class="h_l">
+                            <div class="ttxt bj blur_color transition_color_bkcolor" @click="$router.back()">
+                                <span>返回</span>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- <keep-alive include="['MainVoide']"> -->
+                            <router-view></router-view>
+                        <!-- </keep-alive> -->
+                </div>
+            </div>
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+MainVoide.vue //VoideI
+<div class="lift_list backgroud_img">
+            <div class="bj blur_color"></div>
+            <div class="ll">
+                <div  v-for="(item, index) in video_lx"  :key="index++">
+                    <router-link class="ah11" :to="{path:'/'+item.id}">
+                        <div class="h11" >
+                            <img class="Logo" :src=" `/VoideIDsvg/${item.iconName}` " :alt=item.id>
+                            <!-- <img class="Logo" :src="getImageUrl(item.icon)" :alt=item.id> -->
+                            <span>{{ item.title }}</span>
+                        </div>
+                    </router-link>
+                </div>
+            </div>
+        </div>
+        <div class="main_list backgroud_img">
+            <div class="bj blur_color"></div>
+            <div class="BOOX radius over_over_0x_h">
+                <div class="header bx" style="z-index: 10;" >
+                    <div class="h_l">
+                        <div class="ttxt bj blur_color transition_color_bkcolor" @click="$router.back()">
+                            <span>返回</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ma">
+                    <div  class="voide  radius blur_color" v-for="(item,index) in video" :key="index++" >
+                        <div class="iimg">
+                            <img src="" alt="">
+                            <!-- <iframe :src="item.img" frameborder="0"></iframe>:to="{ path: '/' + $route.params.page_id + '/url='+ item.url}" -->
+                        </div>
+                            <div class="txt">
+                                    <span @click="get(item.url,item.title,item.tv_id)">{{ item.title }}</span>
+                            </div>
+                        <div class="desc">
+                            <span>{{ item.desc }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        .ma{    
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left:5%;
+    position: relative;
+    z-index: 1;
+}
+.voide{
+    width: 150px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 10px 10px 10px;
+    overflow: hidden;
+}
+.desc{
+    color: #e6e6e6d0;
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 20px;
+    /* overflow: hidden;*/
+}
+.txt{
+    background-color: #ffffff88;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+
+    display: flex;
+    justify-content: center;
+
+}
+.txt span,.desc span{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.txt:hover{
+    background-color: #ffffffbf;
+    cursor: pointer;
+}
+.voide .iimg{
+    width: 100%;
+    height: 180px;
+    background: url("../assets/772.webp");
+    /* background-color: aqua; */
+    background-repeat: no-repeat;  /* 不重复背景图像 */  
+    background-size: cover;        /* 使背景图像覆盖整个元素 */  
+    background-position: center;   /* 将背景图像居中放置 */  
+}
+iframe{
+    width: 100%;
+    height: 180px;
+}
+.lift_list{
+                width: 120px;
+                height: 85%;
+                position: fixed;
+                margin-left: 15px;
+                border-radius: var(--boder-redis);
+        }
+        .main_list{
+        width: 80%;
+        height: 85%;
+        margin-left: 150px;
+        border-radius: var(--boder-redis);
+        z-index: -10;
+        position: fixed;
+        }
+
+    .ll{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        border-radius: var(--boder-redis);
+        overflow: overlay;
+        /* padding: 5px; */
+        overflow-x: hidden;
+    }
+    .BOOX{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+        }
+        .BBox{
+            width: 80%;
+            height: 200px;
+            background-color: #ffffff17;
+            margin-top: 5px;
+            margin-left: 10%;
+        }
+        .ll::-webkit-scrollbar ,.BOOX::-webkit-scrollbar{
+            width: 0;
+        }
+        .ah11{
+            background-color: #ffffff3d;
+            color: #ffffff66;
+            transition: background-color .2s ease;
+            /* transition: color .2s ease; */
+            display: flow;
+        }
+        .h11{
+            /* width: 100%; */
+            height: 50px;
+            margin-top: 10px;
+            padding: 10px;
+            line-height: 50px;
+            display: flex;
+            align-items: center;
+            /* transition: background-color .2s ease; */
+            transition: color .2s ease;
+        }
+        .Logo{
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+        }
+        .h11:hover,.ll .router-link-active{
+            background-color: #ffffff7b;
+            color: #050202;
+        }
+        .bx{
+            display: flex;
+
+        }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

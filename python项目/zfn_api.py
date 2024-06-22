@@ -1569,7 +1569,7 @@ if __name__ == "__main__":
             if False
             else None
         )  # cookies登录，调整成True使用cookies登录，反之使用密码登录
-        test_year = 2023  # 查询学年
+        test_year = 2024  # 查询学年
         test_term = 1  # 查询学期（1-上|2-下）
 
         # 初始化
@@ -1629,7 +1629,7 @@ if __name__ == "__main__":
         # result = lgn.get_schedule(test_year, test_term)
 
         """ 获取成绩 """
-        result = lgn.get_grade(test_year, test_term)
+        #result = lgn.get_grade(test_year, test_term)
         
         # result = lgn.select_course(2304170638,456565621,55,45,2024,45)
         # 输出结果

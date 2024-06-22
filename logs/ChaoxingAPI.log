@@ -1,0 +1,8 @@
+2024-06-13 14:42:20,278 - ChaoxingAPI - DEBUG - 发送登录数据
+2024-06-13 14:42:20,622 - ChaoxingAPI - DEBUG - 收到返回数据
+2024-06-13 14:42:20,622 - ChaoxingAPI - ERROR - 登录失败：{'msg2': '用户名或密码错误', 'status': False}
+2024-06-13 14:42:58,473 - ChaoxingAPI - DEBUG - 发送登录数据
+2024-06-13 14:42:58,765 - ChaoxingAPI - DEBUG - 收到返回数据
+2024-06-13 14:43:04,281 - ChaoxingAPI - DEBUG - ---selected_course info begin---
+2024-06-13 14:43:04,281 - ChaoxingAPI - DEBUG - {'cfid': -1, 'norder': 11, 'cataName': '课程', 'cataid': '100000002', 'id': 0, 'cpi': 362373587, 'key': 93782122, 'content': {'studentcount': 49, 'chatid': '241040395141121', 'isFiled': 0, 'isthirdaq': 0, 'isstart': True, 'isretire': 1, 'name': '计算机应用236', 'course': {'data': [{'belongSchoolId': '904', 'coursestate': 0, 'teacherfactor': '胡配祥', 'isCourseSquare': 0, 'schools': '', 'courseSquareUrl': 'https://tsjy.chaoxing.com/plaza/app?courseId=239396893&personId=362373587&classId=93782122&userId=282030563', 'imageurl': 'http://p.ananas.chaoxing.com/star3/origin/669ca80d6a0c5f74835bb936a41aabca.jpg', 'name': '数据结构（C语言）', 'defaultShowCatalog': 0, 'id': 239396893, 'appData': 0}]}, 'roletype': 3, 'id': 93782122, 'state': 0, 'cpi': 362373587, 'bbsid': '1f6f43d40663df4d4c1101f2419f2a4c', 'isSquare': 0}, 'topsign': 0}
+2024-06-13 14:43:04,283 - ChaoxingAPI - DEBUG - ---selected_course info end---

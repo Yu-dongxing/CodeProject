@@ -4,7 +4,8 @@
     <!-- 播放界面 -->
     <div class="play_L radius" >
       <!-- <iframe :src=mag    allowfullscreen='true' allow="autoplay" allowtransparency="true" frameborder="0" scrolling="no" sandbox="allow-scripts allow-same-origin allow-popups" class="radius"></iframe> -->
-      <h1>{{ mag }}</h1>
+      <!-- <h1>{{ mag }}</h1> -->
+      <a :href="mag" target="_blank">{{ mag }}</a>
     </div>
     <!-- 视频详情界面 -->
     <div class="play_R radius er ">
@@ -28,9 +29,6 @@ export default {
       title:this.$route.query.voide_title,
       jx_jk:[
         {id:1,title:"解析1",url:'https://jx.777jiexi.com/player/?url='},
-        // {id:2,title:"解析2",url:'https://yparse.ik9.cc/index.php?url='},
-        // {id:3,title:"解析3",url:'https://jx.777jiexi.com/player/?url='},
-        // {id:4,title:"解析4",url:'https://jx.777jiexi.com/player/?url='},
       ],
     }
   },
@@ -67,16 +65,16 @@ export default {
     }
   },
   updated(){
-    this.aqy();``
+    this.aqy();
   },
   beforeMount(){
     this.aqy();
   },
   mounted() {  
-        this.aqy();
-    },
-
+    this.aqy();
+  },
 }
+
 </script>
 
 <style>

@@ -38,7 +38,7 @@ export default {
     a{
     text-decoration-line: none;
     }
-    /* 设定颜色 */
+    /* 设定固定颜色，字体 */
     :root{
         --header--margin:60px;
         --box-1-heigth:96px;
@@ -63,8 +63,12 @@ export default {
         /* backdrop-filter:blur(var(--blur)); */
     }
     /* 圆角样式 */
-    .radius{
+    .radius,
+    div{
         border-radius: var(--boder-redis);
+    }
+    div{
+        /* background-color: brown; */
     }
     /*  */
     .over_over_0x_h{
@@ -72,9 +76,10 @@ export default {
             overflow-x: hidden;
     }   
     .transition_color_bkcolor{
-        /* transition: background-color .2s ease;
-        transition: color .2s ease; */
-        transition: background-color 0.2s ease, color 0.2s ease,box-shadow 0.2s ease; 
+        /* transition: background-color 0.5s ease, color 0.5s  ease,box-shadow 0.5s  ease;  */
+        transition-property: background-color, color, box-shadow,border;  
+        transition-duration: 0.2s;  
+        transition-timing-function: ease;
     }
     .er::-webkit-scrollbar{
         width: 0;
@@ -113,5 +118,11 @@ iframe{
   height: 90%;
   width: 90%;
   margin-left:5% ;
+}
+p{
+    text-indent: 10px;
+}
+.p_w_text-indent{
+    text-indent: 0;
 }
 </style>

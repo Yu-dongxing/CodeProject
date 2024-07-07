@@ -1,7 +1,9 @@
 <template>
     <!-- 联系 -->
   <div class="MainPhone">
-    lx
+    <div class="P_L">
+      
+    </div>
   </div>
 </template>
 
@@ -12,5 +14,12 @@ export default {
 </script>
 
 <style>
+.MainPhone{
+  width: 100%;
+  height: 100%;
+  background-color: aqua;
+}
+.MainPhone .P_L{
 
+}
 </style>

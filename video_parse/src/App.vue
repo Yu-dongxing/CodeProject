@@ -67,9 +67,6 @@ export default {
     div{
         border-radius: var(--boder-redis);
     }
-    div{
-        /* background-color: brown; */
-    }
     /*  */
     .over_over_0x_h{
             overflow: overlay;

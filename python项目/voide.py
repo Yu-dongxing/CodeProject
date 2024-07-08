@@ -35,7 +35,7 @@ def fetch_download_list(url,headers):
                 data.append(cols)  
               
             # 返回表头和数据  
-            return head, data  ,title
+            return head,data,title
         else:  
             print("未找到ID为'download-list'的表格")  
     else:  

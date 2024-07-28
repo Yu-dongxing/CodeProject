@@ -56,6 +56,7 @@ export default {
         --backgroundcolor:rgb(255 174 174 / 62%);
         --backgroundcolor--hover:rgba(255,255,255,0.50) ;
         --line--height:20px;
+        --font-a-color:rgb(0, 0, 0);
     }
     /* 高斯模糊样式 */
     .blur_color{
@@ -83,7 +84,7 @@ export default {
         height: 0;
     }
     .backgroud_img{
-        background:url("https://github.githubassets.com/assets/bg-a352b7ab2e3b.png");
+        /* background:url("https://github.githubassets.com/assets/bg-a352b7ab2e3b.png"); */
         background-repeat: no-repeat;  /* 不重复背景图像 */  
         background-size: cover;        /* 使背景图像覆盖整个元素 */  
         background-position: center;   /* 将背景图像居中放置 */ 
@@ -121,5 +122,18 @@ p{
 }
 .p_w_text-indent{
     text-indent: 0;
+}
+a.router-link-active{
+    color: var( --font-a-color);
+    /* cursor: pointer; */
+    background-color: var(--backgroundcolor--hover);
+}
+.close::after{
+    content: 'X';
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 20px;
 }
 </style>

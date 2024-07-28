@@ -7,7 +7,7 @@
             <div class="v_l_l radius backgroud_img blur_color">
                 <router-link class="l_fk transition_color_bkcolor radius blur_color " :to="{path:'/voide_id_'+item.id+'/'}"   v-for="(item) in video_spid" :key="item.id">
                     <div class="fk_a">
-                        <img :src=" `/VoideIDsvg/${item.iconName}` " :alt=item.id>
+                        <img :src="`/VoideIDsvg/${item.iconName}`" :alt=item.id>
                         <span>{{ item.title }}</span>
                     </div>
                 </router-link>
@@ -175,7 +175,7 @@ export default {
 .Voide .v_r{
     width: 100%;
     height: 100%;
-    background-color: blue;
+    /* background-color: blue; */
     /* margin-left: 5px; */
     /* display: flex; */
     position: relative;
@@ -230,7 +230,7 @@ export default {
 .Voide .v_r .r_Box .Box_box .img{
     width: 100%;
     height: 260px;
-    background: url("https://s1.aigei.com/src/img/gif/f3/f3716c9376c84262813749d18a5f282e.gif?imageMogr2/auto-orient/thumbnail/!560x560r/gravity/Center/crop/560x560/quality/85/%7CimageView2/2/w/560%7Cwatermark/3/image/aHR0cHM6Ly9zMS5haWdlaS5jb20vd2F0ZXJtYXJrL21pZGRsZS0xLUwxMC5wbmc_ZT0xNzM1NDg4MDAwJnRva2VuPVA3UzJYcHpmejExdkFrQVNMVGtmSE43Rnctb09aQmVjcWVKYXh5cEw6cE9JQ29KYkxTOF9YNVBqVWlJYTZWX0phVVRJPQ==/dissolve/100/gravity/Center/dx/6/dy/11&e=1735488000&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:AMJ9NRFN1Cv8doJJMpZDcx-HNLQ=");
+    /* background: url("https://s1.aigei.com/src/img/gif/f3/f3716c9376c84262813749d18a5f282e.gif?imageMogr2/auto-orient/thumbnail/!560x560r/gravity/Center/crop/560x560/quality/85/%7CimageView2/2/w/560%7Cwatermark/3/image/aHR0cHM6Ly9zMS5haWdlaS5jb20vd2F0ZXJtYXJrL21pZGRsZS0xLUwxMC5wbmc_ZT0xNzM1NDg4MDAwJnRva2VuPVA3UzJYcHpmejExdkFrQVNMVGtmSE43Rnctb09aQmVjcWVKYXh5cEw6cE9JQ29KYkxTOF9YNVBqVWlJYTZWX0phVVRJPQ==/dissolve/100/gravity/Center/dx/6/dy/11&e=1735488000&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:AMJ9NRFN1Cv8doJJMpZDcx-HNLQ="); */
     /* background-color: aqua; */
     background-repeat: no-repeat;  /* 不重复背景图像 */  
     background-size: cover;        /* 使背景图像覆盖整个元素 */  
@@ -258,7 +258,7 @@ export default {
     background-color: var(--backgroundcolor--hover);
 }
 .Voide .v_r .r_Box .Box_box .desc .desc_h1{
-    background-color: var(--backgroundcolor);
+    /* background-color: var(--backgroundcolor); */
     color: #000000bd;
     /* font-size: 18px; */
 }
@@ -298,8 +298,7 @@ export default {
 a{
     color:#000;
 }
-.Voide .v_l .v_l_l .l_fk:hover,
-a.router-link-active{
+.Voide .v_l .v_l_l .l_fk:hover{
     color: var(--font--hover--color);
     /* cursor: pointer; */
     background-color: var(--backgroundcolor--hover);

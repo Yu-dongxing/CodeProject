@@ -16,6 +16,12 @@ body {
 	--heigth: auto;
 /*	var(--width);	.nitise iframe  .input_jxjk, .input_bfurl #bf*/
 	--width:90%;
+    /* 圆角样式 */
+    --radis:10px;
+    /*整体背景颜色  */
+    --backcolor:rgba(255,255,255,100%);
+    /* input默认点击样式 */
+    --input--select--focus--color:#fff200af;
 }
 /* 取消input默认点击样式 */
 input:focus,select:focus{
@@ -309,19 +315,22 @@ a:active {
 </div>
 <script>
 	//Main Code
-//	//信息通知函数
-	var countdown = 5;  
-	var countdownTimer = setInterval(function() {  
-    countdown--;  
-    document.getElementById("countdown").innerHTML = countdown;  
-    if (countdown <= 0) {  
-        clearInterval(countdownTimer);  
-    }}, 1000); 
-    var element = document.getElementById("xx");  
-        setTimeout(function() {  
-            element.parentNode.removeChild(element);  
-        }, 5000); 
-	
+    xxtz();
+    // 信息通知
+    function xxtz(){
+        var countdown = 5;  
+        var countdownTimer = setInterval(function() {  
+        countdown--;
+        document.getElementById("countdown").innerHTML = countdown;  
+        if (countdown <= 0) {
+            clearInterval(countdownTimer);  
+        }}, 1000); 
+        var element = document.getElementById("xx");  
+            setTimeout(function() {  
+                element.parentNode.removeChild(element);  
+            }, 5000); 
+    }
+    // 点击播放
 	function Startplaying(){
 		var playurl = document.getElementById("url").value;
 		//从页面中获取ID为"url"的元素的值，并将其存储在变量playurl中
@@ -336,14 +345,15 @@ a:active {
 		PlayUrl.src = jkindexurl + playurl
 		//将cljurl的src属性设置为jkindexurl和playurl两个变量的值的组合
 	}
+    // 元素删除
 	function deletell(id) {
 		// 获取id为Nitise的元素  
 		var element = document.getElementById(id);
 		// 如果元素存在  
 		if (element) {
-		// 添加点击事件监听器  
+		// 添加点击事件监听器
 			element.addEventListener('click', function() {
-		// 删除该元素  
+		// 删除该元素
 				this.parentNode.removeChild(this);
 			});
 		} else {

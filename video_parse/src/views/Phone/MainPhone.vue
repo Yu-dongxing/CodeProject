@@ -18,7 +18,14 @@
               </div>
               <div class="A_D">
                 <div class="D_P">
-                  <p>00000000000000</p>
+                  <p>000100110111001101000101101011010110101</p>
+                  <p>100110110101010110111000101010101101101</p>
+                  <p>100110111111010111101111011101010101110</p>
+                  <p>001001111101110001010100111001011010111</p>
+                  <p>100110001000100111101101011101000101001</p>
+                  <p>100010000010000000101010101000101010011</p>
+                  <p>111011111100001111010101001011001101001</p>
+                  <p>100111011010100110111101110100101010010</p>
                 </div>
               </div>
             </div>
@@ -88,12 +95,14 @@ export default {
               width: 100px;
               height: 100px;
               background-color: var(--desc-img-name);
+              border: 1px solid #ffffff;
+              box-shadow: 0px 0px 10px 1px #ffffff;
             }
             .A_N{
               margin-top: 10px;
               height: 50px;
               width: 500px;
-              background-color: var(--desc-img-name);
+              // background-color: var(--desc-img-name);
               .N_P{
                 p{
                   color: aliceblue;
@@ -108,12 +117,16 @@ export default {
               margin-top: 10px;
               width: 500px;
               height: 200px;
-              background-color: var(--desc-img-name);    
+              // background-color: var(--desc-img-name);    
               .D_P{
                 padding: 5px;
                 p{
+                  width: 500px;
+                  // unicode-bidi:embed;
                   color:rgb(86, 250, 80);
                   font-size: 20px;
+                  // p标签换行
+                  word-break: break-all;
                 }
               }     
             }
@@ -138,5 +151,8 @@ export default {
   animation-name: color;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+p{
+  
 }
 </style>

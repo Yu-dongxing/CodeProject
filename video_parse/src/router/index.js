@@ -9,9 +9,9 @@ const routes = [
     {
         path:'/',
         // component:'/voide_id_1/'
-        redirect:'/voide_id_1/',
+        redirect:'/MainAbout',
     },
-    //一级首页路由
+    //一级路由
     {
         path: '/voide_id_:page_id/',
         component:MainVoide,

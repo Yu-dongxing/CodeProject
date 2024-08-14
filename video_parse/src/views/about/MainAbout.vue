@@ -4,7 +4,7 @@
     <!-- 关于模块中的内容模块 -->
     <div class="about_L radius">
       <div class="L_a radius er">
-        <div class="box blur_color radius" v-for="(item) in texxt " :key="item.id">
+        <div class="box blur_color radius" v-for="(item) in zh_xw " :key="item.id">
           <!-- 文章列表 -->
           <div class="her">
             <!-- 文章主题 -->
@@ -13,7 +13,8 @@
             </div>
             <!-- 文章图片 -->
             <div class="her_img ">
-              <img class="radius" src="https://ts1.cn.mm.bing.net/th/id/R-C.91f8e62c0ed7b5deeb4cbc7b6874e57b?rik=RjFU3f6mxkcyaw&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f40168%2f4380.jpg_wh860.jpg&ehk=cN0vXYFpp1JOnXYGYAE6oGd0%2fj06SIjQodY0HfgzaVo%3d&risl=&pid=ImgRaw&r=0" alt="">
+              <!-- <img class="radius" src="https://ts1.cn.mm.bing.net/th/id/R-C.91f8e62c0ed7b5deeb4cbc7b6874e57b?rik=RjFU3f6mxkcyaw&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f40168%2f4380.jpg_wh860.jpg&ehk=cN0vXYFpp1JOnXYGYAE6oGd0%2fj06SIjQodY0HfgzaVo%3d&risl=&pid=ImgRaw&r=0" alt=""> -->
+              <img class="radius" :src="item.pic" :alt="item.id">
             </div>
           </div>
           <div class="desc radius">
@@ -85,7 +86,7 @@
 </template>
 
 <script>
-
+import axios from 'axios';
 export default {
     name:'MainAbout',
     data(){
@@ -97,16 +98,9 @@ export default {
             {id:4,title:'男生保送北大物理“卓越计划”，来考了唯一一门语文！“挑战我最弱的语文”'      ,desc:"潮新闻讯  如果把高考看作一场比赛，提前“上岸”的保送生，就是“神”一样的存在。每年高考，杭州第二中学（滨江校区）考点门口，由保送生组成的“学霸助考天团”，总能引来家长和同学们的羡慕惊叹。保送生来给同学送考加油，已经成为杭二中的传统，这是好运的加持，也是拼搏的传承。" },
             {id:5,title:'外交部：中吉乌铁路项目彰显三国谋合作、促发展的共同心愿'      ,desc:"新华社北京6月7日电（记者冯歆然）中国－吉尔吉斯斯坦－乌兹别克斯坦铁路项目三国政府间协定签字仪式6日在北京举行。外交部发言人毛宁7日在例行记者会上答问时表示，中吉乌铁路项目彰显了三国谋合作、促发展的共同心愿。中方期待同各方紧密合作，齐心协力，早日建成这条符合地区人民共同利益的发展之路、友谊之路和幸福之路。毛宁说，1996年，乌兹别克斯坦第一个提出中国－吉尔吉斯斯坦－乌兹别克斯坦铁路的设想。在近30年时间内，三国就项目举行了很多轮磋商和谈判，充分、深入沟通工作思路。去年5月，中吉乌铁路项目可研基本完成，项目推进工作驶入快车道。短短一年时间内，三方通力协作、加紧商谈，在有关重大问题上不断缩小分歧、累积共识，最终于6日签署了中吉乌铁路三国政府间协定。" },
             {id:6,title:'中国海警局新闻发言人就日方炒作我钓鱼岛维权巡航发表谈话'      ,desc:"中国海警局新闻发言人甘羽表示，6月7日，中国海警2501编队在我钓鱼岛领海内依法开展维权巡航活动，这是我维护国家主权、安全和海洋权益的例行性行动，是我维护地区和平稳定、反制日方近期一系列消极举动的必要举措。钓鱼岛及其附属岛屿是中国固有领土，我们奉劝日方谨言慎行、反躬自省、停止挑衅，中国海警将依法加强在中国管辖海域的巡航执法力度，坚决挫败一切侵权挑衅图谋。来源：中国海警局网站" },
-            {id:7,title:'测试7'      ,desc:"7内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
-            {id:8,title:'测试8'      ,desc:"8内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
-            {id:9,title:'测试9'      ,desc:"9内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
-            {id:10,title:'测试11'    ,desc:"0内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
-            {id:11,title:'测试111'   ,desc:"11内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容2内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容2内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容2内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容2内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容2内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容2内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容2内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
-            {id:12,title:'测试234'   ,desc:"12内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
-            {id:13,title:'测试23'    ,desc:"13内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
-            {id:14,title:'测试12'    ,desc:"14内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
-            {id:15,title:'测试14'    ,desc:"15内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
-            {id:16,title:'测试15'    ,desc:"16内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" },
+          ],
+          zh_xw:[
+            {id:1,title:'加载中！！！'  ,desc:"加载中！！！" ,pic:"https://ts1.cn.mm.bing.net/th/id/R-C.91f8e62c0ed7b5deeb4cbc7b6874e57b?rik=RjFU3f6mxkcyaw&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f40168%2f4380.jpg_wh860.jpg&ehk=cN0vXYFpp1JOnXYGYAE6oGd0%2fj06SIjQodY0HfgzaVo%3d&risl=&pid=ImgRaw&r=0" },
           ],
           User:{
             id:10023,
@@ -116,7 +110,44 @@ export default {
           }
         }
     },
-
+    methods:{
+      async  zhxw() { 
+            // if(!id){
+            //     id=1;
+            // } 
+            try {  
+                const response = await axios.get(  
+                    'https://api.pearktrue.cn/api/social/hotlist.php?type=%E7%9F%A5%E4%B9%8E',  
+                ); 
+                if (Array.isArray(response.data.data)) {    
+                        this.zh_xw = []; // 初始化this.video 数组    
+                        response.data.data.forEach(item => {    
+                            this.zh_xw.push(
+                                { 
+                                    id: item.index  , 
+                                    title: item.title ,
+                                    desc:item.desc,
+                                    pic:item.pic
+                                });    
+                        });
+                        console.log(this.zh_xw);
+                        } else {  
+                        console.error('data is not an array');  
+                    }   
+            } catch (error) {  
+                console.error(error);  
+            }  
+        },
+    },
+    // updated(){
+    // this.zhxw();
+    // },
+    beforeMount(){
+      this.zhxw();
+    },
+    // mounted() {  
+    //   this.zhxw();
+    // },
 }
 </script>
 
@@ -306,7 +337,8 @@ export default {
   width: 100%;
   height: 80px;
   background-color: #72efff;
-  display: flex;
+  /* display: flex; */
+  display: none;
   justify-content: center;
   /* justify-content: space-between; */
   align-items: center;

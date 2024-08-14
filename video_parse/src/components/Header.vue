@@ -31,10 +31,10 @@ export default {
     data(){
       return {
         list_l:[
-          {id:1 , title:"首页"  ,rout:'/voide_id_1/'},
-          {id:2 , title:"关于"  ,rout:'/MainAbout/'},
+          {id:1 , title:"首页"  ,rout:'/MainAbout/'},
+          {id:2 , title:"视频解析"  ,rout:'/voide_id_1/'},
           {id:3 , title:"日志"  ,rout:'/MainVlog/'},
-          {id:4 , title:"联系"  ,rout:'/MainPhone/'},
+          {id:4 , title:"关于"  ,rout:'/MainPhone/'},
         ],
         list_r:[
           {id:1 , title:"其他"  ,iconName:"logo" ,width:20},

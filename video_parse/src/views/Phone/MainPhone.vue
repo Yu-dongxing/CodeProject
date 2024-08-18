@@ -1,8 +1,9 @@
 <template>
-    <!-- 联系 -->
+    <!-- 联系模块 -->
   <div class="MainPhone">
     <div class="P_L">
-      <div class="L_M">
+      <!-- 子模块 -->
+      <div class="L_M M_backgroud_img">
         <div class="M_H">
           <div class="H_A close"></div>
           <div class="H_B"></div>
@@ -43,6 +44,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.M_backgroud_img{
+        background:url("/public/backgroundimg/20240426im6d2d.webp");
+        background-repeat: no-repeat;  /* 不重复背景图像 */  
+        background-size: cover;        /* 使背景图像覆盖整个元素 */  
+        background-position: center;   /* 将背景图像居中放置 */ 
+    }
 .MainPhone{
   --desc-img-name:rgba(255, 255, 255, 0.075);
   
@@ -87,9 +94,13 @@ export default {
       .M_B{
         height: 370px;
         .B_A{
+          // 设置弹性布局
           display: flex;
+          // 水平居中
           justify-content: center;
+          // 垂直居中
           align-items: center;
+          // 垂直排列
           flex-direction: column;
             .A_I{
               width: 100px;
@@ -147,10 +158,14 @@ export default {
   }
 }
 .ccpp,.H_A{
-  animation-duration: 3s;
-  animation-name: color;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+    /* 设置动画持续时间为3秒 */
+    animation-duration: 3s;
+    /* 设置动画名称为color */
+    animation-name: color;
+    /* 设置动画循环次数为无限次 */
+    animation-iteration-count: infinite;
+    /* 设置动画方向为交替 */
+    animation-direction: alternate;
 }
 p{
   

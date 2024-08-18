@@ -33,6 +33,16 @@ export default {
         /* background-color: aqua; */
         background: var(--body--background);
         /* backdrop-filter:blur(20px); */
+        /* background:url("../public/backgroundimg/20240604106cbm.webp"); */
+        /* background-repeat: no-repeat;  
+        background-size: cover;        
+        background-position: center;    */
+    }
+    html{
+        /* background-image:url("../public/backgroundimg/167414.png"); */
+        background-repeat: no-repeat;  
+        background-size: cover;        
+        background-position: center;   
     }
     /* a链接无下划线 */
     a{
@@ -57,6 +67,7 @@ export default {
         --backgroundcolor--hover:rgba(255,255,255,0.50) ;
         --line--height:20px;
         --font-a-color:rgb(0, 0, 0);
+        /* --body--background-img:url("../public/backgroundimg/2024060728g8nh.webp"); */
     }
     /* 高斯模糊样式 */
     .blur_color{
@@ -85,6 +96,12 @@ export default {
     }
     .backgroud_img{
         /* background:url("https://github.githubassets.com/assets/bg-a352b7ab2e3b.png"); */
+        background-repeat: no-repeat;  /* 不重复背景图像 */  
+        background-size: cover;        /* 使背景图像覆盖整个元素 */  
+        background-position: center;   /* 将背景图像居中放置 */ 
+    }
+    .body_backgroud_img{
+        background:url("../public/backgroundimg/2024060728g8nh.webp");
         background-repeat: no-repeat;  /* 不重复背景图像 */  
         background-size: cover;        /* 使背景图像覆盖整个元素 */  
         background-position: center;   /* 将背景图像居中放置 */ 

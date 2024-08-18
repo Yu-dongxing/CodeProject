@@ -13,7 +13,6 @@
             </div>
             <!-- 文章图片 -->
             <div class="her_img ">
-              <!-- <img class="radius" src="https://ts1.cn.mm.bing.net/th/id/R-C.91f8e62c0ed7b5deeb4cbc7b6874e57b?rik=RjFU3f6mxkcyaw&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f40168%2f4380.jpg_wh860.jpg&ehk=cN0vXYFpp1JOnXYGYAE6oGd0%2fj06SIjQodY0HfgzaVo%3d&risl=&pid=ImgRaw&r=0" alt=""> -->
               <img class="radius" :src="item.pic" :alt="item.id">
             </div>
           </div>
@@ -57,7 +56,7 @@
           </div>
           <!-- 用户名称模块 -->
           <div class="a_Name">
-            <p class="a_Name_p p_w_text-indent">欢迎"<span style="color: #ff0000;">{{ User.name }}{{ version }}</span>"的到来 !!!</p>
+            <p class="a_Name_p p_w_text-indent">欢迎"<span style="color: #ff0000;">{{ User.name }}</span>"的到来 !!!</p>
           </div>
           <div class="a_Bu ">
             <div class="Bu_a transition_color_bkcolor">
@@ -92,7 +91,11 @@ export default {
     data(){
         return{
           texxt:[
-            {id:1,title:'【推动高质量发展系列主题新闻发布会'  ,desc:"6月4日，嫦娥六号完成月背“挖土”，携带的由玄武岩纤维制成的“石头版”五星红旗，在月球背面成功展开。阳光照射下，五星红旗光彩夺目，闪耀着鲜艳的中国红。"  },
+            {
+              id:1,
+              title:'【推动高质量发展系列主题新闻发布会'  ,
+              desc:"6月4日，嫦娥六号完成月背“挖土”，携带的由玄武岩纤维制成的“石头版”五星红旗，在月球背面成功展开。阳光照射下，五星红旗光彩夺目，闪耀着鲜艳的中国红。"
+            },
             {id:2,title:'测试2'      ,desc:"央视网消息（新闻联播）：国务院新闻办公室6月6日举行“推动高质量发展”系列主题新闻发布会，陕西省有关负责人介绍了相关情况。" },
             {id:3,title:'测试3'      ,desc:"十年来，陕西省地区生产总值年均增长6.4%，去年达到3.38万亿元，连续跨越两个万亿元台阶。培育形成航空工业、集成电路、先进结构材料3个国家级产业集群，光伏电池转换效率屡破世界纪录，超导、特高压输电、新型显示等领域技术达到国际先进水平，钛加工产业规模、重卡变速器产量全球第一，创新驱动发展驶入快车道。" },
             {id:4,title:'男生保送北大物理“卓越计划”，来考了唯一一门语文！“挑战我最弱的语文”'      ,desc:"潮新闻讯  如果把高考看作一场比赛，提前“上岸”的保送生，就是“神”一样的存在。每年高考，杭州第二中学（滨江校区）考点门口，由保送生组成的“学霸助考天团”，总能引来家长和同学们的羡慕惊叹。保送生来给同学送考加油，已经成为杭二中的传统，这是好运的加持，也是拼搏的传承。" },

@@ -156,7 +156,8 @@ export default {
     /* background-color: aqua; */
     /* margin: 0 auto; */
     /* position: fixed; */
-    display: flex;
+    /* display: flex; */
+    display: none;
     
 }
 .Voide .v_l{

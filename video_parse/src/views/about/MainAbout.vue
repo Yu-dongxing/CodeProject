@@ -43,7 +43,7 @@
       </div>
     </div>
     <!-- 关于模块中的用户模块 -->
-    <div class="about_R radius blur_color">
+    <div class="about_R ">
       <!-- 用户个人信息模块 -->
       <div class="R_a">
         <!-- 用户头像和id模块 -->
@@ -196,7 +196,7 @@ export default {
 .About .about_L .L_a .box  .desc{
   width: 100%;
   height: 170px;
-  background-color: rgba(168, 254, 236, 0.747);
+  /* background-color: rgba(168, 254, 236, 0.747); */
   /* transition: width .2s ease; */
 
 }
@@ -278,7 +278,7 @@ export default {
   float:right;
   width: 20%;
   height: 100%;
-  background-color: rgb(173, 255, 255);
+  /* background-color: rgb(173, 255, 255); */
   
   display: flex;
   flex-direction: column;
@@ -302,12 +302,12 @@ export default {
   margin-top:10px;
   width: 100%;
   height: auto;
-  background-color: rgba(127, 168, 255, 0.312);
+  background-color: rgb(255, 255, 255);
 }
 .About .about_R .R_a .a_a .a_img{
   width: 100%;
   height: 110px;
-  background-color: rgba(170, 255, 113, 0.452);
+  /* background-color: rgba(170, 255, 113, 0.452); */
   display: flex;
   justify-content: center;
   align-items: center;

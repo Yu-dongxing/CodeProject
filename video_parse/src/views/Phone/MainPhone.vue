@@ -27,6 +27,9 @@
                   <p>100010000010000000101010101000101010011</p>
                   <p>111011111100001111010101001011001101001</p>
                   <p>100111011010100110111101110100101010010</p>
+                  <router-link :to="{path:'/MainPhone/CwXt'}"  @click="changeDisplay()" >
+                      <span>财务系统</span>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -34,16 +37,29 @@
         <div class="M_F"></div>
       </div>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
     name:'MainPhone',
+    methods:{
+      changeDisplay() {
+        // 使用querySelector选择第一个具有指定类名的元素
+        var element = document.querySelector(".P_L");
+        if (element) {
+          // 修改元素的display属性
+          element.style.display = "none";
+        } else {
+          console.log('没有找到指定类名的元素');
+        }
+      }
+    }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less" >
 .M_backgroud_img{
         background:url("/public/backgroundimg/20240426im6d2d.webp");
         background-repeat: no-repeat;  /* 不重复背景图像 */  
@@ -55,9 +71,13 @@ export default {
   
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top:10px;
   /* background-color: aqua; */
   .P_L{
     margin-top: 10px;
+    display: block;
     // text-align: -webkit-center;
     
     .L_M{

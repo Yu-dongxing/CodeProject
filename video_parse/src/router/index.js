@@ -4,6 +4,7 @@ import VoidePlay from '@/views/VoidePlay.vue'
 import MainAbout from '@/views/about/MainAbout.vue'
 import MainVlog from '@/views/vlog/MainVlog'
 import MainPhone from '@/views/Phone/MainPhone'
+import CwXt from '@/views/cwxt/CwXt.vue'
 const routes = [  
     //默认路由
     {
@@ -39,12 +40,20 @@ const routes = [
     //一级日志路由
     {
         path:'/MainVlog',
-        component:MainVlog
+        component:MainVlog,
+        
     },
     //一级联系路由
     {
         path:'/MainPhone',
-        component:MainPhone
+        component:MainPhone,
+        children:[
+            {
+                name:'CwXt',
+                path:'/MainPhone/CwXt',
+                component:CwXt
+            }
+        ]
     },
     
 ]  

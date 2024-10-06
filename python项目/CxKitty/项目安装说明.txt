@@ -1,0 +1,32 @@
+1使用国内镜像源：
+如果你在中国大陆，可能由于网络问题导致无法直接从 PyPI 下载 pip。你可以尝试使用国内的镜像源进行升级，例如使用清华大学的 PyPI 镜像源：
+
+shell
+pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+python.exe -m pip install --upgrade pip
+
+使用 --user 选项：
+尝试使用 --user 选项来升级 pip，这样可以将 pip 安装在用户目录而不是系统目录，通常不需要管理员权限。命令如下：
+
+shell
+python -m pip install --upgrade --user pip
+
+-----
+pip --version  查看pip版本
+-----
+pip install poetry 安装poetry
+-----
+使用python3.11 版本
+poetry env use "C:\Users\28310\AppData\Local\Programs\Python\Python311\python.exe" 
+
+-----
+查看python版本是否正确
+poetry env info
+-----
+项目安装
+poetry install 
+=-----
+项目运行
+poetry run python main.py
+
+

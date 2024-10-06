@@ -1,0 +1,7 @@
+imgs/
+.vscode/
+session/
+logs/
+questions.*
+export/*
+faces/*

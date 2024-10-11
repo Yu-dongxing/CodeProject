@@ -40,12 +40,26 @@
 - **设计获取**: 从不同来源获取设计资源。
 - **内容管理**: 管理项目内容和数据。
 
-## 🛠️ 项目安装
+## 🛠️ 安装与使用
 
-每个文件夹项目都包含相应的说明文档，请查阅以进行安装。
+1. **克隆仓库**:
+   ```bash
+   git clone https://github.com/Yu-dongxing/CodeProject.git
+   ```
+2. **查看文档**:
+   每个项目文件夹中都包含一个README.md文件，提供了详细的安装和使用说明。
 
 ## 📜 项目 License
 
 - **开源协议**: 项目遵循开源协议，具体协议请参考项目文档。
+
+## 💌 贡献
+
+欢迎任何形式的贡献！如果你有任何建议或想要添加新的项目，请提交Pull Request或创建Issue。
+
+## 📧 联系方式
+
+- **邮箱**: [yuxs2022@163.com](mailto:yuxs2022@163.com)
+- **GitHub**: [Yu-dongxing](https://github.com/Yu-dongxing)
 
 ---

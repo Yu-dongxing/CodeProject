@@ -1557,9 +1557,9 @@ if __name__ == "__main__":
         import sys
         import os
 
-        base_url = "http://jxgl.ahiib.edu.cn/"  # 教务系统URL
-        sid = "2304170638"  # 学号
-        password = "123456789yu"  # 密码
+        base_url = "http://ahiib.edu.cn/"  # 教务系统URL
+        sid = ""  # 学号2304170638
+        password = ""  # 密码123456789yu
         lgn_cookies = (
             {
                 # "insert_cookie": "",

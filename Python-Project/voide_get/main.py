@@ -20,22 +20,13 @@ from lxml import etree
 
 def fetch_data(url):
     response = requests.get(url, headers=headers)
+    print(response)
     if response.status_code == 200:
         parser = etree.HTMLParser()  # 创建HTML解析器
         tree = etree.fromstring(response.text, parser)  # 使用解析器解析文本
         # 使用XPath查找特定的tr元素
-        tr_elements = tree.xpath('//table[@id="ajaxtable"]/tbody[2]//tr[@class and contains(@class, "tr3") and contains(@class, "t_one")]')
-        data_list = []  # 用于存储每个tr元素的数据
-        for tr in tr_elements:
-            td_elements = tr.xpath('.//td')  # 获取当前tr元素下的所有td元素
-            data_dict = {}  # 创建一个字典来存储当前tr元素的数据
-            for td in td_elements:
-                # 假设每个td的文本内容就是我们要的数据
-                data_dict[td.tag] = td.text.strip()  # 使用strip()去除文本两端的空白字符
-            data_list.append(data_dict)  # 将当前tr元素的数据字典添加到列表中
-        # 将数据列表转换为JSON格式
-        json_data = json.dumps(data_list, ensure_ascii=False)
-        return json_data
+        tr_elements = tree.xpath(".//div[@class='t z']/table[@id='ajaxtable']/table[2]/tr[@class='tr3 t_one']")
+        print(tr_elements)
     else:
         return "Failed to retrieve data"  # 如果状态码不是200，返回错误信息
 
@@ -49,6 +40,7 @@ def save_to_excel(data, filename):
 def main():
     for i in range(1,3):
         base_url = link_url+"/thread.php?fid=15&page="+str(i)
+        print(base_url)
         data = fetch_data(base_url)
         # if data is not None and len(data) > 0:
         print(data)

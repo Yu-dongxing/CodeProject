@@ -1,0 +1,23 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>HLS M3U8 Video Player</title>  
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">  
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/videojs-http-streaming@1.12.3/dist/videojs-http-streaming.min.js"></script>  
+</head>  
+<body>  
+  
+<video id="my-player" class="video-js" controls preload="auto" width="640" height="264"  
+    data-setup='{}'>  
+    <source src="https://pptv.sd-play.com/202308/18/bC4JdSh0ct3/video/index.m3u8" type="application/x-mpegURL">  
+</video>  
+  
+<script>  
+    var player = videojs('my-player');  
+</script>  
+  
+</body>  
+</html>

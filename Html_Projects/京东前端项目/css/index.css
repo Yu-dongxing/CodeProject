@@ -1,0 +1,89 @@
+/* 头部样式 */
+.header{
+    width: 100%;
+    height: 140px;
+    border-bottom: 1px solid #ddd;
+    background-color: rgb(226, 212, 60);
+}
+.wrap{
+    width: 1190px;
+    margin: 0 auto;
+}
+.header-box{
+    position: relative;
+    height: 140px;
+    background-color: aqua;
+}
+.logo{
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 190px;
+    height: 120px;
+    background-color: chocolate;
+    background: url("./../imgs/sprite-retina2x.png") no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+}
+.search{
+    height: 60px;
+    width: 100%;   
+}
+.search-m{
+    position: relative;
+    width: 100%;
+    height: 60px;
+}
+.search_logo{
+    display: none;
+    width: 125px;
+    height: 40px;
+    position: absolute;
+    top: 4px;
+    left: 0px;
+}
+.form{
+    width: 546px;
+    height: 32px;
+     position: absolute;
+     left: 260px;
+     top: 25px;
+     border: 2px solid #e2231a;
+     background-color: #fff;
+}
+.keyword{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 425px;
+    height: 26px;
+    padding: 2px 44px 2px 17px;
+    border: 1px solid transparent;
+    line-height: 26px;
+    font-size: 12px;
+    color: #333;
+    outline: none;
+}
+.form button{
+    width: 58px;
+    height: 32px;
+    position: absolute;
+    right: 0px;
+    line-height: 32px;
+    border: none;
+    background-color: #e2231a;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+}
+.search-helper{
+    display: none;
+    width: 488px;
+    /* height: 200px; */
+    background-color: skyblue;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 1px 2px 1px rgb(0 0 0 /  20%);
+}

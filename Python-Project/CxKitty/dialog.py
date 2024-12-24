@@ -191,6 +191,8 @@ def select_exam(tui_ctx: Console, exams: list[ClassExamModule], api: ChaoXingAPI
                 status_style = "yellow"
             case ExamStatus.已完成:
                 status_style = "green"
+            case ExamStatus.待做:
+                status_style = "yellow"
         tb.add_row(
             f"[green]{index}",
             exam.name,

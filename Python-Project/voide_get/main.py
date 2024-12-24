@@ -19,16 +19,33 @@ import requests
 from lxml import etree
 
 def fetch_data(url):
-    response = requests.get(url, headers=headers)
-    print(response)
+    response = requests.get(url,headers)
     if response.status_code == 200:
-        parser = etree.HTMLParser()  # 创建HTML解析器
-        tree = etree.fromstring(response.text, parser)  # 使用解析器解析文本
-        # 使用XPath查找特定的tr元素
-        tr_elements = tree.xpath(".//div[@class='t z']/table[@id='ajaxtable']/table[2]/tr[@class='tr3 t_one']")
-        print(tr_elements)
+        parser = etree.HTMLParser()
+        tree = etree.fromstring(response.text, parser)
+        # 使用 XPath 提取不包含广告的所有主题行
+        threads = tree.xpath('//tr[not(contains(., "div_ad_a")) and not(contains(., "广告"))]')
+        # Use XPath to find all tr elements with class "tr3 t_one"
+        tr_elements = tree.xpath(".//table[@id='ajaxtable']//tr[@class='tr3 t_one']")
+        
+        # Iterate over each row and extract data
+        for tr in threads:
+            title = tr.xpath(".//td[2]//a[@class='subject']/text()")
+            link = tr.xpath(".//td[2]//a[@class='subject']/@href")
+            author = tr.xpath(".//td[3]//a[@class='bl']/text()")
+            replies = tr.xpath(".//td[4]//span[@class='s3']/text()")
+            last_post = tr.xpath(".//td[5]//span[@class='f10 gray']/text()")
+            
+            link = link[0] if link else 'N/A'  # 如果没有链接，返回 'N/A'
+
+            print(f"Title: {title[0] if title else 'N/A'}")
+            print(f"Link: {link}")
+            print(f"Author: {author[0] if author else 'N/A'}")
+            print(f"Replies: {replies[0] if replies else 'N/A'}")
+            print(f"Last Post: {last_post[0] if last_post else 'N/A'}")
+            print('-' * 40)
     else:
-        return "Failed to retrieve data"  # 如果状态码不是200，返回错误信息
+        print("Failed to retrieve data")
 
 # 函数用于将数据保存到Excel文件中
 def save_to_excel(data, filename):

@@ -40,9 +40,9 @@
           
           <el-form 
             :model="form" 
-            label-width="100px"
             :rules="rules"
             ref="formRef"
+            label-width="100px"
           >
             <el-form-item label="头像" class="avatar-upload">
               <el-upload
@@ -50,8 +50,9 @@
                 action="/api/upload"
                 :show-file-list="false"
                 :on-success="handleAvatarSuccess"
+                :before-upload="beforeAvatarUpload"
               >
-                <el-avatar v-if="form.avatar" :src="form.avatar" :size="100" />
+                <img v-if="form.avatar" :src="form.avatar" class="avatar" />
                 <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
               </el-upload>
             </el-form-item>
@@ -224,12 +225,27 @@ const form = ref({
   confirmPassword: ''
 })
 
-// 表单验证规则
+// 表��验证规则
 const validatePass = (rule, value, callback) => {
-  if (form.value.newPassword && value !== form.value.newPassword) {
-    callback(new Error('两次输入的密码不一致'))
+  if (value === '') {
+    callback(new Error('请再次输入密码'))
+  } else if (value !== form.value.newPassword) {
+    callback(new Error('两次输入密码不一致!'))
   } else {
     callback()
+  }
+}
+
+const validatePhone = (rule, value, callback) => {
+  if (value === '') {
+    callback(new Error('请输入手机号'))
+  } else {
+    const reg = /^1[3-9]\d{9}$/
+    if (!reg.test(value)) {
+      callback(new Error('请输入正确的手机号'))
+    } else {
+      callback()
+    }
   }
 }
 
@@ -243,8 +259,7 @@ const rules = {
     { type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur' }
   ],
   phone: [
-    { required: true, message: '请输入手机号', trigger: 'blur' },
-    { pattern: /^1[3-9]\d{9}$/, message: '请输入正确的手机号', trigger: 'blur' }
+    { required: true, validator: validatePhone, trigger: 'blur' }
   ],
   oldPassword: [
     { required: true, message: '请输入旧密码', trigger: 'blur' }
@@ -254,8 +269,7 @@ const rules = {
     { min: 6, message: '密码长度不能小于6位', trigger: 'blur' }
   ],
   confirmPassword: [
-    { required: true, message: '请再次输入密码', trigger: 'blur' },
-    { validator: validatePass, trigger: 'blur' }
+    { required: true, validator: validatePass, trigger: 'blur' }
   ]
 }
 
@@ -291,7 +305,7 @@ const activities = [
 // 安全设置项
 const securityItems = [
   {
-    icon: 'Message',
+    icon: Message,
     title: '邮箱绑定',
     description: '已绑定邮箱：user@example.com',
     buttonText: '修改',
@@ -299,7 +313,7 @@ const securityItems = [
     status: 'verified'
   },
   {
-    icon: 'Phone',
+    icon: Phone,
     title: '手机绑定',
     description: '已绑定手机：138****8000',
     buttonText: '修改',
@@ -307,7 +321,7 @@ const securityItems = [
     status: 'verified'
   },
   {
-    icon: 'Key',
+    icon: Key,
     title: '密码强度',
     description: '密码强度较弱，建议修改',
     buttonText: '修改',
@@ -329,6 +343,7 @@ const handleSubmit = async () => {
     }, 1000)
   } catch (error) {
     console.error('表单验证失败:', error)
+    loading.value = false
   }
 }
 
@@ -336,6 +351,19 @@ const resetForm = () => {
   if (formRef.value) {
     formRef.value.resetFields()
   }
+}
+
+const beforeAvatarUpload = (file) => {
+  const isJPG = file.type === 'image/jpeg' || file.type === 'image/png'
+  const isLt2M = file.size / 1024 / 1024 < 2
+
+  if (!isJPG) {
+    ElMessage.error('头像图片只能是 JPG/PNG 格式!')
+  }
+  if (!isLt2M) {
+    ElMessage.error('头像图片大小不能超过 2MB!')
+  }
+  return isJPG && isLt2M
 }
 
 const handleAvatarSuccess = (response) => {
@@ -453,6 +481,12 @@ const handleAvatarSuccess = (response) => {
 .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .activity-card, .security-card {

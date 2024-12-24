@@ -6,6 +6,7 @@ import time
 import traceback
 import unicodedata
 from urllib.parse import urljoin
+
 import requests
 import rsa
 from pyquery import PyQuery as pq
@@ -47,12 +48,12 @@ class Client:
         self.kaptcha_url = urljoin(self.base_url, "kaptcha")
         self.headers = requests.utils.default_headers()
         self.headers["Referer"] = self.login_url
-        self.headers["User-Agent"] = (
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
-        )
-        self.headers["Accept"] = (
-            "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
-        )
+        self.headers[
+            "User-Agent"
+        ] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+        self.headers[
+            "Accept"
+        ] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
         self.sess = requests.Session()
         self.sess.keep_alive = False
         self.cookies = cookies
@@ -100,11 +101,7 @@ class Client:
                         return {"code": 1002, "msg": "用户名或密码不正确"}
                     return {"code": 998, "msg": tips.text()}
                 self.cookies = self.sess.cookies.get_dict()
-                return {
-                    "code": 1000,
-                    "msg": "登录成功",
-                    "data": {"cookies": self.cookies},
-                }
+                return {"code": 1000, "msg": "登录成功", "data": {"cookies": self.cookies}}
             # 需要验证码，返回相关页面验证信息给用户，TODO: 增加更多验证方式
             need_verify = True
             req_kaptcha = self.sess.get(
@@ -134,10 +131,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             msg = "获取验证码时未记录的错误" if need_verify else "登录时未记录的错误"
@@ -182,11 +176,7 @@ class Client:
                 }
                 self.cookies = route_cookies
             else:
-                return {
-                    "code": 1000,
-                    "msg": "登录成功",
-                    "data": {"cookies": self.cookies},
-                }
+                return {"code": 1000, "msg": "登录成功", "data": {"cookies": self.cookies}}
         except exceptions.Timeout:
             return {"code": 1003, "msg": "登录超时"}
         except (
@@ -195,10 +185,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": "验证码登录时未记录的错误：" + str(e)}
@@ -251,10 +238,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": "获取个人信息时未记录的错误：" + str(e)}
@@ -301,32 +285,22 @@ class Client:
                 # "status": "无" if pending_result.get("学籍状态：") == '' else pending_result["学籍状态："],
                 # "entry_date": "无" if pending_result.get("入学日期：") == '' else pending_result["入学日期："],
                 # "graduation_school": "无" if pending_result.get("毕业中学：") == '' else pending_result["毕业中学："],
-                "domicile": (
-                    "无"
-                    if pending_result.get("籍贯：") == ""
-                    else pending_result["籍贯："]
-                ),
-                "phone_number": (
-                    "无"
-                    if pending_result.get("手机号码：") == ""
-                    else pending_result["手机号码："]
-                ),
+                "domicile": "无"
+                if pending_result.get("籍贯：") == ""
+                else pending_result["籍贯："],
+                "phone_number": "无"
+                if pending_result.get("手机号码：") == ""
+                else pending_result["手机号码："],
                 "parents_number": "无",
-                "email": (
-                    "无"
-                    if pending_result.get("电子邮箱：") == ""
-                    else pending_result["电子邮箱："]
-                ),
-                "political_status": (
-                    "无"
-                    if pending_result.get("政治面貌：") == ""
-                    else pending_result["政治面貌："]
-                ),
-                "national": (
-                    "无"
-                    if pending_result.get("民族：") == ""
-                    else pending_result["民族："]
-                ),
+                "email": "无"
+                if pending_result.get("电子邮箱：") == ""
+                else pending_result["电子邮箱："],
+                "political_status": "无"
+                if pending_result.get("政治面貌：") == ""
+                else pending_result["政治面貌："],
+                "national": "无"
+                if pending_result.get("民族：") == ""
+                else pending_result["民族："],
                 # "education": "无" if pending_result.get("培养层次：") == '' else pending_result["培养层次："],
                 # "postal_code": "无" if pending_result.get("邮政编码：") == '' else pending_result["邮政编码："],
                 # "grade": int(pending_result["学号："][0:4]),
@@ -335,21 +309,15 @@ class Client:
                 # 如果在个人信息页面获取到了学院班级
                 result.update(
                     {
-                        "college_name": (
-                            "无"
-                            if pending_result.get("学院名称：") == ""
-                            else pending_result["学院名称："]
-                        ),
-                        "major_name": (
-                            "无"
-                            if pending_result.get("专业名称：") == ""
-                            else pending_result["专业名称："]
-                        ),
-                        "class_name": (
-                            "无"
-                            if pending_result.get("班级名称：") == ""
-                            else pending_result["班级名称："]
-                        ),
+                        "college_name": "无"
+                        if pending_result.get("学院名称：") == ""
+                        else pending_result["学院名称："],
+                        "major_name": "无"
+                        if pending_result.get("专业名称：") == ""
+                        else pending_result["专业名称："],
+                        "class_name": "无"
+                        if pending_result.get("班级名称：") == ""
+                        else pending_result["班级名称："],
                     }
                 )
             else:
@@ -381,21 +349,15 @@ class Client:
                         pending_result[key] = value
                     result.update(
                         {
-                            "college_name": (
-                                "无"
-                                if pending_result.get("学院：") is None
-                                else pending_result["学院："]
-                            ),
-                            "major_name": (
-                                "无"
-                                if pending_result.get("专业：") is None
-                                else pending_result["专业："]
-                            ),
-                            "class_name": (
-                                "无"
-                                if pending_result.get("班级：") is None
-                                else pending_result["班级："]
-                            ),
+                            "college_name": "无"
+                            if pending_result.get("学院：") is None
+                            else pending_result["学院："],
+                            "major_name": "无"
+                            if pending_result.get("专业：") is None
+                            else pending_result["专业："],
+                            "class_name": "无"
+                            if pending_result.get("班级：") is None
+                            else pending_result["班级："],
                         }
                     )
             return {"code": 1000, "msg": "获取个人信息成功", "data": result}
@@ -407,30 +369,24 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": "获取个人信息时未记录的错误：" + str(e)}
 
-    def get_grade(self, year: int = 0, term: int = 0, use_personal_info: bool = False):
+    def get_grade(self, year: int, term: int = 0, use_personal_info: bool = False):
         """
         获取成绩
         use_personal_info: 是否使用获取个人信息接口获取成绩
         """
         url = urljoin(
             self.base_url,
-            (
-                "cjcx/cjcx_cxDgXscj.html?doType=query&gnmkdm=N305005"
-                if use_personal_info
-                else "cjcx/cjcx_cxXsgrcj.html?doType=query&gnmkdm=N305005"
-            ),
+            "cjcx/cjcx_cxDgXscj.html?doType=query&gnmkdm=N305005"
+            if use_personal_info
+            else "cjcx/cjcx_cxXsgrcj.html?doType=query&gnmkdm=N305005",
         )
         temp_term = term
         term = term**2 * 3
-        year = "" if year == 0 else year
         term = "" if term == 0 else term
         data = {
             "xnm": str(year),  # 学年数
@@ -468,17 +424,18 @@ class Client:
                 "count": len(grade_items),
                 "courses": [
                     {
+                        "course_id": i.get("kch_id"),
                         "title": i.get("kcmc"),
                         "teacher": i.get("jsxm"),
                         "class_name": i.get("jxbmc"),
-                        "class_id": i.get("jxb_id"),
                         "credit": self.align_floats(i.get("xf")),
+                        "category": i.get("kclbmc"),
+                        "nature": i.get("kcxzmc"),
                         "grade": self.parse_int(i.get("cj")),
                         "grade_point": self.align_floats(i.get("jd")),
-                        "submission_time": i.get("tjsj"),
-                        "name_of_submitter": i.get("tjrxm"),
-                        "xfjd": i.get("xfjd"),
-                        "percentage_grades": i.get("bfzcj"),
+                        "grade_nature": i.get("ksxz"),
+                        "start_college": i.get("kkbmmc"),
+                        "mark": i.get("kcbj"),
                     }
                     for i in grade_items
                 ],
@@ -492,13 +449,88 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": "获取成绩时未记录的错误：" + str(e)}
+
+    def get_exam_schedule(self, year: int, term: int = 0):
+        """获取考试信息"""
+        url = urljoin(
+            self.base_url,
+            "kwgl/kscx_cxXsksxxIndex.html?doType=query&gnmkdm=N358105",
+        )
+        temp_term = term
+        term = term**2 * 3
+        term = "" if term == 0 else term
+        data = {
+            "xnm": str(year),  # 学年数
+            "xqm": str(term),  # 学期数，第一学期为3，第二学期为12, 整个学年为空''
+            "_search": "false",
+            "nd": int(time.time() * 1000),
+            "queryModel.showCount": "100",  # 每页最多条数
+            "queryModel.currentPage": "1",
+            "queryModel.sortName": "",
+            "queryModel.sortOrder": "asc",
+            "time": "0",  # 查询次数
+        }
+        try:
+            req_grade = self.sess.post(
+                url,
+                headers=self.headers,
+                data=data,
+                cookies=self.cookies,
+                timeout=self.timeout,
+            )
+            if req_grade.status_code != 200:
+                return {"code": 2333, "msg": "教务系统挂了"}
+            doc = pq(req_grade.text)
+            if doc("h5").text() == "用户登录":
+                return {"code": 1006, "msg": "未登录或已过期，请重新登录"}
+            grade = req_grade.json()
+            grade_items = grade.get("items")
+            if not grade_items:
+                return {"code": 1005, "msg": "获取内容为空"}
+            result = {
+                "sid": grade_items[0]["xh"],
+                "name": grade_items[0]["xm"],
+                "year": year,
+                "term": temp_term,
+                "count": len(grade_items),
+                "courses": [
+                    {
+                        "course_id": i.get("kch"), # 课程代码
+                        "title": i.get("kcmc"), # 课程名称
+                        "time": i.get("kssj"), # 考试时间
+                        "location": i.get("cdmc"), # 考试地点
+                        "xq": i.get("cdxqmc"), # 考试校区
+                        "zwh": i.get("zwh"), # 考试座号
+                        "cxbj": i.get("cxbj", ""), # 重修标记
+                        "exam_name": i.get("ksmc"), # 考试批次名
+                        "teacher": i.get("jsxx"), # 任课教师(含教师id)
+                        "class_name": i.get("jxbmc"), # 教学班名称
+                        "kkxy": i.get("kkxy"), # 开课学院
+                        "credit": self.align_floats(i.get("xf")), # 课程学分数
+                        "ksfs": i.get("ksfs"), # 考试方式, ep: 笔试 & 开卷 & 机考
+                        "sjbh": i.get("sjbh"), # 试卷编号
+                        "bz": i.get("bz1", ""), # 备注, ep: 免监考班级
+                    }
+                    for i in grade_items
+                ],
+            }
+            return {"code": 1000, "msg": "获取考试信息成功", "data": result}
+        except exceptions.Timeout:
+            return {"code": 1003, "msg": "获取考试信息超时"}
+        except (
+            exceptions.RequestException,
+            json.decoder.JSONDecodeError,
+            AttributeError,
+        ):
+            traceback.print_exc()
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
+        except Exception as e:
+            traceback.print_exc()
+            return {"code": 999, "msg": "获取考试信息时未记录的错误：" + str(e)}
 
     def get_schedule(self, year: int, term: int):
         """获取课程表信息"""
@@ -562,10 +594,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": "获取课表时未记录的错误：" + str(e)}
@@ -648,10 +677,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": "获取学业情况时未记录的错误：" + str(e)}
@@ -788,10 +814,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": "获取成绩总表pdf时未记录的错误：" + str(e)}
@@ -865,10 +888,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": "获取课程表pdf时未记录的错误：" + str(e)}
@@ -914,25 +934,85 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": "获取消息时未记录的错误：" + str(e)}
 
-    def get_selected_courses(self, year: int = 0, term: int = 0):
+    def get_selected_courses(self, year: int, term: int):
         """获取已选课程信息"""
+        try:
+            url = urljoin(
+                self.base_url,
+                "xsxk/zzxkyzb_cxZzxkYzbChoosedDisplay.html?gnmkdm=N253512",
+            )
+            temp_term = term
+            term = term**2 * 3
+            data = {"xkxnm": str(year), "xkxqm": str(term)}
+            req_selected = self.sess.post(
+                url,
+                data=data,
+                headers=self.headers,
+                cookies=self.cookies,
+                timeout=self.timeout,
+            )
+            if req_selected.status_code != 200:
+                return {"code": 2333, "msg": "教务系统挂了"}
+            doc = pq(req_selected.text)
+            if doc("h5").text() == "用户登录":
+                return {"code": 1006, "msg": "未登录或已过期，请重新登录"}
+            selected = req_selected.json()
+            result = {
+                "year": year,
+                "term": temp_term,
+                "count": len(selected),
+                "courses": [
+                    {
+                        "course_id": i.get("kch"),
+                        "class_id": i.get("jxb_id"),
+                        "do_id": i.get("do_jxb_id"),
+                        "title": i.get("kcmc"),
+                        "teacher_id": (re.findall(r"(.*?\d+)/", i.get("jsxx")))[0],
+                        "teacher": (re.findall(r"/(.*?)/", i.get("jsxx")))[0],
+                        "credit": float(i.get("xf", 0)),
+                        "category": i.get("kklxmc"),
+                        "capacity": int(i.get("jxbrs", 0)),
+                        "selected_number": int(i.get("yxzrs", 0)),
+                        "place": self.get_place(i.get("jxdd")),
+                        "time": self.get_course_time(i.get("sksj")),
+                        "optional": int(i.get("zixf", 0)),
+                        "waiting": i.get("sxbj"),
+                    }
+                    for i in selected
+                ],
+            }
+            return {"code": 1000, "msg": "获取已选课程成功", "data": result}
+        except exceptions.Timeout:
+            return {"code": 1003, "msg": "获取已选课程超时"}
+        except (
+            exceptions.RequestException,
+            json.decoder.JSONDecodeError,
+            AttributeError,
+        ):
+            traceback.print_exc()
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
+        except Exception as e:
+            traceback.print_exc()
+            return {"code": 999, "msg": f"获取已选课程时未记录的错误：{str(e)}"}    
+
+    def get_selected_courses2(self, year: int = 0, term: int = 0):
+        """获取已选课程信息2"""
         try:
             url = urljoin(
                 self.base_url,
                 "/xsxxxggl/xsxxwh_cxXsxkxx.html?gnmkdm=N100801",
             )
-            temp_term = term
-            term = term**2 * 3
-            year = "" if year == 0 else year
-            term = "" if term == 0 else term
+            if (year == 0 or term == 0):
+                year = ""
+                term = ""
+            else:
+                temp_term = term
+                term = term**2 * 3
             data = {
                 "xnm": str(year),
                 "xqm": str(term),
@@ -959,20 +1039,23 @@ class Client:
             result = {
                 "year": year,
                 "term": temp_term,
-                "count": len(selected),
+                "count": len(selected["items"]),
                 "courses": [
                     {
+                        "course_id": i.get("kch"),
                         "class_id": i.get("jxb_id"),
-                        "class_name": i.get("jxbmc"),
                         "title": i.get("kcmc"),
+                        "credit": float(i.get("xf", 0)),
                         "teacher": i.get("jsxm"),
+                        "category": i.get("kclbmc"),
+                        "place": i.get("jxdd"),
                     }
                     for i in selected["items"]
                 ],
             }
-            return {"code": 1000, "msg": "获取已选课程成功", "data": result}
+            return {"code": 1000, "msg": "获取已选课程2成功", "data": result}
         except exceptions.Timeout:
-            return {"code": 1003, "msg": "获取已选课程超时"}
+            return {"code": 1003, "msg": "获取已选课程2超时"}
         except (
             exceptions.RequestException,
             json.decoder.JSONDecodeError,
@@ -985,7 +1068,7 @@ class Client:
             }
         except Exception as e:
             traceback.print_exc()
-            return {"code": 999, "msg": f"获取已选课程时未记录的错误：{str(e)}"}
+            return {"code": 999, "msg": f"获取已选课程2时未记录的错误：{str(e)}"}
 
     def get_block_courses(self, year: int, term: int, block: int):
         """获取板块课选课列表"""
@@ -1128,6 +1211,7 @@ class Client:
                 "count": len(temp_list),
                 "courses": [
                     {
+                        "course_id": j["kch_id"],
                         "class_id": j.get("jxb_id"),
                         "do_id": j.get("do_jxb_id"),
                         "title": j.get("kcmc"),
@@ -1152,10 +1236,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": f"获取板块课信息时未记录的错误：{str(e)}"}
@@ -1215,10 +1296,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": f"选课时未记录的错误：{str(e)}"}
@@ -1258,10 +1336,7 @@ class Client:
             AttributeError,
         ):
             traceback.print_exc()
-            return {
-                "code": 2333,
-                "msg": "请重试，若多次失败可能是系统错误维护或需更新接口",
-            }
+            return {"code": 2333, "msg": "请重试，若多次失败可能是系统错误维护或需更新接口"}
         except Exception as e:
             traceback.print_exc()
             return {"code": 999, "msg": f"选课时未记录的错误：{str(e)}"}
@@ -1308,7 +1383,7 @@ class Client:
         try:
             data_list = [(th.text).strip() for th in ths]
             return data_list[6]
-        except IndexError:
+        except:
             return None
 
     @classmethod
@@ -1479,9 +1554,7 @@ class Client:
                 ):
                     repetIndex.append(index)  # 满足条件记录索引
             count += 1  # 记录当前对比课程的索引
-        if (
-            len(repetIndex) % 2 != 0
-        ):  # 暂时考虑一天两个时段上同一门课，不满足条件不进行修改
+        if len(repetIndex) % 2 != 0:  # 暂时考虑一天两个时段上同一门课，不满足条件不进行修改
             return schedule
         for r in range(0, len(repetIndex), 2):  # 索引数组两两成对，故步进2循环
             fir = repetIndex[r]
@@ -1549,89 +1622,86 @@ class Client:
         return False
 
 
-
-
 if __name__ == "__main__":
-    # while True:
-        from pprint import pprint
-        import sys
-        import os
+    from pprint import pprint
+    import json
+    import base64
+    import sys
+    import os
 
-        base_url = "http://ahiib.edu.cn/"  # 教务系统URL
-        sid = ""  # 学号2304170638
-        password = ""  # 密码123456789yu
-        lgn_cookies = (
-            {
-                # "insert_cookie": "",
-                # "route": "",
-                "JSESSIONID": ""
-            }
-            if False
-            else None
-        )  # cookies登录，调整成True使用cookies登录，反之使用密码登录
-        test_year = 2024  # 查询学年
-        test_term = 1  # 查询学期（1-上|2-下）
+    base_url = "https://xxxx.xxx.edu.cn"  # 教务系统URL
+    sid = "123456"  # 学号
+    password = "abc654321"  # 密码
+    lgn_cookies = (
+        {
+            # "insert_cookie": "",
+            # "route": "",
+            "JSESSIONID": ""
+        }
+        if False
+        else None
+    )  # cookies登录，调整成True使用cookies登录，反之使用密码登录
+    test_year = 2022  # 查询学年
+    test_term = 2  # 查询学期（1-上|2-下）
 
-        # 初始化
-        lgn = Client(lgn_cookies if lgn_cookies is not None else {}, base_url=base_url)
-        # 判断是否需要使用cookies登录
-        if lgn_cookies is None:
-            # 登录
-            pre_login = lgn.login(sid, password)
-            # 判断登录结果
-            if pre_login["code"] == 1001:
-                # 需要验证码
-                pre_dict = pre_login["data"]
-                with open(os.path.abspath("temp.json"), mode="w", encoding="utf-8") as f:
-                    f.write(json.dumps(pre_dict))
-                with open(os.path.abspath("kaptcha.png"), "wb") as pic:
-                    pic.write(base64.b64decode(pre_dict["kaptcha_pic"]))
-                kaptcha = input("输入验证码：")
-                result = lgn.login_with_kaptcha(
-                    pre_dict["sid"],
-                    pre_dict["csrf_token"],
-                    pre_dict["cookies"],
-                    pre_dict["password"],
-                    pre_dict["modulus"],
-                    pre_dict["exponent"],
-                    kaptcha,
-                )
-                if result["code"] != 1000:
-                    pprint(result)
-                    sys.exit()
-                lgn_cookies = lgn.cookies
-            elif pre_login["code"] == 1000:
-                # 不需要验证码，直接登录
-                lgn_cookies = lgn.cookies
-            else:
-                # 出错
-                pprint(pre_login)
+    # 初始化
+    lgn = Client(lgn_cookies if lgn_cookies is not None else {}, base_url=base_url)
+    # 判断是否需要使用cookies登录
+    if lgn_cookies is None:
+        # 登录
+        pre_login = lgn.login(sid, password)
+        # 判断登录结果
+        if pre_login["code"] == 1001:
+            # 需要验证码
+            pre_dict = pre_login["data"]
+            with open(os.path.abspath("temp.json"), mode="w", encoding="utf-8") as f:
+                f.write(json.dumps(pre_dict))
+            with open(os.path.abspath("kaptcha.png"), "wb") as pic:
+                pic.write(base64.b64decode(pre_dict["kaptcha_pic"]))
+            kaptcha = input("输入验证码：")
+            result = lgn.login_with_kaptcha(
+                pre_dict["sid"],
+                pre_dict["csrf_token"],
+                pre_dict["cookies"],
+                pre_dict["password"],
+                pre_dict["modulus"],
+                pre_dict["exponent"],
+                kaptcha,
+            )
+            if result["code"] != 1000:
+                pprint(result)
                 sys.exit()
+            lgn_cookies = lgn.cookies
+        elif pre_login["code"] == 1000:
+            # 不需要验证码，直接登录
+            lgn_cookies = lgn.cookies
+        else:
+            # 出错
+            pprint(pre_login)
+            sys.exit()
 
-        # 下面是各个函数调用，想调用哪个，取消注释即可
-        """ 获取个人信息 """
-        result = lgn.get_info()
+    # 下面是各个函数调用，想调用哪个，取消注释即可
+    """ 获取个人信息 """
+    result = lgn.get_info()
 
-        """ 获取成绩单PDF """
-        # result = lgn.get_academia_pdf()
-        # if result["code"] == 1000:
-        #     with open(os.path.abspath("grade.pdf"), "wb") as pdf:
-        #         pdf.write(result["data"])
-        #         result = "已保存到本地"
+    """ 获取成绩单PDF """
+    # result = lgn.get_academia_pdf()
+    # if result["code"] == 1000:
+    #     with open(os.path.abspath("grade.pdf"), "wb") as pdf:
+    #         pdf.write(result["data"])
+    #         result = "已保存到本地"
 
-        """ 获取学业情况 """
-        # result = lgn.get_academia()
+    """ 获取学业情况 """
+    # result = lgn.get_academia()
 
-        """ 获取GPA """
-        # result = lgn.get_gpa()
+    """ 获取GPA """
+    # result = lgn.get_gpa()
 
-        """ 获取课程表 """
-        # result = lgn.get_schedule(test_year, test_term)
+    """ 获取课程表 """
+    # result = lgn.get_schedule(test_year, test_term)
 
-        """ 获取成绩 """
-        #result = lgn.get_grade(test_year, test_term)
-        
-        # result = lgn.select_course(2304170638,456565621,55,45,2024,45)
-        # 输出结果
-        pprint(result)
-        # time.sleep(60)
+    """ 获取成绩 """
+    # result = lgn.get_grade(test_year, test_term)
+
+    # 输出结果
+    pprint(result)

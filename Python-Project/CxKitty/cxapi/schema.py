@@ -114,6 +114,8 @@ class ExamStatus(Enum):
     未开始 = "未开始"
     未交 = "未交"
     已完成 = "已完成"
+    待做 = "待做"
+
 
 
 @dataclass

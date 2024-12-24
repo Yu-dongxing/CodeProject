@@ -25,6 +25,7 @@ void xxgx();		//学生信息更新模块
 void scxsxx();		//删除学生信息模块
 void xhcx();		//学号查询模块
 void grxxbgxt();	//信息报告系统
+
 //
 
 

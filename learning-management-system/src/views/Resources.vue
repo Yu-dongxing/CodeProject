@@ -8,10 +8,18 @@
         </el-breadcrumb>
       </div>
       <div class="header-actions">
-        <el-button type="primary" @click="uploadDialogVisible = true">
+        <el-button 
+          v-permission="'upload_resource'"
+          type="primary" 
+          @click="uploadDialogVisible = true"
+        >
           <el-icon><Upload /></el-icon>上传资源
         </el-button>
-        <el-button @click="folderDialogVisible = true">
+        
+        <el-button 
+          v-permission="'create_folder'"
+          @click="folderDialogVisible = true"
+        >
           <el-icon><FolderAdd /></el-icon>新建文件夹
         </el-button>
       </div>
@@ -95,6 +103,17 @@
         </span>
       </template>
     </el-dialog>
+
+    <!-- 使用 v-role 指令控制管理员功能 -->
+    <div v-role="'admin'" class="admin-actions">
+      <el-button 
+        v-if="canManageUsers"
+        type="danger" 
+        @click="handleBatchDelete"
+      >
+        批量删除
+      </el-button>
+    </div>
   </div>
 </template>
 
@@ -105,7 +124,7 @@ export default {
 </script>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import {
   Document,
   FolderOpened,
@@ -115,11 +134,13 @@ import {
   FolderAdd,
   UploadFilled
 } from '@element-plus/icons-vue'
+import { usePermissionStore } from '../stores/permission'
 
 const activeView = ref('grid')
 const uploadDialogVisible = ref(false)
 const folderDialogVisible = ref(false)
 const folderForm = ref({ name: '' })
+const permissionStore = usePermissionStore()
 
 // 模拟资源数据
 const resources = ref([
@@ -175,6 +196,17 @@ const createFolder = () => {
     folderDialogVisible.value = false
     folderForm.value.name = ''
   }
+}
+
+// 在组件中检查权限
+const canManageUsers = computed(() => {
+  return permissionStore.hasPermission('manage_users')
+})
+
+// 添加批量删除处理函数
+const handleBatchDelete = () => {
+  // 实现批量删除逻辑
+  console.log('批量删除')
 }
 </script>
 

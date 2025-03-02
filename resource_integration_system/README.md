@@ -1,24 +1,142 @@
-# resource_integration_system
 
-## Project setup
-```
-npm install
+# 资源库系统 (Resource Integration System) 
+
+## 项目概述
+资源库系统是一个基于 Vue 3 开发的现代化 Web 应用，用于集中管理和分享各类资源。系统提供了资源的增删改查、用户管理、权限控制等功能，并具有响应式设计，支持多端适配。
+
+**当前版本:** v0.5.7
+
+## 技术栈
+- **前端框架**: Vue 3.2.13
+- **UI 组件库**: Element Plus 2.9.1
+- **状态管理**: Vuex 4.0.0
+- **路由管理**: Vue Router 4.0.3
+- **HTTP 客户端**: Axios 1.7.9
+- **样式处理**: Less
+- **构建工具**: Vue CLI
+
+## 主要功能
+
+### 资源管理
+- **资源浏览**: 支持列表展示和卡片展示两种模式
+- **资源搜索**: 支持关键字搜索
+- **资源操作**: 支持添加、编辑、删除资源
+- **资源详情**: 查看资源详细信息
+
+### 用户系统
+- **用户认证**: 支持登录、注册功能
+- **个人中心**: 用户信息管理
+- **权限控制**: 基于角色的访问控制系统
+
+### 系统功能
+- **访问日志**: 记录用户访问信息
+- **响应式设计**: 适配 PC 端和移动端
+- **错误处理**: 包含 404、500 等错误页面
+
+## 项目结构
+```plaintext
+src/
+├── api/                    # API 接口定义
+│   ├── ip_log.js          # 日志相关接口
+│   ├── resource.js        # 资源相关接口
+│   ├── role.js            # 角色相关接口
+│   └── user.js            # 用户相关接口
+├── components/            # 组件目录
+│   ├── AddResource/       # 添加资源组件
+│   ├── Err404/            # 404 错误页面
+│   ├── Err500/            # 500 错误页面
+│   ├── footer/            # 页脚组件
+│   ├── header/            # 头部组件
+│   ├── main/              # 主要内容组件
+│   └── userControlServer/ # 用户控制面板
+├── router/               # 路由配置
+├── store/                # Vuex 状态管理
+├── utils/                # 工具函数
+└── views/                # 页面视图
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 安装与运行
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### 环境要求
+- Node.js >= 12.x
+- npm >= 6.x
 
-### Lints and fixes files
-```
-npm run lint
-```
+### 安装步骤
+1. **克隆项目**
+   ```bash
+   git clone <项目地址>
+   ```
+2. **安装依赖**
+   ```bash
+   npm install
+   ```
+3. **开发环境运行**
+   ```bash
+   npm run serve
+   ```
+4. **生产环境构建**
+   ```bash
+   npm run build
+   ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## API 接口
+
+### 资源相关接口
+- `GET /public/get` - 获取资源列表
+- `POST /admin/add` - 添加资源
+- `GET /admin/delete/{id}` - 删除资源
+- `PUT /admin/update/{id}` - 更新资源
+- `GET /public/get/{id}` - 获取资源详情
+
+### 用户相关接口
+- `POST /login` - 用户登录
+- `POST /sign` - 用户注册
+- `GET /user/details` - 获取用户信息
+- `PUT /user/update` - 更新用户信息
+
+## 特色功能
+1. **双模式展示**
+   - 支持列表和卡片两种展示模式
+   - 可通过开关随时切换
+2. **智能适配**
+   - 响应式设计，自动适应不同屏幕尺寸
+   - 移动端特殊优化
+3. **用户体验**
+   - 加载动画
+   - 友好的错误提示
+   - 简洁的操作界面
+
+## 开发规范
+1. **命名规范**
+   - 组件使用 PascalCase 命名
+   - 文件使用 kebab-case 命名
+   - API 接口使用 camelCase 命名
+2. **代码风格**
+   - 使用 ESLint 进行代码规范检查
+   - 遵循 Vue 3 组合式 API 的最佳实践
+
+## 注意事项
+1. 确保后端 API 服务正常运行
+2. 开发时注意跨域配置
+3. 生产环境部署前需要正确配置环境变量
+
+## 贡献指南
+1. Fork 项目
+2. 创建特性分支
+3. 提交变更
+4. 推送到分支
+5. 创建 Pull Request
+
+## 许可证
+MIT License
+
+## 联系方式
+- 项目维护者: [维护者姓名]
+- 邮箱: [联系邮箱]
+
+## 更新日志
+### v0.5.7
+- 完善 UI 功能设计
+- 完成后端用户功能模块设计
+- 优化资源展示效果
+- 添加响应式布局支持

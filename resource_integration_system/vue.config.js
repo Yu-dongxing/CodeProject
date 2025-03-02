@@ -13,5 +13,10 @@ module.exports = defineConfig({
         'process.env.VUE_APP_VERSION': JSON.stringify(require('./package.json').version)
       })
     ]
+  },
+  devServer: {
+    client: {
+      overlay: false
+    }
   }
 })

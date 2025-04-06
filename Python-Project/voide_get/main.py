@@ -6,7 +6,7 @@ import time
 import os
 # 保存的excel文件名
 excelFileName = 'dy.xlsx'
-link_url='https://bbs.zgogc.com/2048'
+link_url='http://bbs.zgogc.com/2048'
 # https://bbs.zgogc.com/2048/
 # https://bbs.zgogc.com/2048/thread.php?fid=15&page=1
 # 传入fid为15，pageid为0-112页面，传入页面提取数据，数据保存的excel文件中
@@ -24,13 +24,13 @@ def fetch_data(url):
         parser = etree.HTMLParser()
         tree = etree.fromstring(response.text, parser)
         # 使用 XPath 提取不包含广告的所有主题行
-        threads = tree.xpath('//tr[not(contains(., "div_ad_a")) and not(contains(., "广告"))]')
+        threads = tree.xpath('.//*[@id="main"]/div[10]/div[1]')
         # Use XPath to find all tr elements with class "tr3 t_one"
         tr_elements = tree.xpath(".//table[@id='ajaxtable']//tr[@class='tr3 t_one']")
         
         # Iterate over each row and extract data
         for tr in threads:
-            title = tr.xpath(".//td[2]//a[@class='subject']/text()")
+            title = tr.xpath("./div[1]/div/a[1]/div[3]/span")
             link = tr.xpath(".//td[2]//a[@class='subject']/@href")
             author = tr.xpath(".//td[3]//a[@class='bl']/text()")
             replies = tr.xpath(".//td[4]//span[@class='s3']/text()")
@@ -56,7 +56,8 @@ def save_to_excel(data, filename):
 # 主函数
 def main():
     for i in range(1,3):
-        base_url = link_url+"/thread.php?fid=15&page="+str(i)
+        # http://bbs.zgogc.com/thread.php?fid=291&woo=51cg1&po=L2NhdGVnb3J5L3dwY3ove3BhZ2V9Lw&page=3#c  thread.php?fid=291&page=1
+        base_url = link_url+"/thread.php?fid=291&page="+str(i)
         print(base_url)
         data = fetch_data(base_url)
         # if data is not None and len(data) > 0:

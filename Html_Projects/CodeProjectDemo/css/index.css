@@ -1,0 +1,344 @@
+:root{
+
+    /* 定义主题色的不同深浅 */
+    --primary-100:#d4eaf7; /* 浅蓝色 */
+    --primary-200:#b6ccd8; /* 中等蓝色 */
+    --primary-300:#3b3c3d; /* 深灰色 */
+
+    /* 定义强调色的不同深浅 */
+    --accent-100:#71c4ef; /* 天蓝色 */
+    --accent-200:#00668c; /* 深蓝色 */
+
+    /* 定义文本色的不同深浅 */
+    --text-100:#1d1c1c; /* 深黑色 */
+    --text-200:#313d44; /* 中等灰色 */
+
+    /* 定义背景色的不同深浅 */
+    --bg-100:#e5e5e5; /* 非常浅的黄色 */
+    --bg-200:#f5f4f1; /* 浅灰色 */
+    --bg-300:#cccbc8; /* 中等灰色 */
+
+    /* 定义卡片背景色 */
+    --card-bg:#ffffff11; /* 浅灰色 */
+    --body-light:#ffffff;
+    --body-druk:#000000;
+    --icon-bg-color: rgb(19, 20, 24,0.51);
+
+    --icon-1-hover-color: rgb(68, 120, 241);
+    --icon-2-hover-color: rgb(232, 68, 241);
+    --icon-3-hover-color: rgb(179, 206, 0);
+    --icon-4-hover-color: rgb(201, 13, 0);
+    --icon-5-hover-color: rgb(111, 44, 20);
+}
+.body-light{
+    background-color:var(--body-light);
+}
+.body-druk{
+    background-color:var(--body-druk);
+}
+body{
+    /* 设置页面背景色 */
+    /* background-color: var(--bg-100); */
+    /* 设置字体家族 */
+    /* font-family: 'Poppins', sans-serif; */
+    /* 设置字体大小 */
+    /* font-size: 1rem; */
+    /* 设置行高 */
+    line-height: 1.5;
+    /* 设置文本颜色 */
+    color: #ffffff;
+}
+*{
+    /* 重置所有元素的默认外边距 */
+    margin: 0;
+    /* 重置所有元素的默认内边距 */
+    padding: 0;
+}
+a:hover, a:link, a:visited, a:active, a:focus {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.card{
+    /* 设置卡片边框圆角 */
+    border-radius: 10px;
+    /* 设置卡片背景色 */
+    background-color: var(--card-bg);
+    /* 设置卡片阴影效果 */
+    box-shadow: 0 0 2.5px 1px var(--card-bg);
+}
+.card-no-color{
+    /* 设置卡片边框圆角 */
+    border-radius: 10px;
+}
+.card-druk{
+    /* 设置卡片边框圆角 */
+    border-radius: 10px;
+    /* 设置卡片背景色 */
+    background-color: var(--icon-bg-color, rgba(249, 250, 251, 0.6));
+    /* 设置卡片阴影效果 */
+    box-shadow: 0 0 2.5px 1px var(--icon-bg-color, rgba(249, 250, 251, 0.6));
+    /* width: 100%;
+    height: 100%;
+    background-image: url(../icon/bg1.svg);
+    background-size: cover;
+    background-position: center; */
+
+}
+.bg{
+}
+/* card-druk使用伪元素 添加背景图片*/
+.body-druk::before{
+    content: "";
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../icon/bg1.svg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
+}
+.padding-20{
+    box-sizing: border-box;
+    padding: 20px;
+}
+hr{
+    /* border: 1px solid #4d4d4d60; */
+    border: 0.5px #ffffff10 solid;
+    margin: 5px 0 5px 0;
+}
+.bu{
+    /* 设置按钮边框圆角 */
+    border-radius: 10px;
+    background-color: #a0ffb948;
+}
+.bu:hover{
+    /* 设置按钮悬浮时的阴影效果 */
+    box-shadow: 0 0 5px 2px var(--bg-100);
+
+    /* 设置按钮悬浮时的背景色 */
+    background-color: var(--bg-200);
+    /* 指针 */
+    cursor: pointer;
+}
+/* 可选：为导航链接添加平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+.bu:active{
+    /* 设置按钮点击时的阴影效果 */
+    box-shadow: 0 0 2.5px 1px var(--bg-100);
+
+    /* 设置按钮点击时的背景色 */
+    background-color: var(--bg-100);
+}
+.iconItem {
+    box-sizing: border-box;
+    background: var(--icon-bg-color, rgba(249, 250, 251, 0.6));
+    border-radius: 7px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+.display-flex{
+    /* 设置元素为弹性盒子布局 */
+    display: flex;
+}
+.display-flex-center{
+    /* 设置元素为弹性盒子布局 */
+    display: flex;
+    /* 水平居中对齐 */
+    justify-content: center;
+    /* 垂直居中对齐 */
+    align-items: center;
+}
+.display-flex-between{
+    /* 设置元素为弹性盒子布局 */
+    display: flex;
+    /* 水平两端对齐 */
+    justify-content: space-between;
+    /* 垂直居中对齐 */
+    align-items: center;
+}
+.display-flex-around{
+    /* 设置元素为弹性盒子布局 */
+    display: flex;
+    /* 水平分散对齐 */
+    justify-content: space-around;
+    /* 垂直居中对齐 */
+    align-items: center;
+}
+.display-flex-start{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center
+}
+
+.black{
+    width: 80px;
+    height: 50px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+.black:hover{
+    transition: all 0.3s ease;
+    transform: translateY(-3px);
+    cursor: pointer;
+    background: var(--icon-1-hover-color, rgb(137, 172, 255));
+}
+.light-hover{
+    transition: all 0.3s ease;
+}
+.light-hover:hover{
+    border: 0.8px solid #747bff;
+    box-shadow: 0 8px 16px -4px #2c2d300c;
+    cursor: pointer;
+    color: #747bff;
+}
+.p-color{
+    color: #ffffff9c;
+}
+.p-color::before{
+    content: '==>';
+}
+
+
+.nav,html {
+    /* 基础滑动设置 */
+    overflow-y: scroll; /* 保持滚动功能 */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+    /* 默认隐藏滚动条 */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+        width: 0; /* WebKit浏览器初始宽度为0 */
+        background: transparent; /* 透明背景 */
+        transition: width 0.3s ease; /* 宽度过渡动画 */
+    }
+
+    /* 悬停时显示滚动条 */
+    &:hover {
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #c1c1c1 rgba(0,0,0,0.05); /* Firefox颜色 */
+
+        &::-webkit-scrollbar {
+            width: 8px; /* 展开滚动条宽度 */
+            background: rgba(0,0,0,0.05);
+        }
+    }
+
+    /* WebKit滚动条细节 */
+    &::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+        transition: all 0.3s;
+        opacity: 0; /* 默认透明 */
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        opacity: 1; /* 悬停显示 */
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+    }
+}
+
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+}
+
+/* 导航栏样式 */
+.main-nav {
+    background: #333;
+    padding: 1rem;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 1.5rem;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #4CAF50;
+}
+
+/* 主页内容样式 */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: #f8f9fa;
+    margin-bottom: 2rem;
+}
+
+/* 社交链接样式 */
+.social-links {
+    text-align: center;
+}
+
+.link-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.link-group a {
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.weibo { background: #e6162d; }
+.wechat { background: #2dbe3b; }
+.baidu { background: #2932e1; }
+
+.link-group a:hover {
+    transform: translateY(-3px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .link-group {
+        flex-direction: column;
+    }
+}

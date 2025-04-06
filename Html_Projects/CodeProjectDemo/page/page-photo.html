@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="cn-Zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 公共js，css -->
+        <link rel="stylesheet" href="../css/index.css" >
+        <script src="../js/index.js"></script>
+    <title>个人相册</title>
+    <style>
+        .phonto {
+            width: 80%;
+            margin-left: 10%;
+            margin-top: 60px;
+            column-count: 3; /* 默认3列 */
+            column-gap: 15px;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .img-item {
+            break-inside: avoid; /* 防止内容断开 */
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .img-item:hover {
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+
+        .img-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* 响应式布局 */
+        @media (max-width: 1200px) {
+            .phonto {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .phonto {
+                column-count: 1;
+                width: 90%;
+                margin-left: 5%;
+            }
+        }
+
+        .black.card-druk {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body class="body-druk">
+    <div class="black card-druk display-flex-center" onclick="openNewTab('/index.html')">
+        返回
+    </div>
+    <div class="phonto card-druk">
+        <!-- 图片将通过JavaScript动态添加 -->
+        <!-- 直接编写图片结构 -->
+        <div class="img-item" onclick='openNewTab("https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png",true)'>
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png" alt="风景1" loading="lazy">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png" alt="人像1">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png" alt="建筑1">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png" alt="动物1">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png" alt="风景1">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png" alt="人像1">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png" alt="建筑1">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213810507.png" alt="动物1">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png" alt="风景1">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png" alt="人像1">
+        </div>
+        <div class="img-item">
+            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png" alt="建筑1">
+        </div>
+    </div>
+
+    <script>
+        // 图片数据（可替换为实际图片路径）
+        const imageList = [
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png',
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png',
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100329751.png',
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png',
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401105050944.png',
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png',
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png',
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100329751.png',
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png',
+            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401105050944.png',
+        ];
+
+        // 生成图片元素
+        function generateWaterfall() {
+            const container = document.querySelector('.phonto');
+            
+            imageList.forEach(imgUrl => {
+                const imgItem = document.createElement('div');
+                imgItem.className = 'img-item';
+                
+                const img = document.createElement('img');
+                img.src = imgUrl;
+                img.alt = '相册图片';
+                
+                imgItem.appendChild(img);
+                container.appendChild(imgItem);
+            });
+        }
+
+        // // 页面加载完成后执行
+        // window.addEventListener('load', () => {
+        //     generateWaterfall();
+            
+        //     // 窗口大小改变时重新布局（可选）
+        //     window.addEventListener('resize', () => {
+        //         // 可以添加节流函数优化性能
+        //     });
+        // });
+    </script>
+</body>
+</html>

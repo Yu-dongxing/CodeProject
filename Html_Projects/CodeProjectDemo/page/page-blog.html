@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="cn-Zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 公共js，css -->
+    <link rel="stylesheet" href="../css/index.css" >
+    <script src="../js/index.js"></script>
+    <title>个人博客</title>
+    <style>
+        .app{
+            /* 定义导航栏的宽度变量 */
+            --nav-width:120px;
+            /* 定义导航栏的内边距变量 */
+            --nav-padding:10px;
+        }
+        .blog{
+            
+            /* lift 150px */
+            /* 设置元素的上外边距为20像素 */
+            margin-top: 20px;
+            /* 设置元素的宽度为100%减去300像素，用于动态计算宽度 */
+            width: calc(100% - 300px);
+            /* 设置元素的左外边距为150像素 */
+            margin-left: 150px;
+            /* 设置元素的高度为自动，根据内容自动调整高度 */
+            height: auto;
+            /* 设置盒模型为border-box，使得宽度和高度包含边框和内边距 */
+            box-sizing: border-box;
+            /* 设置元素的内边距为20像素 */
+            padding: 20px;
+            /* 设置元素的下外边距为10像素 */
+            margin-bottom: 10px;
+        }
+        /* 定义导航栏的样式 */
+        .nav{
+            /* 将导航栏固定在视口中的位置 */
+            position: fixed;
+            /* 导航栏距离视口顶部的位置为视口高度的25% */
+            top: 25%;
+            /* 导航栏的宽度使用CSS变量--nav-width来定义 */
+            width: var(--nav-width);
+            /* 导航栏的高度为视口高度的50% */
+            height: 50%;
+            /* 使用box-sizing属性来确保padding不会影响元素的总宽度和高度 */
+            box-sizing: border-box;
+            /* 导航栏的内边距使用CSS变量--nav-padding来定义 */
+            padding: var(--nav-padding);
+            /* 滑动 */
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        .nav-item{
+            
+        }
+        /* .nav-item::after{
+            content: '-';
+        } */
+        /* 定义导航项链接的样式 */
+        .nav-item a{
+            /* 设置链接文字颜色为灰色 */
+            color: #7d7d7d;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        /* 定义导航项的样式 */
+        .nav-item-a{
+            /* 使用flex布局 */
+            display: flex;
+            /* 设置宽度为导航宽度减去两倍的内边距 */
+            width: calc(var(--nav-width) - var(--nav-padding) - var(--nav-padding) );
+        }
+        /* 定义导航项链接在鼠标悬停时的样式 */
+        .nav-item a:hover{
+            /* 设置链接文字颜色为白色 */
+            color: #ffffff;
+            /* background-color: #8f8f8f; */
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="body-druk app">
+    <div class="black card-druk display-flex-center" onclick="openNewTab('/index.html')">
+        返回
+    </div>
+    <!-- 定义一个导航容器，使用类名 "nav" 和 "card-druk" 来进行样式控制 -->
+    <div class="nav card-druk ">
+        <div class="nav-item">
+            <a class="nav-item-a" href="#a1">文章1</a>
+        </div>
+        <hr>
+        <div class="nav-item">
+            <a class="nav-item-a" href="#a2">文章2</a>
+        </div>
+        <hr>
+    </div>
+    <!-- 定义一个div元素，id为"a1"，类名为"blog card-druk light-hover" -->
+    <div id="a1" class="blog card-druk light-hover">
+        <h2>兴趣</h2>
+        <hr>
+        <p class="p-color">技术</p>
+        <p class="p-color">看综艺</p>
+        <p class="p-color">听音乐</p>
+    </div>
+    <div id="a2" class="blog card-druk light-hover">
+        <h2>兴趣</h2>
+        <hr>
+        <p class="p-color">技术</p>
+        <p class="p-color">看综艺</p>
+        <p class="p-color">听音乐</p>
+    </div>
+    <div id="a3" class="blog card-druk light-hover">
+        <h2>兴趣</h2>
+        <hr>
+        <p class="p-color">技术</p>
+        <p class="p-color">看综艺</p>
+        <p class="p-color">听音乐</p>
+    </div>
+    <div id="a4" class="blog card-druk light-hover">
+        <h2>兴趣</h2>
+        <hr>
+        <p class="p-color">技术</p>
+        <p class="p-color">看综艺</p>
+        <p class="p-color">听音乐</p>
+    </div>
+    <div id="a5" class="blog card-druk light-hover">
+        <h2>兴趣</h2>
+        <hr>
+        <p class="p-color">技术</p>
+        <p class="p-color">看综艺</p>
+        <p class="p-color">听音乐</p>
+    </div>
+</body>
+</html>

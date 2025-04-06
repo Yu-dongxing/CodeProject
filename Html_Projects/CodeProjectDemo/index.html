@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+【项目实训】
+创建一个个人网站主页，要求如下。
+（1）包含1个主页、至少3个子页面（原创帖子、个人相册、个人兴趣等），可相互进行跳转链接。
+（2）在主页中包含社交链接，链接到新浪微博、微信、百度。
+（3）至少有1个页面包含图片链接。
+（4）至少有1个页面包含锚点链接。
+（5）优化页面的排版布局。 
+-->
+<html lang="cn-Zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 公共js，css -->
+    <link rel="stylesheet" href="./css/index.css" >
+    <script src="./js/index.js"></script>
+    <!-- Import style -->
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/element-plus/dist/index.css"/> -->
+    <!-- Import Vue 3 -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/vue@3"></script> -->
+    <!-- Import component library -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/element-plus"></script> -->
+    <title>网页设计作业-1</title>
+    <style>
+        .header{
+            --header-hight:50px;
+            width: 100%;
+            height: var(--header-hight);
+        }
+        .bu{
+            width: 100px;
+            height: calc(var(--header-hight) - 10px) ;
+        }
+        .header-welcome{
+            font-size: 55px;
+            font-weight: 800;
+            margin: 30px 0;
+        }
+        header{
+            color: #ffffff;
+            margin: 5px;
+
+        }
+        .text-style{
+            background-color: #ffffff;
+        }
+        .main{
+            width: 100%;
+            height: auto;
+        }
+        .main-head,.main-text,.main-bu,.main-link{
+            font-size: 48px;
+            font-weight: 800;
+            box-sizing: border-box;
+            padding: 30px;
+        }
+        .main-text{
+            padding: 0 30px 0px 30px;
+            font-size: 18px;
+            font-weight: 400;
+        }
+        .main-bu{
+            padding: 0 0 0 30px;
+            font-size: 18px;
+            font-weight: 400;
+        }
+        .bu-item{
+            box-sizing: border-box;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        .bu-item:hover {
+            cursor: pointer;
+            transform: translateY(-2px);
+            background: var(--icon-1-hover-color, rgb(137, 172, 255));
+        }
+        img{
+            width: 20px;
+            height: 20px;
+        }
+        .img-35{
+            width: 35px;
+            height: 35px;
+        }
+        .main-link{
+            font-size: 26px;
+            font-weight: 800;
+        }
+        .link-title{
+            margin-bottom: 10px;
+        }
+        .link-contion{
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            padding: 18px;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+        .contion-h1{
+            font-size: 18px;
+            font-weight: normal;
+            
+        }
+        .link-contion:hover{
+            border: 0.8px solid #747bff;
+            box-shadow: 0 8px 16px -4px #2c2d300c;
+            cursor: pointer;
+            color: #747bff;
+        }
+        p{
+            font-size: 15px;
+        }
+        .footer{
+            box-sizing: border-box;
+            padding: 0 30px 0 30px;
+            font-size: 13px;
+            font-weight: normal;
+            color: #ffffff37;
+        }
+    </style>
+</head>
+<body class="body-druk">
+    <!-- <div class=" header">
+
+    </div> -->
+    <div class="main">
+        <div class="main-head">
+            Hello,I'm YuDongXing
+        </div>
+        <div class="main-text">
+            It's a long and beautiful life.
+        </div>
+        <div class="main-bu display-flex">
+            <div class="bu-item iconItem " onclick="openNewTab('https://github.com/Yu-dongxing',true)">
+                <img src="./icon/1.svg" alt="">
+                Github
+            </div>
+            <div class="bu-item iconItem " onclick="openNewTab('https://weibo.com/', true)">
+                <img src="./icon/wb.svg" alt="">
+                新浪微博
+            </div>
+            <div class="bu-item iconItem " onclick="openNewTab('https://weixin.qq.com/', true)">
+                <img src="./icon/wx.svg" alt="">
+                微信
+            </div>
+            <div class="bu-item iconItem " onclick="openNewTab('https://www.baidu.com/', true)">
+                <img src="./icon/bd.svg" alt="">
+                百度
+            </div>
+        </div>
+    </div>
+    <div class="main-link">
+        <div class="link-title display-flex-start">
+            <img class="img-35" src="./icon/2.svg" alt="">
+            链接
+        </div>
+        <div class="link-contion   card-druk" onclick="openNewTab('page/page-blog.html')">
+            <div class="contion-h1">原创帖子</div> 
+            <p>记录生活的点点滴滴</p>
+        </div>
+        <!-- 个人相册 -->
+        <div class="link-contion card-druk" onclick="openNewTab('page/page-photo.html')">
+            <div class="contion-h1">个人相册</div> 
+            <p>记录生活的点点滴滴</p>
+        </div>
+        <!-- 个人兴趣 -->
+        <div class="link-contion card-druk" onclick="openNewTab('page/page-about.html')">
+            <div class="contion-h1">个人兴趣</div> 
+            <p>记录生活的点点滴滴</p>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <p>© 2025 | YuDongXing</p>
+    </div>
+    <script>
+        // 显示微信二维码
+        function showWechat(){
+            const qrUrl = 'images/wechat-qr.png';
+            if(confirm('微信扫码关注：确定后查看二维码')) {
+                window.open(qrUrl, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- © 2025 | YuDongXing -->

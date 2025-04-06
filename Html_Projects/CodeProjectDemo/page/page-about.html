@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cn-Zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 公共js，css -->
+        <link rel="stylesheet" href="../css/index.css" >
+        <script src="../js/index.js"></script>
+    <title>个人兴趣</title>
+    <style>
+        .about-title{}
+        .about-main{
+            margin-top: 20px;
+            width: 80%;
+            margin-left: 10%;
+            height: auto;
+            box-sizing: border-box;
+            padding: 20px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        .about-main:hover{
+            border: 0.8px solid #747bff;
+            box-shadow: 0 8px 16px -4px #2c2d300c;
+            cursor: pointer;
+            color: #747bff;
+        }
+        .card{
+            border-radius: 5px;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        .p-color{
+            color: #ffffff9c;
+        }
+        .p-color::before{
+            content: '==>';
+        }
+        .black{
+            width: 80px;
+            height: 50px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+        }
+        .black:hover{
+            transition: all 0.3s ease;
+            transform: translateY(-3px);
+            cursor: pointer;
+            background: var(--icon-1-hover-color, rgb(137, 172, 255));
+        }
+    </style>
+</head>
+<body class="body-druk">
+    <div class="black card-druk display-flex-center" onclick="openNewTab('/index.html')">
+        返回
+    </div>
+    <div class="about-main card-druk">
+        <h2>兴趣</h2>
+        <hr>
+        <p class="p-color">技术</p>
+        <p class="p-color">看综艺</p>
+        <p class="p-color">听音乐</p>
+    </div>
+    <div class="about-main card-druk">
+        <h2>简介</h2>
+        <hr>
+        <p class="p-color">技术</p>
+        <p class="p-color">看综艺</p>
+        <p class="p-color">听音乐</p>
+    </div>
+    <div class="about-main card-druk">
+        <h2>联系方式</h2>
+        <hr>
+        <p class="p-color">技术</p>
+        <p class="p-color">看综艺</p>
+        <p class="p-color">听音乐</p>
+    </div>
+</body>
+</html>

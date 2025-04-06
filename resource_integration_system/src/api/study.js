@@ -60,6 +60,13 @@ export const StudyApi = {
       url: '/task/finish/findall/taskid/'+id,
       method: 'get'
     })
-  }
+  },
+  // 根据回答id删除回答/task/finish/delete/{id}
+  deleteAnswerTaskFinish(id){
+    return request({
+      url: '/task/finish/delete/'+id,
+      method: 'delete'
+    })
+  },
 
 }

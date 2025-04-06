@@ -12,12 +12,15 @@
     "axios": "^1.7.9",
     "core-js": "^3.8.3",
     "element-plus": "^2.9.1",
+    "element-tiptap": "^2.2.1",
+    "spark-md5": "^3.0.2",
     "uuid": "^11.0.5",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@types/spark-md5": "^3.0.5",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",

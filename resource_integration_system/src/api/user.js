@@ -67,10 +67,19 @@ export const userApi = {
       data
     })
   },
+  // 获取所有用户
   getAllUsers(){
     return request({
       url: '/admin/users',
       method: 'get',
     })
-  }
+  },
+  // /userloginlog/add
+  // 添加登录日志
+  addLoginLog() {
+    return request({
+      url: '/userloginlog/add',
+      method: 'post',
+    })
+  },
 } 

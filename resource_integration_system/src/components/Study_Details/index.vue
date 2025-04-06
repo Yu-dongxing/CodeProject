@@ -37,25 +37,29 @@
     <!-- 任务完成提交 -->
     <el-card class="ccard">
         <template #header>
-            <div class="header card-header" style="color: #3cff00;">
+            <div class="header card-header">
                 <el-icon><Finished /></el-icon>
-                <el-text style="margin-left: 10px;color: #3cff00;">提交任务</el-text>
+                <el-text style="margin-left: 10px;">提交任务</el-text>
             </div>
         </template>
         <el-form :model="answerStudyTask"  class="demo-ruleForm">
             <el-form-item>
                 <wangeditor v-model="answerStudyTask.userFinishDesc" />
-
+                <!-- <tiptap></tiptap> -->
             </el-form-item>
-            <el-form-item label="提交附件">
-                <file-upload :resourceid="answerStudyTask.userFinishDescResoursefileid" />
+            <el-form-item label="选择附件">
+                <!-- <file-upload :resourceid="answerStudyTask.userFinishDescResoursefileid" /> -->
+                <!-- FileUploadNoPost -->
+                <FileUploadNoPost :value="postFileList"></FileUploadNoPost>
+                <!-- <el-button @click="selectFileList">查看文件</el-button> -->
             </el-form-item>
-            <el-button @click="findFileByUserUuid(answerStudyTask.userFinishDescResoursefileid)">刷新文件列表</el-button>
+            <!-- <el-button @click="findFileByUserUuid(answerStudyTask.userFinishDescResoursefileid)">刷新文件列表</el-button> -->
             <el-table :data="user_fileList">
               <el-table-column prop="fileName" label="文件名" />
-              <el-table-column  label="附件下载" >
+              <el-table-column  label="操作" >
                 <template #default="scope">
-                  <el-button @click="downloadFile(scope.row.fileUrl,scope.row.fileName)" type="primary" size="small">下载</el-button>
+                  <el-button tag="a" target="_blank" :href="scope.row.fileUrl" type="primary" size="small">查看</el-button>
+                  <el-button @click="deleteFile(scope.row.id)" type="danger" size="small">删除</el-button>
                 </template>
               </el-table-column>
           </el-table>
@@ -70,17 +74,21 @@
 <script>
 import { StudyApi } from '@/api/study'
 import {FileApi } from '@/api/file'
+import { resourceApi } from '@/api/resource'
 import { v4 as uuidv4 } from 'uuid';
 import FileUpload from '@/components/FileUpload.vue'
 import wangeditor from '@/components/wangeditor.vue'
+// import tiptap from '@/components/tiptap.vue'
+import FileUploadNoPost from "@/components/FileUploadNoPost.vue"
 export default {
   name: 'StudyDetails',
-  components: { wangeditor, FileUpload },
+  components: { wangeditor, FileUpload,FileUploadNoPost},
   data(){
     return{
       studyDetails: {},
       task_fileList:[],
       user_fileList:[],
+      postFileList:[],
       answerStudyTask:{
         "taskId": "",
         "userFinishDesc": "",
@@ -118,10 +126,28 @@ export default {
     async answerTask(){
       this.answerStudyTask.taskId = this.$route.query.id;
       await StudyApi.answerStudyTask(this.answerStudyTask);
-      this.$message.success('提交成功')
+      if(this.postFileList.length > 0){
+        await this.submitResourceFiles();
+      }
+      this.findFileByUserUuid(this.answerStudyTask.userFinishDescResoursefileid);
+      this.$message.success('任务提交成功')
     },
 
-
+    // 提交任务文件
+    async submitResourceFiles() {
+        try {
+          await resourceApi.submitResourceFiles(this.postFileList,this.answerStudyTask.userFinishDescResoursefileid);
+          this.$message.success('文件提交成功')
+          console.log("提交文件成功");
+        } catch (error) {
+          this.$message.success('文件提交失败')
+          console.error('添加文件失败:', error);
+        }
+    },
+    // 查看文件列表
+    selectFileList(){
+      console.log(this.postFileList);
+    },
 
     // 根据任务id获取回答信息
     async getAnswerStudyTask(){
@@ -138,7 +164,20 @@ export default {
         console.log("查询到回答",this.answerStudyTask);
       }
     },
-
+    // 根据文件id删除文件
+    deleteFile(fileId){
+      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+      }).then(async () => {
+        try{
+          // 删除文件
+          await resourceApi.deleteResourceFile(fileId)
+          // 获取文件列表
+          this.findFileByUserUuid(this.answerStudyTask.userFinishDescResoursefileid)
+        } catch (error) {
+          console.log(error);
+        }
+      })
+    },
 
     // 文件下载downloadFile(scope.row.fileUrl)
     downloadFile(fileUrl,fileName){
@@ -153,7 +192,6 @@ export default {
 
   },
   created(){
-    
     this.getStudyDetails()
     this.getAnswerStudyTask()
     console.log("111",this.answerStudyTask.userFinishDescResoursefileid);

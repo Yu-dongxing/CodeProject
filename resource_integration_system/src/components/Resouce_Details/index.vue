@@ -86,9 +86,15 @@ export default {
     async getResourceById(id){
       try{
         const res = await resourceApi.getResourceById(id);
-        this.resource = res.data;
-        console.log(res);
-        this.getWebsiteInfo(this.resource.url);
+        if(res.code === 400){
+          this.$router.push('/201');
+          console.log(res);
+        }else{
+          this.resource = res.data;
+          console.log(res);
+          this.getWebsiteInfo(this.resource.url);
+        }
+        
       }catch(err){
         console.log(err);
       }

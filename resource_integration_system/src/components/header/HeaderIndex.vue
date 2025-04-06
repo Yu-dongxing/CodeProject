@@ -31,7 +31,8 @@
     </div>
     <!-- 网页端链接 -->
     <div class="header-right">
-      <router-link to="/study" class="right-item no-link-style" v-if="userInfo?.roleName == 'admin' || userInfo?.roleName == 'student'">
+      <!-- v-if="userInfo?.roleName == 'admin' || userInfo?.roleName == 'student'" -->
+      <router-link to="/study" class="right-item no-link-style" >
         <el-icon><DataBoard /></el-icon>
         <span>学习任务</span>
       </router-link>
@@ -92,7 +93,7 @@ export default {
     ],
     search_keyword:'',
     search_select:['标签','标题'],
-    // userinfo:this.$store.state.user.userinfo
+    userInfo:{}
     }
   },
   computed: {
@@ -116,7 +117,20 @@ export default {
   methods: {
     search(){
       this.$router.push({ path: '/search', query: { keyword: this.search_keyword } });
+    },
+    getUserInfo(){
+      const us  = JSON.parse(localStorage.getItem('userInfo'))
+      if(us){
+        this.userInfo = us
+        console.log(this.userInfo);
+      }else{
+        this.userInfo = {}
+      }
+      
     }
+  },
+  created(){
+    // this.getUserInfo()
   }
 }
 </script>

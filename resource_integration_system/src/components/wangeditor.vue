@@ -8,7 +8,7 @@
                   :mode="mode"
               />
               <Editor
-                  style="height: 300px; overflow-y: hidden;"
+                  style="height: auto; overflow-y: hidden;"
                   :modelValue="modelValue"
                   :defaultConfig="editorConfig"
                   :mode="mode"

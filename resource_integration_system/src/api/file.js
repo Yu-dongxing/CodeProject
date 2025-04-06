@@ -11,4 +11,11 @@ export const FileApi = {
       method: 'get'
     })
   },
+  // 根据文件id删除文件/ftp/delete
+  deleteFileById(FileId) {
+    return request({
+      url: '/file/delete/'+FileId,
+      method: 'delete'
+    })
+  }
 }

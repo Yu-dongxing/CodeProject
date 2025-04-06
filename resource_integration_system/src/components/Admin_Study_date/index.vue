@@ -12,7 +12,11 @@
       </el-table-column>
       <el-table-column prop="priority" label="优先级"></el-table-column>
       <el-table-column prop="difficultyLevel" label="难度等级"></el-table-column>
-      <el-table-column prop="resourceFileUuid" label="资源文件"></el-table-column>
+      <el-table-column prop="resourceFileUuid" label="任务文件">
+        <template #default="scope">
+          <el-button @click="selectAnswerTaskByFile(scope.row.userFinishDescResoursefileid)">查看任务文件</el-button>
+        </template>
+      </el-table-column>
       <el-table-column prop="id" label="操作">
         <template #default="scope">
             <!-- @click="deleteStudyData(scope.row.id)" -->
@@ -30,17 +34,36 @@
     <el-dialog v-model="dialogportselect" title="查看该任务所有回答" width="80%">
       <el-table :data="tasks_answer_data">
         <el-table-column prop="postUserName" label="回答用户"></el-table-column>
+        <el-table-column prop="creatTime" label="回答时间"></el-table-column>
         <el-table-column prop="userFinishDesc" label="回答描述">
           <template #default="scope">
             <el-button @click="openPreviewDialog(scope.row.userFinishDesc)">预览</el-button>
         </template>
         </el-table-column>
-        <el-table-column prop="id" label="操作">
+        <el-table-column prop="userFinishDescResoursefileid" label="查看提交文件">
           <template #default="scope">
-            <el-button @click="deleteAnswerTask(scope.row.id)" >删除 {{ scope.row.id }}</el-button>  
+            <el-button @click="selectAnswerTaskByFile(scope.row.userFinishDescResoursefileid)">查看提交文件</el-button>
           </template>
         </el-table-column>
+        <el-table-column prop="id" label="操作">
+          <template #default="scope">
+            <el-button @click="deleteAnswerTaskByFinish(scope.row.id)" >删除 {{ scope.row.id }}</el-button>  
+            
+          </template>
+        </el-table-column>
+        <!-- userFinishDescResoursefileid -->
       </el-table>
+    </el-dialog>
+    <!-- 查看提交文件 -->
+    <el-dialog v-model="dialogSelectFile" title="查看该回答的文件" width="80%">
+      <el-table :data="selectFile_data">
+        <el-table-column prop="fileName" label="文件名"></el-table-column>
+        <el-table-column prop="fileUrl" label="文件地址">
+          <template #default="scope">
+            <el-button tag="a" :href="scope.row.fileUrl" target="_blank" >下载</el-button>
+          </template>
+        </el-table-column>
+        </el-table>
     </el-dialog>
     <!-- 编辑以及更新 -->
     <el-dialog v-model="dialogFormVisible" :title="isAddOrUpdate ? '添加学习任务' :'编辑任务'" width="80%">
@@ -63,6 +86,7 @@
         </el-form-item>
         <el-form-item label="描述" >
           <wangeditor v-model="from_study_data.description"></wangeditor>
+          
         </el-form-item>
         <el-form-item label="优先级" >
           <el-select v-model="from_study_data.priority" placeholder="请选择优先级">
@@ -108,6 +132,7 @@ import { StudyApi } from '@/api/study'
 import {FileApi } from '@/api/file'
 import FileUpload from '@/components/FileUpload.vue'
 import wangeditor from '@/components/wangeditor.vue'
+
 import { v4 as uuidv4 } from 'uuid';
 export default {
     name: 'Admin_Study_date',
@@ -116,6 +141,7 @@ export default {
         return{
             dialogportselect:false,
             dialogport:false,
+            dialogSelectFile:false,
             dialogFormVisible:false,
             isAddOrUpdate:true,
             study_uuid:uuidv4(),
@@ -133,6 +159,7 @@ export default {
             },
             study_file_data:[],
             tasks_answer_data:[],
+            selectFile_data:[],
         }
     },
     methods:{
@@ -210,6 +237,25 @@ export default {
         selectBytask(id){
           this.dialogportselect = true
           this.getAnswerTaskData(id)
+        },
+        // 删除对应回答
+        deleteAnswerTaskByFinish(id){
+          this.$confirm('此操作将永久删除该回答, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(async () => {
+                await StudyApi.deleteAnswerTaskFinish(id)
+                this.$message.success('删除成功')
+                this.getAnswerTaskData(this.autitId)
+          })
+        },
+        // 查看回答提交的文件
+        async selectAnswerTaskByFile(fileid){
+          this.dialogSelectFile = true ;
+          const files = await FileApi.findFileByUuid(fileid);
+          this.selectFile_data =files.data
+          
         },
         // 打开预览对话框
         openPreviewDialog(res) {

@@ -22,6 +22,7 @@
             </template> -->
         </el-upload>
         <el-button @click="onSubmit()">提交文件</el-button>
+        <el-alert title="先点击上传文件再点击提交文件" type="success" :closable="false" />
   </div>
 </template>
 

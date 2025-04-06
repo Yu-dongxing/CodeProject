@@ -46,7 +46,7 @@
                 <el-tab-pane label="用户管理" name='3' v-if="userInfo?.roleName === 'admin'">
                     <admin_Users_data></admin_Users_data>
                 </el-tab-pane>
-                <el-tab-pane label="访问日志" name='4' >
+                <el-tab-pane label="访问日志" name='4' v-if="userInfo?.roleName === 'admin'">
                     <admin_ip_log></admin_ip_log>
                 </el-tab-pane>
                 <el-tab-pane label="待审核资源" name='5' v-if="userInfo?.roleName === 'admin'">
@@ -55,14 +55,15 @@
                 <el-tab-pane label="更新日志管理"  name='6' v-if="userInfo?.roleName === 'admin'" >
                     <admin_update_log_data/>
                 </el-tab-pane>
-                <!-- admin_sysinfo_date -->
                 <el-tab-pane label="系统信息管理"  name='7' v-if="userInfo?.roleName === 'admin'">
                     <admin_sysinfo_date/>
                 </el-tab-pane>
                 <el-tab-pane label="学习任务管理"  name='8' v-if="userInfo?.roleName === 'admin'">
                     <Admin_Study_date/>
                 </el-tab-pane>
-                
+                <el-tab-pane label="登录日志"  name='9' >
+                    <UserLoginLog/>
+                </el-tab-pane>
             </el-tabs>
         </el-card>
         
@@ -77,12 +78,13 @@ import { ElMessage } from 'element-plus'
 import {userApi} from '@/api/user'
 import admin_Resouce_data from '../components/admin_Resouce_data/index.vue'
 import admin_Users_data from '../components/admin_Users_data/index.vue'
-import  admin_ip_log  from '@/components/admin_ip_log/index.vue'
+import admin_ip_log  from '@/components/admin_ip_log/index.vue'
 import userControlServer from "@/components/userControlServer/index.vue"
 import admin_resouce_audit from "@/components/admin_resouce_audit/index.vue"
 import admin_update_log_data from "@/components/admin_update_log_data/index.vue"
 import admin_sysinfo_date from '@/components/admin_sysinfo_date/index.vue'
 import Admin_Study_date from '@/components/Admin_Study_date/index.vue'
+import UserLoginLog from "@/components/UserLoginLog/index.vue"
 export default {
     components: {
         admin_Resouce_data,
@@ -92,7 +94,9 @@ export default {
         admin_resouce_audit,
         admin_update_log_data,
         admin_sysinfo_date,
-        Admin_Study_date
+        Admin_Study_date,
+        UserLoginLog,
+        
     },
     data(){
         return {

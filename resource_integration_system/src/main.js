@@ -11,6 +11,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import ElementPlus from 'element-plus';
+import ElementTiptapPlugin from 'element-tiptap';
 import 'element-plus/dist/index.css';
 // import UUID from "vue-uuid"; // 引入uuid
 // import { v4 as uuidv4 } from 'uuid';
@@ -25,4 +26,4 @@ Object.keys(Icons).forEach((key) => {
   app.component(key, Icons[key]);
 });
 // .app.use(uuidv4)
-app.use(store).use(router).use(ElementPlus).mount('#app');
+app.use(store).use(router).use(ElementTiptapPlugin).use(ElementPlus).mount('#app');

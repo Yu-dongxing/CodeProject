@@ -1,18 +1,14 @@
 <template>
   <div id="app" >
     <HeaderIndex/>
-    
     <el-scrollbar height="calc(100vh - 110px)" class="MAIN">
       <div class="search_App">
       <Search_App/>
       </div>
-      <!-- <updata/> -->
-        <!-- <MainIndex/> -->
         <router-view></router-view> <!-- 使用Vue Router的router-view组件，用于展示当前路由对应的组件内容 -->
     </el-scrollbar>
     <FooterIndex/>
   </div>
-  <el-link href="" target="_blank"></el-link>
 </template>
 
 <script>

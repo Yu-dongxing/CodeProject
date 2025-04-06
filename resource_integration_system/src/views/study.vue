@@ -12,7 +12,10 @@
         <el-text>{{item.taskTitle}}</el-text>
         <template #footer>
             <div class=" display-x-center">
-                <el-button @click="goDetail(item.id)" >查看详情</el-button>
+                <el-button @click="goDetail(item.id)" >
+                    查看详情
+                    <el-tag type="success" style="float: right; margin-left: 20px;">截止日期：{{item.dueDate}}</el-tag>
+                </el-button>
             </div>
         </template>
     </el-card>

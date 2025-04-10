@@ -254,6 +254,13 @@ html {
     }
 }
 
+.blur-bg {
+    /* background: var(--main-blur-bg-color) !important; */
+    /* -webkit-backdrop-filter: saturate(2) blur(15px); */
+    /* backdrop-filter: saturate(2) blur(15px); */
+}
+
+
 /* 基础样式 */
 * {
     margin: 0;
@@ -264,81 +271,4 @@ html {
 body {
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
-}
-
-/* 导航栏样式 */
-.main-nav {
-    background: #333;
-    padding: 1rem;
-}
-
-.main-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-}
-
-.main-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0 1.5rem;
-    transition: color 0.3s;
-}
-
-.main-nav a:hover {
-    color: #4CAF50;
-}
-
-/* 主页内容样式 */
-.container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-.hero {
-    text-align: center;
-    padding: 4rem 0;
-    background: #f8f9fa;
-    margin-bottom: 2rem;
-}
-
-/* 社交链接样式 */
-.social-links {
-    text-align: center;
-}
-
-.link-group {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.link-group a {
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    text-decoration: none;
-    color: white;
-    transition: transform 0.3s;
-}
-
-.weibo { background: #e6162d; }
-.wechat { background: #2dbe3b; }
-.baidu { background: #2932e1; }
-
-.link-group a:hover {
-    transform: translateY(-3px);
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .main-nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .link-group {
-        flex-direction: column;
-    }
 }

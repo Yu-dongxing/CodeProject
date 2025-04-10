@@ -63,88 +63,32 @@
     </style>
 </head>
 <body class="body-druk">
-    <div class="black card-druk display-flex-center" onclick="openNewTab('/index.html')">
+    <div class="black card-druk display-flex-center" onclick="openNewTab('../index.html')">
         返回
     </div>
     <div class="phonto card-druk">
-        <!-- 图片将通过JavaScript动态添加 -->
-        <!-- 直接编写图片结构 -->
-        <div class="img-item" onclick='openNewTab("https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png",true)'>
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png" alt="风景1" loading="lazy">
+        <div class="img-item" onclick='openNewTab("https://cdn.nlark.com/yuque/0/2025/png/29565636/1740487999659-31469539-30bd-4c98-b75c-a908ceb7604e.png",true)'>
+            <img src="https://cdn.nlark.com/yuque/0/2025/png/29565636/1740487999659-31469539-30bd-4c98-b75c-a908ceb7604e.png" alt="风景1" loading="lazy">
         </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png" alt="人像1">
+        <div class="img-item" onclick='openNewTab("https://cdn.nlark.com/yuque/0/2025/png/29565636/1740488012705-59a8ff84-acd6-4346-a85c-f50ff8a94c53.png",true)'>
+            <img src="https://cdn.nlark.com/yuque/0/2025/png/29565636/1740488012705-59a8ff84-acd6-4346-a85c-f50ff8a94c53.png" alt="人像1">
         </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png" alt="建筑1">
+        <div class="img-item" onclick='openNewTab("https://cdn.nlark.com/yuque/0/2025/png/29565636/1740488027600-14f75350-f616-4b82-9a77-740eaa40bd77.png",true)'>
+            <img src="https://cdn.nlark.com/yuque/0/2025/png/29565636/1740488027600-14f75350-f616-4b82-9a77-740eaa40bd77.png" alt="建筑1">
         </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png" alt="动物1">
+        <div class="img-item" onclick='openNewTab("https://cdn.nlark.com/yuque/0/2025/png/29565636/1740489736282-a3c1198a-2639-4430-8e2e-fdcaf9782dbd.png",true)'>
+            <img src="https://cdn.nlark.com/yuque/0/2025/png/29565636/1740489736282-a3c1198a-2639-4430-8e2e-fdcaf9782dbd.png" alt="动物1">
         </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png" alt="风景1">
+        <div class="img-item" onclick='openNewTab("https://cdn.nlark.com/yuque/0/2025/png/29565636/1740547345588-767142e8-b941-4a0f-9389-b55446258399.png",true)'>
+            <img src="https://cdn.nlark.com/yuque/0/2025/png/29565636/1740547345588-767142e8-b941-4a0f-9389-b55446258399.png" alt="风景1">
         </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png" alt="人像1">
-        </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png" alt="建筑1">
-        </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213810507.png" alt="动物1">
-        </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png" alt="风景1">
-        </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png" alt="人像1">
-        </div>
-        <div class="img-item">
-            <img src="https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png" alt="建筑1">
+        <div class="img-item" onclick='openNewTab("https://cdn.nlark.com/yuque/0/2025/png/29565636/1740547482413-ebd1f549-2b2a-45af-890c-e022d220e37d.png",true)'>
+            <img src="https://cdn.nlark.com/yuque/0/2025/png/29565636/1740547482413-ebd1f549-2b2a-45af-890c-e022d220e37d.png" alt="人像1">
         </div>
     </div>
 
     <script>
-        // 图片数据（可替换为实际图片路径）
-        const imageList = [
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png',
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png',
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100329751.png',
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png',
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401105050944.png',
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250325213857282.png',
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100140933.png',
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100329751.png',
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401100353490.png',
-            'https://raw.githubusercontent.com/Yu-dongxing/ImageUploaders/imgupload/img/image-20250401105050944.png',
-        ];
-
-        // 生成图片元素
-        function generateWaterfall() {
-            const container = document.querySelector('.phonto');
-            
-            imageList.forEach(imgUrl => {
-                const imgItem = document.createElement('div');
-                imgItem.className = 'img-item';
-                
-                const img = document.createElement('img');
-                img.src = imgUrl;
-                img.alt = '相册图片';
-                
-                imgItem.appendChild(img);
-                container.appendChild(imgItem);
-            });
-        }
-
-        // // 页面加载完成后执行
-        // window.addEventListener('load', () => {
-        //     generateWaterfall();
-            
-        //     // 窗口大小改变时重新布局（可选）
-        //     window.addEventListener('resize', () => {
-        //         // 可以添加节流函数优化性能
-        //     });
-        // });
+        
     </script>
 </body>
 </html>

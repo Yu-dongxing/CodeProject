@@ -80,55 +80,106 @@
     </style>
 </head>
 <body class="body-druk app">
-    <div class="black card-druk display-flex-center" onclick="openNewTab('/index.html')">
+    <div class="black card-druk display-flex-center" onclick="openNewTab('../index.html')">
         返回
     </div>
     <!-- 定义一个导航容器，使用类名 "nav" 和 "card-druk" 来进行样式控制 -->
     <div class="nav card-druk ">
         <div class="nav-item">
-            <a class="nav-item-a" href="#a1">文章1</a>
+            <a class="nav-item-a" href="#a1">盒子模型概念</a>
         </div>
         <hr>
         <div class="nav-item">
-            <a class="nav-item-a" href="#a2">文章2</a>
+            <a class="nav-item-a" href="#a2">CSS 实现字体颜色渐变</a>
+        </div>
+        <hr>
+        <div class="nav-item">
+            <a class="nav-item-a" href="#a3">图片预加载和懒加载</a>
+        </div>
+        <hr>
+        <div class="nav-item">
+            <a class="nav-item-a" href="#a4">使用 CSS 实现透明效果</a>
+        </div>
+        <hr>
+        <div class="nav-item">
+            <a class="nav-item-a" href="#a5">前端预览图片</a>
         </div>
         <hr>
     </div>
     <!-- 定义一个div元素，id为"a1"，类名为"blog card-druk light-hover" -->
     <div id="a1" class="blog card-druk light-hover">
-        <h2>兴趣</h2>
+        <h2>盒子模型概念</h2>
         <hr>
-        <p class="p-color">技术</p>
-        <p class="p-color">看综艺</p>
-        <p class="p-color">听音乐</p>
+        <p class="">
+            盒子模型（Box Model）是 CSS 中的一个核心概念，用于描述网页元素的布局和尺寸。它将网页上的每个元素视为一个矩形盒子，这个盒子由四个部分组成：**内容区域（Content）**、**内边距（Padding）**、**边框（Border）** 和 **外边距（Margin）**。这些部分共同决定了元素的总尺寸和外观。</p>
     </div>
     <div id="a2" class="blog card-druk light-hover">
-        <h2>兴趣</h2>
+        <h2>CSS 实现字体颜色渐变</h2>
         <hr>
-        <p class="p-color">技术</p>
-        <p class="p-color">看综艺</p>
-        <p class="p-color">听音乐</p>
+        <p class="">background: linear-gradient:
+
+            使用 CSS 的线性渐变（linear-gradient）定义颜色渐变。<br>
+            background-clip: text:
+            
+            将背景应用于文本内容，而不是整个元素。<br>
+            -webkit-text-fill-color: transparent:
+            
+            让文本填充颜色变为透明，以便背景的渐变颜色能够透过文本显示。</p>
     </div>
     <div id="a3" class="blog card-druk light-hover">
-        <h2>兴趣</h2>
+        <h2>图片预加载和懒加载</h2>
         <hr>
-        <p class="p-color">技术</p>
-        <p class="p-color">看综艺</p>
-        <p class="p-color">听音乐</p>
+        <p >图片预加载是指在页面加载时提前加载图片，使其缓存在浏览器中，当用户需要查看这些图片时，可以立即显示，而不需要等待加载。这样可以提高用户的访问体验，尤其是对于包含大量图片的网站。<br>
+            图片懒加载（Lazy Loading）：
+            图片懒加载是指延迟加载图片，直到用户滚动到页面上的特定位置时才加载图片。这样可以减少页面加载时间，并且节省带宽，特别是对于长页面或包含大量图片的页面来说，可以显著提升性能。
+        </p>
     </div>
     <div id="a4" class="blog card-druk light-hover">
-        <h2>兴趣</h2>
+        <h2>使用 CSS 实现透明效果</h2>
         <hr>
-        <p class="p-color">技术</p>
-        <p class="p-color">看综艺</p>
-        <p class="p-color">听音乐</p>
+        <p >使用 opacity 属性：<br>
+
+            opacity 属性可以设置整个元素的透明度，包括其所有的子元素。
+            <br>
+            .transparent {
+                <br>
+              opacity: 0.5; /* 0 表示完全透明，1 表示完全不透明 */
+              <br>
+            }
+            <br>
+            使用 rgba 或 hsla 颜色值：
+            <br>
+            rgba 和 hsla 颜色值允许你为颜色指定透明度（alpha 值）。
+            <br>
+            .background-transparent {
+              background-color: rgba(255, 0, 0, 0.5); /* 0.5 表示 50% 透明度 */
+            }
+            <br>
+            .color-transparent {
+              color: hsla(120, 100%, 50%, 0.5); /* 0.5 表示 50% 透明度 */
+            }<br>
+            使用 background 属性中的 url 和 rgba 组合：
+            <br>
+            如果想为一个带背景图片的元素设置透明效果，可以将背景图片和颜色组合在一起。
+            <br>
+            .background-image-transparent {
+              background: url("image.png") no-repeat, rgba(255, 255, 255, 0.5);
+            }<br>
+            使用 background-color 与 opacity 结合：
+            <br>
+            创建一个伪元素来覆盖背景颜色，从而只影响背景的透明度，而不影响文本或其他子元素。</p>
     </div>
     <div id="a5" class="blog card-druk light-hover">
-        <h2>兴趣</h2>
+        <h2>前端预览图片</h2>
         <hr>
-        <p class="p-color">技术</p>
-        <p class="p-color">看综艺</p>
-        <p class="p-color">听音乐</p>
+        <p >一般情况下，预览图片功能，是后端返回一个图片地址资源（字符串）给前端，如：ashuai.work/static/img/…
+            <br>
+            前端再把这个值丢到img图片的src属性中去即可<br>
+            之所以有这个图片地址资源，也是因为之前有上传图片的操作，后端存到文件服务器上，生成一份图片url地址<br>
+            但是某些情况下，需要前端去临时预览一下图片（是否上传是后续的操作，需要先看一下）<br>
+            这个时候，我们有两种方案<br>
+            方式一 转base64预览<br>
+            方式二 生成blob图片预览路径url<br></p>
     </div>
 </body>
 </html>

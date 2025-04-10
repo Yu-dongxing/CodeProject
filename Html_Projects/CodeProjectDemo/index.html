@@ -15,12 +15,6 @@
     <!-- 公共js，css -->
     <link rel="stylesheet" href="./css/index.css" >
     <script src="./js/index.js"></script>
-    <!-- Import style -->
-    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/element-plus/dist/index.css"/> -->
-    <!-- Import Vue 3 -->
-    <!-- <script src="//cdn.jsdelivr.net/npm/vue@3"></script> -->
-    <!-- Import component library -->
-    <!-- <script src="//cdn.jsdelivr.net/npm/element-plus"></script> -->
     <title>网页设计作业-1</title>
     <style>
         .header{
@@ -133,11 +127,12 @@
             It's a long and beautiful life.
         </div>
         <div class="main-bu display-flex">
+            <!-- <a href="https://github.com/Yu-dongxing" target="_blank"></a> -->
             <div class="bu-item iconItem " onclick="openNewTab('https://github.com/Yu-dongxing',true)">
                 <img src="./icon/1.svg" alt="">
                 Github
             </div>
-            <div class="bu-item iconItem " onclick="openNewTab('https://weibo.com/', true)">
+            <div class="bu-item iconItem " onclick='openNewTab("http://weibo.com/", true)'>
                 <img src="./icon/wb.svg" alt="">
                 新浪微博
             </div>
@@ -156,17 +151,17 @@
             <img class="img-35" src="./icon/2.svg" alt="">
             链接
         </div>
-        <div class="link-contion   card-druk" onclick="openNewTab('page/page-blog.html')">
+        <div class="link-contion blur-bg  card-druk" onclick="openNewTab('page/page-blog.html')">
             <div class="contion-h1">原创帖子</div> 
             <p>记录生活的点点滴滴</p>
         </div>
         <!-- 个人相册 -->
-        <div class="link-contion card-druk" onclick="openNewTab('page/page-photo.html')">
+        <div class="link-contion blur-bg card-druk" onclick="openNewTab('page/page-photo.html')">
             <div class="contion-h1">个人相册</div> 
             <p>记录生活的点点滴滴</p>
         </div>
         <!-- 个人兴趣 -->
-        <div class="link-contion card-druk" onclick="openNewTab('page/page-about.html')">
+        <div class="link-contion blur-bg card-druk" onclick="openNewTab('page/page-about.html')">
             <div class="contion-h1">个人兴趣</div> 
             <p>记录生活的点点滴滴</p>
         </div>
@@ -175,15 +170,6 @@
     <div class="footer">
         <p>© 2025 | YuDongXing</p>
     </div>
-    <script>
-        // 显示微信二维码
-        function showWechat(){
-            const qrUrl = 'images/wechat-qr.png';
-            if(confirm('微信扫码关注：确定后查看二维码')) {
-                window.open(qrUrl, '_blank');
-            }
-        }
-    </script>
 </body>
 </html>
 <!-- © 2025 | YuDongXing -->

@@ -17,6 +17,13 @@ const routes = [
     //   }
     // ]
   },
+  //测试文件系统
+  {
+    path:"/FileUploaderTruck",
+    name:"FileUploaderTruck",
+    component: () => import('@/components/FileUploadTrunkPost.vue'),
+  },
+  ///////////////////////////////
   {
     path:'/about',
     name:'About',

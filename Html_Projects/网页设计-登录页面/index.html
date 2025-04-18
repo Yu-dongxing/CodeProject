@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页设计-登录页面</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        :root{
+            --bg-color:#0095ff;
+            --border-radius-15px:15px;
+            --img-border-radius-15px:15px;
+        }
+        .test{
+            border: 1px solid ;
+        }
+        .border-1px-solid{
+            border: 1px solid #ffffff00;
+            transition: all ease 0.3s;
+        }
+        .border-1px-solid:hover{
+            border: 1px solid var(--bg-color);
+        }
+        .border-radius-15px{
+            border-radius:var(--border-radius-15px);
+        }
+        .main-card{
+            margin-top: 50px;
+            margin-left: 10%;
+            width: 80%;
+            /* max-width: 800px; */
+            height: 800px;
+            display: flex;
+        }
+        .main-lift{
+            width: 50%;
+        }
+        .main-right{
+            width: 50%;
+            box-sizing: border-box;
+            padding: 10px;
+
+        }
+        .info{
+            width: 100%;
+            height: 100%;
+        }
+        img{
+            border-radius: var(--img-border-radius-15px);
+            width: 100%;
+            height: 100%;
+        }
+        .input-da{
+            width: 90%;
+            margin-left: 5%;
+            height: 50px;
+            border: 1px solid;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius:10px;
+            margin-bottom: 10px;
+        }
+        .input-div{
+            display: flex;
+            align-items: center;
+            border-radius:10px;
+            margin-bottom: 10px;
+        }
+        .input-textarea{
+            height: auto;
+        }
+        .input-text{
+            width: 100%;
+        }
+        .input-radio{
+            display: flex;
+        }
+        .checkbox{
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+        .input-checkbox{
+            display: flex;
+            align-items: center;
+        }
+        input{
+            border: 0;
+            height: 100%;
+        }
+        input:focus-visible {
+            outline: none;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-input {
+            width: 90%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 149, 255, 0.2);
+        }
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div class="main-card border-radius-15px border-1px-solid">
+        <div class="main-lift">
+            <img src="./img/lift.png" alt="dk">
+        </div>
+        <div class="main-right">
+            <div class="info" >
+                <form>
+                    <div class="input-da input-div">
+                        <input class="input-text" placeholder="用户名"   type="text">
+                    </div>
+                    <div class="input-da input-div">
+                        <input class="input-text"  placeholder="密码"   type="password">
+                    </div>
+                    <div class="input-da input-div">
+                        <input class="input-text" placeholder="昵称"   type="password">
+                    </div>
+                    <div class="input-da input-div input-radio">
+                        性别：
+                        男生<input   type="radio" name="sex">
+                        女生<input    type="radio" name="sex">
+                    </div>
+                    <div class="input-da input-checkbox">
+                        爱好：
+                        <div class="checkbox">
+                            <input type="checkbox" name="ah" value="语言" id="" >语言
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" name="ah" value="语言" id="" >跳楼
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" name="ah" value="语言" id="" >语言
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" name="ah" value="语言" id="" >语言
+                        </div>
+                    </div>
+                    <div class="input-da form-group input-textarea">
+                        <label for="personal-intro" class="form-label">个人介绍</label>
+                        <textarea id="personal-intro" class="form-input" placeholder="请简要介绍自己"></textarea>
+                    </div>
+                    <div class="input-da input-div">
+                        <label for="personal-intro" class="form-label">地区</label><br>
+                        <select name="city" id="city">
+                            <option value="安徽省">安徽省</option>
+                            <option value="安徽省">安徽省</option>
+                            <option value="安徽省">安徽省</option>
+                            <option value="安徽省">安徽省</option>
+                        </select>
+                    </div>
+                    <div class="submit">
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -50,7 +50,7 @@
             this.onSubmit(this.ip_access_log);
           })
           .catch(error => {
-            console.error('Failed to fetch IP:', error);
+            //console.error('Failed to fetch IP:', error);
           });
       },
       // 上传日志api-postLog(data)

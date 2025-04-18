@@ -29,7 +29,7 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   response => {
     const res = response.data
-    console.log('响应数据:', res) // 添加调试日志
+    //console.log('响应数据:', res) // 添加调试日志
     
     // 这里可以根据后端的响应结构统一处理
     if (res.code === 101) {

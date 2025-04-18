@@ -1,124 +1,126 @@
 <template>
-    <div>
-      <input type="file" ref="fileInput" @change="handleFileSelect" />
-      <button :disabled="isUploading" @click="uploadFile">
-        {{ isUploading ? '上传中...' : '上传文件' }}
-      </button>
-      <div v-if="message">{{ message }}</div>
-    </div>
-  </template>
-  
-  <script>
-  import SparkMD5 from 'spark-md5'
-  import axios from 'axios'
-  
-  export default {
-    name: 'FileUploader',
-    data() {
-      return {
-        selectedFile: null,
-        isUploading: false,
-        message: ''
-      }
+  <div v-loading="isLoading" style="width: 50%;">
+    <el-upload
+      class="upload-demo"
+      :auto-upload="false"
+      :on-change="handleUpload"
+      :on-remove="handleRemove"
+      :before-remove="beforeRemove"
+      :file-list="filelist"
+      multiple
+      accept="*"
+    >
+      <el-button type="primary">点击选择文件</el-button>
+    </el-upload>
+    <el-button @click="fileChankUpload()">上传</el-button>
+  </div>
+</template>
+
+<script>
+import { FileApi } from '@/api/file';
+import SparkMD5 from 'spark-md5';
+//
+export default {
+  // props: {
+  //   // 通过 prop 接收父组件传递的文件列表
+  //   value: {
+  //     type: Array,
+  //     default: () => [],
+  //   },
+  // },
+  data() {
+    return {
+      filelist: [],
+      fileAssociationId:"test"
+    };
+  },
+  // watch: {
+  //   // 监听父组件传递的 value，更新本地的 filelist
+  //   value: {
+  //     immediate: true,
+  //     handler(newVal) {
+  //       this.filelist = newVal;
+  //     },
+  //   },
+  // },
+  methods: {
+    handleUpload(file) {
+      // 将文件添加到 filelist 中
+      this.filelist.push(file.raw); // 如果 file.raw 是文件对象，直接添加
+      console.log('文件上传',  this.filelist);
+      //通过 事件通知父组件文件列表已更新
+      // this.$emit('input', this.filelist);
     },
-    methods: {
-      handleFileSelect(event) {
-        this.selectedFile = event.target.files[0]
-      },
-  
-      async calculateFileMD5(file) {
-        return new Promise((resolve, reject) => {
-          const chunkSize = 2 * 1024 * 1024
-          const spark = new SparkMD5.ArrayBuffer()
-          const fileReader = new FileReader()
-          let currentChunk = 0
-          const chunks = Math.ceil(file.size / chunkSize)
-  
-          function loadNext() {
-            const start = currentChunk * chunkSize
-            const end = start + chunkSize >= file.size ? file.size : start + chunkSize
-            fileReader.readAsArrayBuffer(file.slice(start, end))
-          }
-  
-          fileReader.onload = e => {
-            spark.append(e.target.result)
-            currentChunk++
-            currentChunk < chunks ? loadNext() : resolve(spark.end())
-          }
-  
-          fileReader.onerror = reject
-          loadNext()
-        })
-      },
-  
-      async uploadChunk(chunk, chunkNumber, totalChunks, identifier) {
-        const formData = new FormData()
-        formData.append('file', chunk)
-        formData.append('chunkNumber', chunkNumber.toString())
-        formData.append('totalChunks', totalChunks.toString())
-        formData.append('identifier', identifier)
-  
-        return axios.post('/api/upload/chunk', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }
-        })
-      },
-  
-      async mergeFile(identifier, fileName, totalChunks) {
-        const params = new URLSearchParams()
-        params.append('identifier', identifier)
-        params.append('fileName', fileName)
-        params.append('totalChunks', totalChunks.toString())
-  
-        return axios.post('/api/upload/merge', params, {
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        })
-      },
-  
-      async uploadFile() {
-        if (!this.selectedFile) {
-          this.message = '请选择文件'
-          return
-        }
-  
-        try {
-          this.isUploading = true
-          this.message = '开始处理文件...'
-  
-          const identifier = await this.calculateFileMD5(this.selectedFile)
-          const chunkSize = 2 * 1024 * 1024
-          const totalChunks = Math.ceil(this.selectedFile.size / chunkSize)
-          
-          this.message = '开始上传分片...'
-          const uploadTasks = []
-          
-          for (let i = 0; i < totalChunks; i++) {
-            const chunkNumber = i + 1
-            const start = i * chunkSize
-            const end = Math.min(start + chunkSize, this.selectedFile.size)
-            const chunk = this.selectedFile.slice(start, end)
-            
-            uploadTasks.push(
-              this.uploadChunk(chunk, chunkNumber, totalChunks, identifier)
-                .then(() => {
-                  this.message = `分片 ${chunkNumber}/${totalChunks} 上传完成`
-                })
-            )
-          }
-  
-          await Promise.all(uploadTasks)
-          this.message = '所有分片上传完成，开始合并...'
-  
-          await this.mergeFile(identifier, this.selectedFile.name, totalChunks)
-          this.message = '文件上传并合并成功！'
-          this.$emit('upload-success')
-        } catch (error) {
-          console.error('上传失败:', error)
-          this.message = `上传失败: ${error.message}`
-          this.$emit('upload-error', error)
-        } finally {
-          this.isUploading = false
-        }
+    // 处理文件移除
+    handleRemove(file, fileList) {
+      // 在 filelist 中移除文件
+      const index  = this.filelist.findIndex(f => f.name === file.name);
+      if (index !== -1) {
+        this.filelist.splice(index, 1); // 从数组中移除文件
       }
-    }
-  }
-  </script>
+      // 更新 filelist
+      this.filelist = fileList;
+      // 通过事件通知父组件文件列表已更新
+      this.$emit('input', this.filelist);
+      console.log('文件移除', file, fileList);
+    },
+    // 移除文件前的确认
+    beforeRemove(file, fileList) {
+      // 弹出确认框，返回 Promise
+      return this.$confirm(`确定移除 ${file.name}？`);
+    },
+    ////////////////////////////////////////////////////////
+    //处理文件分片上传
+    // 文件分片上传
+    async fileUpload(file,fileName,chunknum,chunks ,fileMD5,fileAssociationId){
+      await FileApi.mergeFileChunks(file, chunknum,chunks ,fileMD5,fileName,fileAssociationId);
+    },
+    //文件分片上传通知合并
+    async fileMerge(totalChunks,fileMD5,fileName,fileAssociationId){
+      await FileApi.megerFileChunksSuccess(totalChunks,fileMD5,fileName,fileAssociationId);
+    },
+    async fileChankUpload(){
+      try{
+        for(const file of this.filelist){
+          const fileMD5 = this.filemd5(file);//
+          const fileName = file.name;
+          const chunkSize = 5 * 1024 * 1024; // 每片5M
+          const chunks = Math.ceil(file.size / chunkSize); // 计算切片数量
+          for (let i = 0; i < chunks; i++) {
+            const start = i * chunkSize;
+            const end = Math.min(file.size, start + chunkSize);
+            const chunk = file.slice(start, end); // 切片
+            await this.fileUpload(chunk,fileName,i,chunks,fileMD5,this.fileAssociationId);
+            console.log('文件分片上传', i, chunks);
+          }
+          await this.fileMerge(chunks,fileMD5,fileName,this.fileAssociationId);
+          console.log('文件分片上传完成', fileMD5);
+        }
+      }catch(e){
+        console.log(e);
+      }
+      
+    },
+    async filemd5(file) {
+      try {
+        let fileReader = new FileReader();
+        let Spark = new SparkMD5.ArrayBuffer();
+        let md5 = '';
+        fileReader.readAsArrayBuffer(file);
+        fileReader.onload = function (e) {
+          Spark.append(e.target.result);
+          md5 = Spark.end();
+          console.log(md5);
+        };
+        return md5;
+      } catch (e) {
+        console.log(e);
+      }
+      
+    },
+  },
+};
+</script>
+
+<style>
+</style>

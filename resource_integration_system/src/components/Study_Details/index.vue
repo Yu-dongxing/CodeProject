@@ -5,7 +5,8 @@
         <el-text class="title">{{ studyDetails.taskTitle }}</el-text>
     </el-card>
     <!-- 任务详细信息 -->
-    <el-card class="ccard">
+    <div class="docx">
+      <el-card class="ccard min-width-1000">
         <template #header>
             <div class="header card-header">
                 <el-icon><Grid /></el-icon>
@@ -15,7 +16,9 @@
         <div class="hhtml" v-html="studyDetails.description">
              
         </div>
-    </el-card>
+      </el-card>
+      <el-card class="docx-index ccard"></el-card>
+    </div>
     <!-- 任务附件 -->
     <el-card class="ccard">
         <template #header>
@@ -250,6 +253,21 @@ export default {
 .el-card__footer{
    display:flex;
     justify-content: flex-end;
+}
+.docx{
+  display: flex;
+}
+.docx-index{
+  display: none;
+  width: 280px;
+  position: fixed;
+  right: 0;
+}
+//宽度低于500px时，将卡片宽度设置为100%
+@media screen and (min-width: 1000px) {
+  .min-width-1000-o{
+    width: calc(100% - 280px);
+  }
 }
     
 </style>

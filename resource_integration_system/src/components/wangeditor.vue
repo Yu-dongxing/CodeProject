@@ -1,7 +1,7 @@
 <template>
     <div>
       <div id="editor">
-          <div style="border: 1px solid #ccc">
+          <div style="border: 1px solid #ccc;z-index: 100;">
               <Toolbar
                   style="border-bottom: 1px solid #ccc"
                   :editor="editorRef"
@@ -38,6 +38,8 @@
     setup(props, { emit }) {
       const editorRef = shallowRef()
       const mode = 'default'
+      // 默认显示的内容
+      // const defaultHtml = '<p>请输入内容...</p>'
       
       const editorConfig = { 
         MENU_CONF: {
@@ -51,8 +53,12 @@
   
       const handleCreated = (editor) => {
         editorRef.value = editor
-        // 初始化设置编辑器内容
+        // // 初始化设置编辑器内容
         editor.setHtml(props.modelValue)
+        // 如果没有传入 modelValue，则显示默认内容
+        // if (!props.modelValue) {
+        //         editor.setHtml(defaultHtml)
+        // }
       }
   
       // 监听内容变化

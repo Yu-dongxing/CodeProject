@@ -9,7 +9,7 @@
         </div> -->
         <!-- 自己设计的卡片布局 -->
         <div class="main-index" v-if="isDev">
-            <div class="item" v-for="item in reversedItems" :key="item.id">
+            <div class="item main-index-hover" v-for="item in reversedItems" :key="item.id">
                 <div class="item-img">
                     <div class="iimg">
                         <el-image :src="item.img" fit="cover" />
@@ -135,6 +135,18 @@ a {
     text-decoration: none; // 移除链接的下划线装饰
 
 }
+.main-index-hover{
+    transition: all 0.3s ease; /* 设置所有属性的过渡效果，持续时间为0.3秒，使用ease缓动函数 */
+    border: 0px solid #0051ff;
+    &:hover {
+        // transform: scale(1.01); /* 鼠标悬停时，元素放大1.05倍 */
+        border: 1px solid #0051ff;
+    }
+}
+// .main-index {
+//     transition: all 3s ease; /* 设置所有属性的过渡效果，持续时间为3秒，使用ease缓动函数 */
+//     margin-top: 4px; /* 设置顶部外边距为4px */
+// }
 .main-index {
     transition: all 3s ease; /* 设置所有属性的过渡效果，持续时间为3秒，使用ease缓动函数 */
     margin-top: 4px; /* 设置顶部外边距为4px */

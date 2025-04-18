@@ -1,99 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>网页设计-登录页面</title>
+    <title>用户注册页面</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
-        }
-        :root{
-            --bg-color:#0095ff;
-            --border-radius-15px:15px;
-            --img-border-radius-15px:15px;
-        }
-        .test{
-            border: 1px solid ;
-        }
-        .border-1px-solid{
-            border: 1px solid #ffffff00;
-            transition: all ease 0.3s;
-        }
-        .border-1px-solid:hover{
-            border: 1px solid var(--bg-color);
-        }
-        .border-radius-15px{
-            border-radius:var(--border-radius-15px);
-        }
-        .main-card{
-            margin-top: 50px;
-            margin-left: 10%;
-            width: 80%;
-            /* max-width: 800px; */
-            height: 800px;
-            display: flex;
-        }
-        .main-lift{
-            width: 50%;
-        }
-        .main-right{
-            width: 50%;
             box-sizing: border-box;
-            padding: 10px;
+        }
 
+        :root {
+            --primary-color: #0095ff;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 10px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        .info{
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-container {
+            display: flex;
+            max-width: 1000px;
             width: 100%;
-            height: 100%;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
-        img{
-            border-radius: var(--img-border-radius-15px);
-            width: 100%;
-            height: 100%;
-        }
-        .input-da{
-            width: 90%;
-            margin-left: 5%;
-            height: 50px;
-            border: 1px solid;
-            box-sizing: border-box;
-            padding: 10px;
-            border-radius:10px;
-            margin-bottom: 10px;
-        }
-        .input-div{
+
+        .login-image {
+            flex: 1;
+            min-height: 500px;
             display: flex;
             align-items: center;
-            border-radius:10px;
-            margin-bottom: 10px;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), #0077cc);
         }
-        .input-textarea{
-            height: auto;
+
+        .login-image img {
+            max-width: 80%;
+            border-radius: var(--border-radius);
         }
-        .input-text{
+
+        .login-form {
+            flex: 1;
+            padding: 40px;
             width: 100%;
         }
-        .input-radio{
-            display: flex;
+
+        .form-title {
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: 600;
         }
-        .checkbox{
-            display: flex;
-            align-items: center;
-            margin: 5px;
-        }
-        .input-checkbox{
-            display: flex;
-            align-items: center;
-        }
-        input{
-            border: 0;
-            height: 100%;
-        }
-        input:focus-visible {
-            outline: none;
-        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -103,8 +76,9 @@
             margin-bottom: 8px;
             font-weight: 500;
         }
+
         .form-input {
-            width: 90%;
+            width: 100%;
             padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -117,71 +91,173 @@
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(0, 149, 255, 0.2);
         }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         textarea.form-input {
             resize: vertical;
             min-height: 100px;
         }
-    </style>
-    <script>
 
-    </script>
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0077cc;
+        }
+
+        .login-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+
+            .login-image {
+                min-height: 200px;
+            }
+
+            .login-form {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="main-card border-radius-15px border-1px-solid">
-        <div class="main-lift">
-            <img src="./img/lift.png" alt="dk">
+    <div class="login-container">
+        <div class="login-image">
+            <img src="./img/lift.png" alt="登录图片">
         </div>
-        <div class="main-right">
-            <div class="info" >
-                <form>
-                    <div class="input-da input-div">
-                        <input class="input-text" placeholder="用户名"   type="text">
-                    </div>
-                    <div class="input-da input-div">
-                        <input class="input-text"  placeholder="密码"   type="password">
-                    </div>
-                    <div class="input-da input-div">
-                        <input class="input-text" placeholder="昵称"   type="password">
-                    </div>
-                    <div class="input-da input-div input-radio">
-                        性别：
-                        男生<input   type="radio" name="sex">
-                        女生<input    type="radio" name="sex">
-                    </div>
-                    <div class="input-da input-checkbox">
-                        爱好：
-                        <div class="checkbox">
-                            <input type="checkbox" name="ah" value="语言" id="" >语言
+        <div class="login-form">
+            <h2 class="form-title">用户注册</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="username" class="form-label">用户名</label>
+                    <input type="text" id="username" class="form-input" placeholder="请输入用户名" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="form-label">密码</label>
+                    <input type="password" id="password" class="form-input" placeholder="请输入密码" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nickname" class="form-label">昵称</label>
+                    <input type="text" id="nickname" class="form-input" placeholder="请输入昵称" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">性别</label>
+                    <div class="radio-group">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>
+                                    <input type="radio" name="sex" value="male" checked> 男
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="radio" name="sex" value="female"> 女
+                                </label>
+                            </div>
                         </div>
-                        <div class="checkbox">
-                            <input type="checkbox" name="ah" value="语言" id="" >跳楼
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">爱好</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="reading"> 阅读
                         </div>
-                        <div class="checkbox">
-                            <input type="checkbox" name="ah" value="语言" id="" >语言
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="sports"> 运动
                         </div>
-                        <div class="checkbox">
-                            <input type="checkbox" name="ah" value="语言" id="" >语言
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="music"> 音乐
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="hobbies" value="travel"> 旅行
                         </div>
                     </div>
-                    <div class="input-da form-group input-textarea">
-                        <label for="personal-intro" class="form-label">个人介绍</label>
-                        <textarea id="personal-intro" class="form-input" placeholder="请简要介绍自己"></textarea>
-                    </div>
-                    <div class="input-da input-div">
-                        <label for="personal-intro" class="form-label">地区</label><br>
-                        <select name="city" id="city">
-                            <option value="安徽省">安徽省</option>
-                            <option value="安徽省">安徽省</option>
-                            <option value="安徽省">安徽省</option>
-                            <option value="安徽省">安徽省</option>
-                        </select>
-                    </div>
-                    <div class="submit">
-                        
-                    </div>
-                </form>
+                </div>
+                
+                <div class="form-group">
+                    <label for="personal-intro" class="form-label">个人介绍</label>
+                    <textarea id="personal-intro" class="form-input" placeholder="请简要介绍自己"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">注册账号</button>
+            </form>
+            <div class="login-footer">
+                已有账号？<a href="login.html" style="color: var(--primary-color); text-decoration: none;">立即登录</a>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // 获取表单数据
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const nickname = document.getElementById('nickname').value;
+            
+            // 简单的表单验证
+            if (!username || !password || !nickname) {
+                alert('请填写所有必填字段！');
+                return;
+            }
+            
+            // 这里添加表单提交逻辑，如AJAX请求等
+            console.log('表单提交:', {
+                username,
+                password,
+                nickname,
+                sex: document.querySelector('input[name="sex"]:checked').value,
+                hobbies: Array.from(document.querySelectorAll('input[name="hobbies"]:checked')).map(el => el.value),
+                personalIntro: document.getElementById('personal-intro').value
+            });
+            
+            // 模拟表单提交
+            alert('注册成功！');
+            this.reset();
+        });
+    </script>
 </body>
 </html>

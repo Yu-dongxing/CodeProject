@@ -8,15 +8,15 @@
     <script src="./js/index.js"></script>
     <title>余东兴-网页设计-2</title>
     <style>
-        table{
-            width: 100%;
+        table {
+            margin: 0; /* 去掉外部边距 */
+            padding: 0;
+            border-collapse: collapse;
+            border-spacing: 0px;
         }
-        tbody{
-            border: 0;
-        }
-        td,th{
-            /* text-align: center; */
-            border: 0;
+        td {
+            padding: 0;
+            border: none;
         }
         .top-img{
             width: 100%;
@@ -30,40 +30,41 @@
             width: 90%;
             margin-left: 5%;
         }
+        
     </style>
 </head>
 <body>
     <div class="main">
-        <table cellspacing="0">
+        <table >
             <caption>
-                <img class="top-img" src="./素材/top.jpg" alt="">
+                <img class="top-img" src="./素材/top.jpg" alt="顶部">
             </caption>
             <tbody>
                 <tr>
                     <td rowspan="2">
-                        <img src="./素材/left.jpg" alt="">
+                        <img src="./素材/left.jpg" alt="左边">
                     </td>
                     <th>首页</th>
                     <th>党史百科</th>
                     <th>百年影像</th>
                     <th>红色展馆</th>
                     <td rowspan="2">
-                        <img src="./素材/right.jpg" alt="">
+                        <img src="./素材/right.jpg" alt="右边">
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <img src="./素材/100year.png" alt="">
+                        <img src="./素材/100year.png" alt="中间左">
                     </td>
                     <td colspan="2">
-                        <img src="./素材/dansheng.jpg" alt="">
+                        <img src="./素材/dansheng.jpg" alt="中间右">
                     </td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="6">
-                        <img src="./素材/footer.jpg" alt="">
+                        <img src="./素材/footer.jpg" alt="底部">
                     </td>
                 </tr>
             </tfoot>

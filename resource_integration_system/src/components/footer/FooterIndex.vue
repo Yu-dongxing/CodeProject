@@ -39,7 +39,7 @@ export default {
       }else{
         this.icp={};
       }
-      console.log(res)
+      // console.log(res)
     },
     // getGWABaAiInfo() 获取公安备案信息
     async getICPBaAiInfo() {
@@ -49,7 +49,7 @@ export default {
       }else{
         this.gwa={};
       }
-      console.log(res)
+      // console.log(res)
     },
     // getSysCopyrightInfo() 获取系统版权信息
     async getSysCopyrightInfo() {
@@ -59,7 +59,7 @@ export default {
       }else{
         this.bq={};
       }
-      console.log(res)
+      // console.log(res)
     },
     getall(){
       this.getICPBaAiInfo()

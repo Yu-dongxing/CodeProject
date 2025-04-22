@@ -37,7 +37,7 @@ export default {
     getUserInfo() {
       axios.get('https://ip.011102.xyz')
         .then(response => {
-          console.log(response.data);
+          // console.log(response.data);
           const ipData = response.data.IP;
           const headers = response.data.Headers;
           const security = response.data.Security;
@@ -66,7 +66,7 @@ export default {
       async getSysWelcomeInfo() {
         try {
           const res = await sysinfoApi.getSysWelcomeInfo();
-          console.log("系统欢迎信息",res);
+          // console.log("系统欢迎信息",res);
           this.$notify({
             title: res.data.infoView,
             dangerouslyUseHTMLString: true,
@@ -77,33 +77,15 @@ export default {
           console.log(error);
         }
       },
-    open1() {
-      const less = "https://github.com/Yu-dongxing/ResourceLibrarySystem-Vue/issues"
-      this.$notify({
-        title: '欢迎访问资源库系统！',
-        dangerouslyUseHTMLString: true,
-        message: '本系统为个人学习项目，数据来源于网络搜集，如有侵权，请联系删除<br>如出现问题请跳转<a href="'+less+'" target="_blank"><button>反馈</button></a>页面',
-        type: 'success',
-      });
-    },
   },
-  // watch:{
-  //   userIp(newVal,oldVal){
-  //     if(newVal !== oldVal){
-        
-  //     }
-  //   }
-  // },
   components: {
     HeaderIndex,
     FooterIndex,
     Search_App
   },
   beforeCreate() {
-    // console.log('创建前')
   },
   created() {
-    // console.log('创建后')
     this.getUserInfo()
     this.getSysWelcomeInfo()
   }

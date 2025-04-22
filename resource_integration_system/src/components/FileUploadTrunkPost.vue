@@ -1,4 +1,22 @@
 <template>
+  <!-- 分页测试 -->
+  <div class="page">
+    <!-- 分页组件 -->
+    <el-pagination
+      size="small"
+      layout="prev, pager, next"
+      :total="total"
+      :page-size="pageSize"
+      :current-page="currentPage"
+      @current-change="handleCurrentChange"
+    />
+    <!-- 图书列表展示区域 -->
+    <div v-for="(book, index) in books" :key="index">
+      <p>{{ book.name }}</p>
+    </div>
+  </div>
+
+  <!-- 分片文件上传测试 -->
   <div v-loading="isLoading" style="width: 50%;">
     <el-upload
       class="upload-demo"
@@ -18,6 +36,7 @@
 
 <script>
 import { FileApi } from '@/api/file';
+import { BooksApi } from '@/api/book';
 import SparkMD5 from 'spark-md5';
 //
 export default {
@@ -31,7 +50,12 @@ export default {
   data() {
     return {
       filelist: [],
-      fileAssociationId:"test"
+      fileAssociationId:"test",
+      // 
+      total: 0, // 总记录数
+      pageSize: 2, // 每页显示条数
+      currentPage: 1, // 当前页码
+      books: [] // 图书数据
     };
   },
   // watch: {
@@ -82,7 +106,8 @@ export default {
     async fileChankUpload(){
       try{
         for(const file of this.filelist){
-          const fileMD5 = this.filemd5(file);//
+          const fileMD5 = await this.filemd5(file);
+          console.log(fileMD5);
           const fileName = file.name;
           const chunkSize = 5 * 1024 * 1024; // 每片5M
           const chunks = Math.ceil(file.size / chunkSize); // 计算切片数量
@@ -101,24 +126,45 @@ export default {
       }
       
     },
-    async filemd5(file) {
-      try {
-        let fileReader = new FileReader();
-        let Spark = new SparkMD5.ArrayBuffer();
-        let md5 = '';
-        fileReader.readAsArrayBuffer(file);
-        fileReader.onload = function (e) {
-          Spark.append(e.target.result);
-          md5 = Spark.end();
-          console.log(md5);
-        };
-        return md5;
-      } catch (e) {
-        console.log(e);
-      }
-      
+    async  filemd5(file) {
+      return new Promise((resolve, reject) => {
+        try {
+          let fileReader = new FileReader();
+          let Spark = new SparkMD5.ArrayBuffer();
+          fileReader.readAsArrayBuffer(file);
+          fileReader.onload = function (e) {
+            Spark.append(e.target.result);
+            let md5 = Spark.end();
+            resolve(md5);
+          };
+          fileReader.onerror = function (e) {
+            reject(e);
+          };
+        } catch (e) {
+          reject(e);
+        }
+      });
     },
+    // 
+    // 获取图书列表
+    fetchBookList() {
+      BooksApi.findBookPage(this.currentPage, this.pageSize).then(response => {
+        // 假设接口返回的数据结构是：{ total: 50, data: [...]}
+        this.total = response.data.total
+        this.books = response.data.records
+      }).catch(error => {
+        console.error('获取图书列表失败:', error)
+      })
+    },
+    // 分页切换事件处理
+    handleCurrentChange(page) {
+      this.currentPage = page
+      this.fetchBookList()
+    }
   },
+  created(){
+    this.fetchBookList()
+  }
 };
 </script>
 

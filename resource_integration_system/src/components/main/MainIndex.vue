@@ -1,27 +1,18 @@
 <template>
     <!-- v-loading.fullscreen.lock="fullscreenLoading"   v-for="item in reversedItems" :key="item.id" @click="getData()"-->
     <div  v-loading.fullscreen.lock="isLoading"  element-loading-text="Loading...">
-        <!-- <div >
-            <Search_App/>
-        </div> -->
-        <!-- <div class="devOrpro">
-            <el-switch v-model="isDev" />
-        </div> -->
+        
         <!-- 自己设计的卡片布局 -->
         <div class="main-index" v-if="isDev">
-            <div class="item main-index-hover" v-for="item in reversedItems" :key="item.id">
+            <div class="item main-index-hover" v-for="item in reversedItems" :key="item.id" @click="goDetail(item.id)">
                 <div class="item-img">
                     <div class="iimg">
                         <el-image :src="item.img" fit="cover" />
                     </div>
-                    <!-- <img :src="item.img" alt="depng"> -->
-                    
                 </div>
                 <div class="item-right" >
                     <div class="item-right-title">
-                        <!-- <p><el-text size="large" truncated>{{ item.name }}</el-text></p> -->
                         <p>{{ item.name }}</p>
-                        <!-- <el-text size="large" truncated>{{ item.name }}</el-text> -->
                     </div>
                     <div class="contion-tags">
                             <el-tag>
@@ -33,49 +24,10 @@
                                 {{ item.tab }}</el-tag> 
                     </div>
                     <div class="item-right-button">
-                        <!-- <a class="button" :href="item.url" target="_blank">
-                            <img src="@/assets/info/info.svg" alt="info">
-                            查看
-                        </a> -->
-
                         <el-button class="button"  @click="goDetail(item.id)"><img src="@/assets/info/info.svg" alt="info">查看</el-button>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- el框架的卡片布局 -->
-        <div class="main-index"  v-if="!isDev">
-            <el-card shadow="always"  class="card"  v-for="item in reversedItems" :key="item.id">
-                <div class="card-lift">
-                    <el-image :src="item.img" alt="" class="lift-img"></el-image>
-                </div>
-                <div class="card-right">
-                    <div class="right-contion">
-                        <div class="contion-title">
-                            <span class="text">{{ item.name }}</span>
-                        </div>
-                        <div class="contion-tags">
-                            <el-tag>
-                                <img ref="img" src="@/assets/time/time.svg"  />
-                                {{ item.updateTime }} | 
-                                <img ref="img" src="@/assets/user/user.svg"/>
-                                {{ item.author }} | 
-                                <img ref="img" src="@/assets/tab/tab.svg"/>
-                                {{ item.tab }}</el-tag> 
-                        </div>
-                    </div>
-                </div>
-                <template #footer>
-                    <div class="card-button">
-                            <el-link class="bu" :underline="false" :href="item.url" target="_blank">
-                                <span><img src="@/assets/info/info.svg" alt="info"></span>
-                                <span>查看</span>
-                            </el-link>
-                            <!-- <el-button type="primary" @click="goDetail(item.id)">查看</el-button> -->
-                        
-                    </div>
-                </template>
-            </el-card>
         </div>
     </div>
 </template>
@@ -109,7 +61,6 @@ export default {
     },
     setisloading(){ // 设置isLoading状态
         this.isLoading = !this.isLoading; // 切换isLoading状态
-        this.zyk.p // 访问zyk数组的p属性（注意：这里可能存在错误，因为zyk是一个数组，没有p属性）
     },
     // 资源详情跳转
     goDetail(id) {
@@ -119,12 +70,11 @@ export default {
   computed: {
     //通过计算属性实现倒序
     reversedItems() {
-    //   return this.zyk.slice().reverse(); // 返回zyk数组的倒序副本
-      return this.zyk; // 返回zyk数组的倒序副本
+      return this.zyk; 
     }
   },
   mounted () {
-      this.getData(); // 组件挂载完成后，调用getData方法获取数据
+      this.getData(); 
   },
 }
 </script>
@@ -137,117 +87,39 @@ a {
 }
 .main-index-hover{
     transition: all 0.3s ease; /* 设置所有属性的过渡效果，持续时间为0.3秒，使用ease缓动函数 */
-    border: 0px solid #0051ff;
+    border: 1px solid #0051ff00;
     &:hover {
+        //指针
+        cursor: pointer;
         // transform: scale(1.01); /* 鼠标悬停时，元素放大1.05倍 */
         border: 1px solid #0051ff;
     }
 }
-// .main-index {
-//     transition: all 3s ease; /* 设置所有属性的过渡效果，持续时间为3秒，使用ease缓动函数 */
-//     margin-top: 4px; /* 设置顶部外边距为4px */
-// }
 .main-index {
-    transition: all 3s ease; /* 设置所有属性的过渡效果，持续时间为3秒，使用ease缓动函数 */
-    margin-top: 4px; /* 设置顶部外边距为4px */
-    box-sizing: border-box; /* 设置盒模型为border-box，即宽度和高度包含边框和内边距 */
-    padding: 5px; /* 设置内边距为5px */
-    width: 100%; /* 设置宽度为100% */
-    background-color: var(--bg-100); /* 设置背景颜色，使用CSS变量--bg-100 */
-    display: grid; /* 设置为网格布局 */
-    gap: 10px; /* 使用 gap 替代 grid-gap */
-    grid-template-columns: repeat(auto-fill, minmax(464px, 1fr)); /* 定义网格布局的列，使用 repeat 函数自动填充，每列的最小宽度为 500px，最大宽度为 1fr（剩余空间的一份） */
-    grid-template-rows: repeat(auto-fill, minmax(100px, 1fr)); /* 定义网格布局的行，使用 repeat 函数自动填充，每行的最小高度为 100px，最大高度为 1fr
-    （剩余空间的一份） */
-    // aspect-ratio: 4 / 3;
+    transition: all 3s ease; 
+    margin-top: 4px; 
+    box-sizing: border-box; 
+    padding: 5px; 
+    width: 100%; 
+    background-color: var(--bg-100); 
+    display: grid; 
+    gap: 10px; 
+    grid-template-columns: repeat(auto-fill, minmax(464px, 1fr)); 
+    grid-template-rows: repeat(auto-fill, minmax(100px, 1fr)); 
     .el-card__body{
         padding: 10px;
         display: flex;
     }
-    // el自定义卡片布局
-    .card{
-        height: auto;
-        min-height: 100px;
-        .card-lift{
-            // border: 0.1px solid #000000;
-            .lift-img{
-                // aspect-ratio: 6/5;
-                width: 100px;
-                height: 100px;
-                border-radius: 25px;
-                margin-right: 5px;
-            }
-        }
-        .card-right{
-            // border: 0.1px solid #000000;
-            width: 100%;
-            .right-contion{
-                .contion-title{
-                    margin-bottom: 10px;
-                    .text{
-                        font-size: 18px;
-                        font-weight: bold;
-                    }
-                }
-                .contion-tags{
-                    .el-tag__content{
-                        display: flex;
-                        align-items: center; /* 垂直居中 */
-                        img{
-                            width: 15px;
-                            height: 15px;
-                        }
-                    }
-                }
-            }
-        }
-        .card-button{
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            .el-link__inner {
-                display: inline-flex;
-                justify-content: center;
-                align-items: stretch;
-
-            }
-            .bu{
-                float:right;
-                transition: all 0.3s ease;
-                width: 100px;
-                height: 30px;
-                border-radius: var(--border-radius-de);
-                border: 1.5px solid var(--primary-200); /* 简化 border */
-                background-color: transparent;
-                color: var(--text-100);
-                font-size: 14px;
-                font-weight: 600;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                img{
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 5px;
-                }
-            }
-        }
-    }
-    // 自定义卡片布局
     .item{
-        // margin: 15px 0 5px 0; /* 合并 margin */
         width: 100%; 
-        height: auto; /* 设置元素的高度为自动，根据内容调整高度 */
-        border-radius: 15px; /* 设置元素的边框圆角为10像素 */
+        height: auto; 
+        border-radius: 15px; 
         box-sizing: border-box;
-        padding: 5px; /* 设置元素的内边距为5像素 */
-        display: flex; /* 设置元素的显示方式为flex，启用Flexbox布局 */
-        box-shadow: var(--box-shadow-de); /* 设置元素的阴影效果，使用CSS变量--box-shadow-de定义的阴影样式 */
+        padding: 5px; 
+        display: flex; 
+        box-shadow: var(--box-shadow-de);
         background-image: linear-gradient(to right, var(--bg-100), var(--bg-200));
         .item-img {
-            
-            // border-radius: var(--border-radius-de);
-            // border-radius: 25px;
             margin-right: 5px;
             .iimg{
                 display: flex;
@@ -289,6 +161,7 @@ a {
                     }
                 }
             .item-right-button{
+                display: none;
                 float: right;
                 .button{
                     transition: all 0.3s ease;

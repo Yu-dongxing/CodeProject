@@ -29,7 +29,17 @@ def Code02(title,desc):
     }
     response = requests.request("POST", url, headers=headers, data=payload, files=files)
     print(response.text)
-
+def Code03():
+    i = 1
+    while i<=9:
+        j=1
+        while j<=i:
+            print(f"{j} * {i} = {j * i}\t",end='')
+            j+=1
+        print()
+        i+=1
+    print("乘法表打印完成。")
 if __name__ == '__main__':
     # Code01(4,8)
-    Code02("测试2","wqeqe")
+    #Code02("测试2","wqeqe")
+    Code03()

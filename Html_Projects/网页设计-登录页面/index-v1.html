@@ -22,8 +22,14 @@
             border-radius: 10px;
             /* border-spacing: 0; */
         }
+        .td-right{
+            display: flex;
+        }
         .table-main{
-            background-color:aqua;
+            /* background-color:rgb(54, 124, 255); */
+            /* 渐变色 角度*/
+            
+            background: linear-gradient(45deg, rgb(54, 124, 255), rgb(255, 255, 255));
         }
         .table-right{
         }
@@ -36,51 +42,54 @@
                 <td>
                     <img class="image" src="./img/lift.png" alt="">
                 </td>
-                <td>
+                <td class="td-right">
                     <table class="table-right">
                         <form action="" method="get">
-                            <tr>
-                                <td>账号：</td>
-                                <td><input type="text" name="username" placeholder="请输入用户名"></td>
-                            </tr>
-                            <tr>
-                                <td>密码：</td>
-                                <td><input type="password" name="password" placeholder="请输入密码"></td>
-                            </tr>
-                            <tr>
-                                <td>昵称：</td>
-                                <td><input type="text" name="lc" placeholder="请输入昵称" ></td>
-                            </tr>
-                            <tr>
-                                <td>性别：</td>
-                                <td>
-                                    <input type="radio" name="sex" value="女" >女
-                                    <input type="radio" name="sex" value="男">男
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>爱好：</td>
-                                <td>
-                                    <input type="checkbox" name="hobbies" value="reading"> 阅读
-                                    <input type="checkbox" name="hobbies" value="sports"> 运动
-                                    <input type="checkbox" name="hobbies" value="music"> 音乐
-                                    <input type="checkbox" name="hobbies" value="travel"> 旅行
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="personal-intro" class="form-label">个人介绍</label>
-                                </td>
-                                <td><textarea id="personal-intro" name="textdesc" class="form-input" placeholder="请简要介绍自己"></textarea></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="submit" value="注册">
-                                </td>
-                                <td>
-                                    <input type="reset" value="重置">
-                                </td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>账号：</td>
+                                    <td><input type="text" name="username" placeholder="请输入用户名"></td>
+                                </tr>
+                                <tr>
+                                    <td>密码：</td>
+                                    <td><input type="password" name="password" placeholder="请输入密码"></td>
+                                </tr>
+                                <tr>
+                                    <td>昵称：</td>
+                                    <td><input type="text" name="lc" placeholder="请输入昵称" ></td>
+                                </tr>
+                                <tr>
+                                    <td>性别：</td>
+                                    <td>
+                                        <input type="radio" name="sex" value="女" >女
+                                        <input type="radio" name="sex" value="男">男
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>爱好：</td>
+                                    <td>
+                                        <input type="checkbox" name="hobbies" value="reading"> 阅读
+                                        <input type="checkbox" name="hobbies" value="sports"> 运动
+                                        <input type="checkbox" name="hobbies" value="music"> 音乐
+                                        <input type="checkbox" name="hobbies" value="travel"> 旅行
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="personal-intro" class="form-label">个人介绍</label>
+                                    </td>
+                                    <td><textarea id="personal-intro" name="textdesc" class="form-input" placeholder="请简要介绍自己"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="submit" value="注册">
+                                    </td>
+                                    <td>
+                                        <input type="reset" value="重置">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
                         </form>
                     </table>
                 </td>

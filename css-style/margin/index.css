@@ -1,0 +1,83 @@
+.margin-5px{
+    /* 设置外边距为5px */
+    margin: 5px;
+}
+.margin-10px{
+    /* 设置外边距为10px */
+    margin: 10px;
+}
+.margin-15px{
+    /* 设置外边距为15px */
+    margin: 15px;
+}
+.margin-20px{
+    /* 设置外边距为20px */
+    margin: 20px;
+}
+.margin-lift-5px{
+    /* 设置左边距为5px */
+    margin-left: 5px;
+}
+.margin-right-5px{
+    /* 设置右边距为5px */
+    margin-right: 5px;
+}
+.margin-top-5px{
+    /* 设置上边距为5px */
+    margin-top: 5px;
+}
+.margin-bottom-5px{
+    /* 设置下边距为5px */
+    margin-bottom: 5px;
+}
+
+.margin-lift-10px{
+    /* 设置左边距为10px */
+    margin-left: 10px;
+}
+.margin-right-10px{
+    /* 设置右边距为10px */
+    margin-right: 10px;
+}
+.margin-top-10px{
+    /* 设置上边距为10px */
+    margin-top: 10px;
+}
+.margin-bottom-10px{
+    /* 设置下边距为10px */
+    margin-bottom: 10px;
+}
+
+.margin-lift-15px{
+    /* 设置左边距为15px */
+    margin-left: 15px;
+}
+.margin-right-15px{
+    /* 设置右边距为15px */
+    margin-right: 15px;
+}
+.margin-top-15px{
+    /* 设置上边距为15px */
+    margin-top: 15px;
+}
+.margin-bottom-15px{
+    /* 设置下边距为15px */
+    margin-bottom: 15px;
+}
+
+.margin-lift-20px{
+    /* 设置左边距为20px */
+    margin-left: 20px;
+}
+.margin-right-20px{
+    /* 设置右边距为20px */
+    margin-right: 20px;
+}
+.margin-top-20px{
+    /* 设置上边距为20px */
+    margin-top: 20px;
+}
+.margin-bottom-20px{
+    /* 设置下边距为20px */
+    margin-bottom: 20px;
+}

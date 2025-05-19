@@ -1,0 +1,41 @@
+/* 定义一个flex布局 */
+.display-flex{
+    display: flex;
+}
+/* 定义一个flex布局，并且水平居中，垂直居中 */
+.display-flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 定义一个flex布局，并且水平两端对齐，垂直居中 */
+.display-flex-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* 定义一个flex布局，并且水平均匀分布，垂直居中 */
+.display-flex-around{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+/* 定义一个flex布局，并且垂直排列 */
+.display-flex-column{
+    display: flex;
+    flex-direction: column;
+}
+/* 定义一个flex布局，并且垂直排列，并且垂直居中，水平居中 */
+.display-flex-column-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* 定义一个flex布局，并且垂直排列，并且垂直两端对齐，水平居中 */
+.display-flex-column-between{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}

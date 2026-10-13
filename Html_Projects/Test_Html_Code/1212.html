@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root">
+    <!-- Vue 将会控制这个元素 -->
+    <h1>hello{{info}}</h1>
+  </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el: '#root',
+    data: {
+      isHot: true
+    },
+    computed: {
+      // 创建一个计算属性 info
+      info() {
+        return this.isHot ? 'hot' : 'cold'
+      }
+    }
+  })
+</script>
+
+</html>

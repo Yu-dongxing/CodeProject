@@ -1,0 +1,21 @@
+扫描目标: 124.93.196.45
+扫描时间: 2026-04-05 22:43:57
+发现HTTP/S服务数量: 17
+==================================================
+Port 8000: 200 OK (HTTP:)
+Port 8001: 200 OK (HTTP:)
+Port 8084: 200 OK (HTTP:)
+Port 8086: 200 OK (HTTP:)
+Port 8087: 200 OK (HTTP:)
+Port 10001: 200 OK (HTTP:)
+Port 10091: 200 OK (HTTP:)
+Port 10092: 200 OK (HTTP:)
+Port 10095: 200 OK (HTTP:)
+Port 10096: 200 OK (HTTP:)
+Port 10097: 200 OK (HTTP:)
+Port 10098: 200 OK (HTTP:)
+Port 10099: 200 OK (HTTP:)
+Port 10191: 200 OK (HTTP:)
+Port 10192: 200 OK (HTTP:)
+Port 10193: 200 OK (HTTP:)
+Port 20001: 200 OK (HTTP:)
